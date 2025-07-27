@@ -29,7 +29,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 shadow-md backdrop-blur-md">
+    <nav className=" sticky top-0 left-0 right-0 z-50 bg-white/80 shadow-md backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo / Brand Name */}
         <div className="flex-shrink-0">
