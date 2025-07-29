@@ -1,0 +1,61 @@
+'use client'
+
+// Define the animation CSS as a string
+const animationCSS = `
+  @keyframes scroll-rtl {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  .animate-scroll-rtl {
+    animation: scroll-rtl 30s linear infinite;
+  }
+`;
+
+const cards = [1, 2, 3];
+
+function Clientcards() {
+  return (
+    <>
+      {/* This style tag injects the animation directly */}
+      <style>{animationCSS}</style>
+
+      <section className="bg-gradient-to-b from-[#4A55A2] to-[#7895CB] py-16 sm:py-24 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="text-center text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Our Esteemed Clientele
+          </h2>
+        </div>
+
+        <div 
+          className="mt-12 sm:mt-16 w-full"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, white 10%, white 90%, transparent)',
+          }}
+        >
+          {/* This div uses the animation class defined in the style tag above */}
+          <div className="animate-scroll-rtl flex min-w-full flex-shrink-0 items-center">
+            
+            {[...cards, ...cards].map((_, index) => (
+              <div key={index} className="flex-shrink-0 mx-4">
+                <div className="
+                  w-48 h-48
+                  sm:w-64 sm:h-64
+                  lg:w-80 lg:h-80
+                  bg-white rounded-2xl shadow-xl
+                ">
+                  {/* Card content can go here */}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default Clientcards;

@@ -8,6 +8,7 @@ import Navbar from "./Components/Navbar";
 import KeyIndustries from "./Components/KeyIndustries";
 import About from './Components/About';
 import Cards from "./Components/Cards";
+import Clientcards from "./Components/Clientcards";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
     <Hero/>
     <Features/>
     <Cards/>
+    <Clientcards/>
     <Contactus/>
     <KeyIndustries/>
     <About/>
