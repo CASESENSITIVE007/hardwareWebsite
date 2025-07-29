@@ -1,7 +1,9 @@
 
 import { Button } from "@/components/ui/button"
+
 import Hero from "./Components/Hero"
 import Contactus from "./Components/Contactus"
+import Features from "./Components/Features"
 import Navbar from "./Components/Navbar";
 import KeyIndustries from "./Components/KeyIndustries";
 import About from './Components/About';
@@ -12,6 +14,7 @@ export default function Home() {
    <div>
     <Navbar/>
     <Hero/>
+    <Features/>
     <Cards/>
     <Contactus/>
     <KeyIndustries/>
