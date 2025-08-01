@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <div className=" relative inset-0 h-full min-h-screen flex flex-col justify-center  ">
+    <div className=" relative inset-0 h-full lg:min-h-screen flex flex-col justify-center  ">
       {/* Faded Bearings image */}
       <img 
         src="/hero-bg-image.webp"

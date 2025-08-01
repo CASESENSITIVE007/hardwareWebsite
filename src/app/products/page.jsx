@@ -1,5 +1,6 @@
-'use client';
 
+'use client';
+import {useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -207,11 +208,13 @@ const iconRotateVariants = {
 };
 
 export default function ProductsPage() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
+  const [selectedCategory, setSelectedCategory] = useState(id ||null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
@@ -231,7 +234,7 @@ export default function ProductsPage() {
 
   // Get categories to display
   const categoriesToShow = selectedCategory
-    ? productCategories.filter(cat => cat.id === selectedCategory)
+    ? productCategories.filter(cat => (cat.id === selectedCategory) )
     : productCategories;
 
   const resetFilters = () => {

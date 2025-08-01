@@ -1,9 +1,7 @@
-
-
-function About() {
+function page() {
   return (
     <div id="about" className="text-center h-screen m-2" >About us</div>
   )
 }
 
-export default About
+export default page

@@ -12,14 +12,15 @@ function Navbar() {
     {
       label: 'Products',
       type: 'dropdown',
-      href: '/Products',
+      href: '/products',
       subLinks: [
-        { href: '/Products?category=category1', label: 'Category 1' },
-        { href: '/Products?category=category2', label: 'Category 2' },
-        { href: '/Products?category=category3', label: 'Category 3' },
+        { href: '/products?id=gears', label: 'Gears' },
+        { href: '/products?id=lubricants', label: 'Lubricants' },
+        { href: '/products?id=bearings', label: 'Bearings' },
+        { href: '/products?id=fasteners', label: 'Fasteners' },
       ],
     },
-    { to: 'about', label: 'About', type: 'scroll' },
+    { href: '/about', label: 'About', type: 'link' },
     { to: 'keyindustries', label: 'Key Industries', type: 'scroll' },
     { to: 'contactus', label: 'Contact', type: 'scroll' },
   ];
@@ -54,7 +55,7 @@ function Navbar() {
                   </svg>
                 </Link>
                 {/* Dropdown Menu */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-yellow-100 rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-red-200 rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100">
                   {link.subLinks?.map((subLink) => (
                     <Link
                       key={subLink.label}
@@ -73,7 +74,7 @@ function Navbar() {
                   smooth={true}
                   duration={500}
                   offset={-80} // Offset to account for fixed navbar height
-                  className="cursor-pointer text-gray-600 hover:text-black transition-colors duration-300 font-medium"
+                  className="cursor-pointer text-gray-600 hover:text-black transition-colors duration-500 font-medium"
                 >
                   {link.label}
                 </ScrollLink>
@@ -111,7 +112,7 @@ function Navbar() {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-yellow-100 shadow-lg absolute top-full left-0 w-full">
+        <div className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full">
           <ul className="flex flex-col items-center space-y-4 py-6">
             {navLinks.map((link) =>
               link.type === 'dropdown' ? (
