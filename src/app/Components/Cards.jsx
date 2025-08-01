@@ -18,7 +18,7 @@ function Cards() {
     
   
     </div>
-   <Link href='/Products' > <Button  className="m-10 cursor-pointer" >ALL Products</Button></Link>
+   <Link href='/products' > <Button  className="m-10 cursor-pointer" >ALL Products</Button></Link>
     </div>
   )
 }
