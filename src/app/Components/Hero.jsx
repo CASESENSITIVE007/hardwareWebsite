@@ -1,62 +1,73 @@
-'use client'
+'use client';
+
 import { motion } from 'framer-motion';
 
+// Animation variants for the container to orchestrate the children animations
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      // This will make the children animate one after the other
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+// Animation variants for the text elements
+const itemVariants = {
+  // Start state: shifted down and invisible
+  hidden: { y: 20, opacity: 0 },
+  // End state: in position and fully visible
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
 function Hero() {
-  // Animation settings for the image
-  const imageVariants = {
-    hidden: { x: '-100%', opacity: 0 },
-    visible: {
-      x: '-50%', // Replaces -translate-x-1/2 for perfect centering
-      opacity: 0.4,
-      transition: {
-        type: 'spring',
-        damping: 20,
-        stiffness: 40,
-        duration: 1.5,
-      },
-    },
-  };
-
-  // Animation settings for the text content
-  const textVariants = {
-    hidden: { x: '100%', opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        damping: 20,
-        stiffness: 50,
-        delay: 0.2, // A slight delay for a sequenced effect
-      },
-    },
-  };
-
   return (
-    <div className="relative flex lg:min-h-screen flex-col justify-center overflow-hidden   p-8 lg:p-2">
-      {/* Animated Faded Bearings image */}
+    <div className="relative flex lg:min-h-screen flex-col justify-center overflow-hidden p-8 lg:p-2">
+      {/* Faded Bearings image with a fade-in animation */}
       <motion.img
         src="/hero-bg-image.webp"
         alt="Bearings background"
-        className="absolute left-1/2 top-1/2 -translate-y-1/2 mx-auto w-full object-cover md:w-2/3"
-        variants={imageVariants}
-        initial="hidden"
-        animate="visible"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40 mx-auto w-full object-cover md:w-2/3"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ duration: 1.5, ease: 'easeInOut' }}
       />
 
-      {/* Animated Main Content */}
+      {/* Main Content Container with variants */}
       <motion.div
         className="relative z-10 m-10 text-center md:m-20 md:place-items-start md:text-left"
-        variants={textVariants}
+        variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="text-4xl font-extrabold leading-tight text-red-700 md:text-6xl lg:text-9xl">
-          THE<br />ORIGINAL<br />TRADERS
-        </div>
-        <div className="text-xl font-medium italic text-blue-700 md:text-2xl lg:text-4xl">
+        {/* Animated Heading */}
+        <motion.div
+          className="text-4xl font-extrabold leading-tight text-red-700 md:text-6xl lg:text-9xl"
+          variants={itemVariants}
+        >
+          THE
+          <br />
+          ORIGINAL
+          <br />
+          TRADERS
+        </motion.div>
+        
+        {/* Animated Subheading */}
+        <motion.div
+          className="text-xl font-medium italic text-blue-700 md:text-2xl lg:text-4xl"
+          variants={itemVariants}
+        >
           Keeping Machines in Motion
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );
