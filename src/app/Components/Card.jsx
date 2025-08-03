@@ -12,7 +12,7 @@ function Card({ Name , descName , desc}) {
   return (
     // 1. Add 'group' back and keep onClick. Add cursor-pointer for a visual cue.
     <div 
-      className="group h-96 w-72 [perspective:1000px] cursor-pointer"
+      className="group lg:h-96 lg:w-72 h-55 w-50 [perspective:1000px] cursor-pointer"
       onClick={handleFlip}
     >
       {/* 2. Combine the hover effect with the click state */}
