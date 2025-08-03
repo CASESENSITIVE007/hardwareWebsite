@@ -2,7 +2,7 @@
 import Image from 'next/image'
 function IndustryCard({ imageUrl, title, altText }) {
   return (
-     <div className="relative w-72 h-96 overflow-hidden rounded-xl shadow-lg group">
+     <div className="relative lg:w-72 lg:h-96 w-40 h-50 overflow-hidden rounded-xl shadow-lg group">
       
       {/* next/image component as the background */}
       {/* The 'fill' prop makes the image cover the parent div. */}

@@ -15,7 +15,7 @@ const animationCSS = `
   }
 `;
 
-const cards = [1, 2, 3];
+const cards = [1,2,3,4,5,6,7,8,9,10];
 
 function Clientcards() {
   return (
@@ -42,9 +42,9 @@ function Clientcards() {
             {[...cards, ...cards].map((_, index) => (
               <div key={index} className="flex-shrink-0 mx-4">
                 <div className="
-                  w-48 h-48
-                  sm:w-64 sm:h-64
-                  lg:w-80 lg:h-80
+                  w-20 h-20
+                  sm:w-34 sm:h-34
+                  lg:w-40 lg:h-40
                   bg-white rounded-2xl shadow-xl
                 ">
                   {/* Card content can go here */}

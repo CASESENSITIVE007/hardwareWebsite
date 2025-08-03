@@ -58,7 +58,7 @@ const Features = () => {
   }, []); // Empty dependency array ensures this effect runs only once
 
   return (
-    <section ref={sectionRef} id="exact-stats-section" className="relative overflow-hidden bg-[#8c2a32] py-20 sm:py-24">
+    <section ref={sectionRef} id="exact-stats-section" className="relative overflow-hidden bg-[#8c2a32] py-20  sm:py-24">
       
       {/* Faint Background Image (Alloy Wheel) */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10">
