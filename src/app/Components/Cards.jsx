@@ -4,7 +4,7 @@ import Link from "next/link"
 function Cards() {
   return (
     <div className="text-center m-10 ">
-        <h1 className="md:text-6xl text-4xl font-red m-10  text-center font-bold " >Discover 50+ product choices</h1>
+        <h1 className="md:text-5xl text-4xl font-red m-10  text-center font-bold " >Discover 50+ product choices</h1>
     <div className='md:flex justify-center gap-10  grid text-center  ' >
       
         <div className="gap-10 flex flex-col" >

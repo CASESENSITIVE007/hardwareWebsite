@@ -9,7 +9,7 @@ import KeyIndustries from "./Components/KeyIndustries";
 import ReviewsGrid from "./Components/ReviewsGrid"
 import Cards from "./Components/Cards";
 import Clientcards from "./Components/Clientcards";
-
+import WhyUs from "./Components/WhyUs";
 export default function Home() {
   return (
    <div>
@@ -21,6 +21,7 @@ export default function Home() {
     <Contactus/>
     <ReviewsGrid/>
     <KeyIndustries/>
+    <WhyUs/>
  
     
 

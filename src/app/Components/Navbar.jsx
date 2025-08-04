@@ -3,12 +3,19 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Link as ScrollLink } from 'react-scroll';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; // For menu icons
+import { motion, AnimatePresence } from 'framer-motion';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
-function Navbar() {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  
+  // FIX: State to manage desktop dropdown visibility
+  const [isProductsHovered, setIsProductsHovered] = useState(false);
+
   const navLinks = [
-    { href: '/', label: 'Home', type: 'link'},
+    { href: '/', label: 'Home', type: 'link' },
     {
       label: 'Products',
       type: 'dropdown',
@@ -27,148 +34,182 @@ function Navbar() {
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
+    setOpenDropdown(null);
+  };
+  
+  const handleDropdownToggle = (label) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
+
+  // Variants for Framer Motion (no changes here)
+  const mobileMenuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeInOut' } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.2, ease: 'easeInOut' } },
+  };
+
+  const dropdownVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: -10, transition: { duration: 0.2, ease: 'easeOut' } },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' } },
+  };
+  
+  const accordionVariants = {
+    collapsed: { opacity: 0, height: 0 },
+    open: { opacity: 1, height: 'auto', transition: { duration: 0.3, ease: 'easeInOut' } },
   };
 
   return (
-    <nav className=" sticky top-0 left-0 right-0 z-50 bg-white/80 shadow-md backdrop-blur-md">
+    <nav className="sticky top-0 left-0 right-0 z-50 bg-white/80 shadow-md backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo / Brand Name */}
+        {/* Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-black transition-colors duration-300">
+          <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-red-600 transition-colors">
             Logo
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center space-x-8 ">
+        <ul className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) =>
             link.type === 'dropdown' ? (
-              <li key={link.label} className="relative group  ">
-                <Link
-                  href={link.href}
-                  className="flex items-center text-gray-600 hover:text-black transition-colors duration-300 font-medium "
-                >
+              // FIX: Added mouse enter/leave events to the parent `li`
+              <li 
+                key={link.label} 
+                className="relative"
+                onMouseEnter={() => setIsProductsHovered(true)}
+                onMouseLeave={() => setIsProductsHovered(false)}
+              >
+                <Link href={link.href} className="flex items-center text-gray-600 hover:text-black transition-colors font-medium">
                   {link.label}
-                  <svg className="ml-1.5 h-4 w-4 fill-current group-hover:rotate-180 hover:transition-transform duration-400 ease-in-out "
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M10 12l-6-6h12l-6 6z" />
-                  </svg>
+                  <ChevronDownIcon className={`ml-1 h-5 w-5 transition-transform duration-300 ${isProductsHovered ? 'rotate-180' : ''}`} />
                 </Link>
-                {/* Dropdown Menu */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-red-200 rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100">
-                  {link.subLinks?.map((subLink) => (
-                    <Link
-                      key={subLink.label}
-                      href={subLink.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-white hover:text-black transition-colors duration-200"
+                {/* FIX: AnimatePresence allows the dropdown to animate out */}
+                <AnimatePresence>
+                  {isProductsHovered && (
+                    <motion.div
+                      // FIX: Removed `whileHover` and used `initial`, `animate`, `exit`
+                      variants={dropdownVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-xl py-2"
                     >
-                      {subLink.label}
-                    </Link>
-                  ))}
-                </div>
+                      {link.subLinks?.map((subLink) => (
+                        <Link key={subLink.label} href={subLink.href} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-black">
+                          {subLink.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </li>
             ) : link.type === 'scroll' ? (
               <li key={link.label}>
-                <ScrollLink
-                  to={link.to}
-                  smooth={true}
-                  duration={500}
-                  offset={-80} // Offset to account for fixed navbar height
-                  className="cursor-pointer text-gray-600 hover:text-black transition-colors duration-500 font-medium"
-                >
+                <ScrollLink to={link.to} smooth={true} duration={500} offset={-80} className="cursor-pointer text-gray-600 hover:text-black transition-colors font-medium">
                   {link.label}
                 </ScrollLink>
               </li>
             ) : (
               <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className="text-gray-600 hover:text-black transition-colors duration-300 font-medium"
-                >
+                <Link href={link.href} className="text-gray-600 hover:text-black transition-colors font-medium">
                   {link.label}
                 </Link>
               </li>
             )
           )}
+          <ScrollLink to="contactus" smooth={true} duration={500} offset={-80}>
+            <li className="bg-red-700 rounded-md py-2 px-4 cursor-pointer font-medium text-white hover:bg-red-700 transition-all">Enquiry</li>
+          </ScrollLink>
         </ul>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden ">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`
-                    text-gray-700 hover:text-black focus:outline-none
-                      transition-transform duration-500 ease-in-out
-                      transform ${isMenuOpen ? 'rotate-180' : ''}`}
->
-                      {isMenuOpen ? (
-                      <XMarkIcon className="h-7 w-7" />
-                      ) : (
-                      <Bars3Icon className="h-7 w-7" />
-                    )}
-            </button>
+        <div className="md:hidden flex font-medium items-center gap-4">
+          <ScrollLink to="contactus" smooth={true} duration={500} offset={-80}>
+            <div className="bg-red-700 rounded-md py-2 px-3 cursor-pointer font-medium text-white hover:bg-red-700 transition-all text-sm">Enquiry</div>
+          </ScrollLink>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 hover:text-black font-medium focus:outline-none">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={isMenuOpen ? 'x' : 'bars'}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {isMenuOpen ? <XMarkIcon className="h-7 w-7" /> : <Bars3Icon className="h-7 w-7" />}
+              </motion.div>
+            </AnimatePresence>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full">
-          <ul className="flex flex-col items-center space-y-4 py-6">
-            {navLinks.map((link) =>
-              link.type === 'dropdown' ? (
-                // On mobile, we can simply show the main link and its sub-links
-                <li key={link.label} className="text-center">
-                  <Link
-                    href={link.href}
-                    onClick={handleLinkClick}
-                    className="font-semibold text-gray-800 text-lg"
-                  >
-                    {link.label}
-                  </Link>
-                  <ul className="mt-2 space-y-2">
-                    {link.subLinks?.map((subLink) => (
-                       <li key={subLink.label}>
-                         <Link
-                          href={subLink.href}
-                          onClick={handleLinkClick}
-                          className="block text-gray-600 hover:text-black"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full"
+          >
+            {/* ... mobile menu ul ... */}
+             {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full"
+          >
+            <ul className="flex flex-col items-center space-y-2 py-6">
+              {navLinks.map((link) =>
+                link.type === 'dropdown' ? (
+                  <li key={link.label} className="w-full text-center">
+                    <button onClick={() => handleDropdownToggle(link.label)} className="w-full flex justify-center items-center font-semibold text-gray-800 text-lg py-2">
+                      {link.label}
+                      <ChevronDownIcon className={`ml-2 h-5 w-5 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+                    </button>
+                    <AnimatePresence>
+                      {openDropdown === link.label && (
+                        <motion.ul
+                          variants={accordionVariants}
+                          initial="collapsed"
+                          animate="open"
+                          exit="collapsed"
+                          className="mt-2 space-y-2 overflow-hidden bg-gray-50"
                         >
-                          {subLink.label}
-                        </Link>
-                       </li>
-                    ))}
-                  </ul>
-                </li>
-              ) : link.type === 'scroll' ? (
-                <li key={link.label}>
-                  <ScrollLink
-                    to={link.to}
-                    smooth={true}
-                    duration={500}
-                    offset={-80}
-                    onClick={handleLinkClick}
-                    className="cursor-pointer text-lg text-gray-700 hover:text-black"
-                  >
-                    {link.label}
-                  </ScrollLink>
-                </li>
-              ) : (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    onClick={handleLinkClick}
-                    className="text-lg text-gray-700 hover:text-black"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-      )}
+                          {link.subLinks?.map((subLink) => (
+                            <li key={subLink.label}>
+                              <Link href={subLink.href} onClick={handleLinkClick} className="block py-2 text-gray-600 hover:text-black">
+                                {subLink.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                ) : link.type === 'scroll' ? (
+                  <li key={link.label}>
+                    <ScrollLink to={link.to} smooth={true} duration={500} offset={-80} onClick={handleLinkClick} className="cursor-pointer text-lg text-gray-700 hover:text-black py-2 block">
+                      {link.label}
+                    </ScrollLink>
+                  </li>
+                ) : (
+                  <li key={link.label}>
+                    <Link href={link.href} onClick={handleLinkClick} className="text-lg text-gray-700 hover:text-black py-2 block">
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              )}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
-
-export default Navbar;

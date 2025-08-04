@@ -32,8 +32,8 @@ const itemVariants = {
 
 const ReviewsGrid = () => {
   return (
-    <div className="p-4">
-      <h1 className="text-center m-10 lg:text-5xl md:text-3xl text-2xl font-bold">
+    <div className="p-4 lg:w-2/3 mx-auto">
+      <h1 className="text-center m-10 lg:text-5xl  text-4xl font-bold">
         What they say about us?
       </h1>
 
