@@ -27,7 +27,7 @@ const ReviewCard = ({ review }) => {
       transition={{ type: 'spring', stiffness: 300, damping: 10 }}
     >
       {/* Star Rating and Score */}
-      <div className="mb-2 flex items-center jus">
+      <div className="mb-2 flex items-center ">
         {/* Loop 5 times to create stars dynamically */}
         {Array.from({ length: 5 }).map((_, index) => (
           // The 'isFilled' prop now correctly uses the rating

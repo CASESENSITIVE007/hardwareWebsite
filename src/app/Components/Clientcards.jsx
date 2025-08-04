@@ -23,9 +23,9 @@ function Clientcards() {
       {/* This style tag injects the animation directly */}
       <style>{animationCSS}</style>
 
-      <section className="bg-gradient-to-b from-[#4A55A2] to-[#7895CB] py-16 sm:py-24 overflow-hidden">
+      <section className="bg-gradient-to-b  from-[#4A55A2] to-[#acbcdb] py-16 sm:py-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-center text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h2 className="text-center text-5xl font-bold tracking-tight text-white sm:text-5xl">
             Our Esteemed Clientele
           </h2>
         </div>
