@@ -6,6 +6,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import  Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,12 +60,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 left-0 right-0 z-50 bg-white/80 shadow-md backdrop-blur-md">
+    <nav className="sticky top-0 left-0 right-0 z-50 bg-white shadow-md ">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-red-600 transition-colors">
-            Logo
+          <Link href="/">
+            <Image src="/logo.png" width={100} height={200} className=" lg:w-40 "  />
           </Link>
         </div>
 
