@@ -64,9 +64,9 @@ const Footer = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
             <img 
-              src="https://theoriginaltraders.in/assets/img/logo/logo.png" 
+              src="/logo.png" 
               alt="The Original Traders Logo"
-              className="h-14 w-auto"
+              className="h-20 w-auto"
             />
             <p className="text-sm text-gray-500 text-center">
               © Copyright 2025 | All rights reserved
