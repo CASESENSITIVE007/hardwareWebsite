@@ -31,16 +31,19 @@ const itemVariants = {
 
 function Hero() {
   return (
-    <div className="relative flex lg:min-h-screen flex-col justify-center overflow-hidden p-8 lg:p-2">
+    <div className="relative flex lg:min-h-screen h-screen flex-col justify-center overflow-hidden p-8 lg:p-2">
       {/* Faded Bearings image with a fade-in animation */}
-      <motion.img
-        src="/hero-bg-image.webp"
-        alt="Bearings background"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40 mx-auto w-full object-cover md:w-2/3"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.4 }}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
-      />
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-100 bg-black"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/bg.mp4" type="video/mp4" />
+        </video>
+
 
       {/* Main Content Container with variants */}
       <motion.div
@@ -51,7 +54,7 @@ function Hero() {
       >
         {/* Animated Heading */}
         <motion.div
-          className="text-4xl font-extrabold leading-tight text-red-700 md:text-6xl lg:text-9xl"
+          className="text-4xl font-extrabold leading-tight text-white   md:text-6xl lg:text-9xl"
           variants={itemVariants}
         >
           THE
@@ -74,3 +77,6 @@ function Hero() {
 }
 
 export default Hero;
+
+
+//[-webkit-text-stroke:2px_white]
