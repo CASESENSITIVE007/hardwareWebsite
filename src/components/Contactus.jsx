@@ -33,7 +33,7 @@ const Contactus = () => {
   };
 
   return (
-    <div className="bg-slate-100 min-h-screen flex items-center justify-center p-4">
+    <div id="contactus" className="bg-slate-100 min-h-screen flex items-center justify-center p-4">
       <motion.div
         className="max-w-6xl w-full mx-auto bg-white rounded-lg shadow-xl flex flex-col md:flex-row overflow-hidden"
         variants={containerVariants}
@@ -44,7 +44,7 @@ const Contactus = () => {
         {/* Left Side: Map and Contact Info */}
         <motion.div className="w-full md:w-1/2 p-8 text-gray-700" variants={itemVariants}>
           <h2 className="text-3xl font-bold mb-2">Contact Information</h2>
-          <div className="w-24 h-1 bg-blue-500 mb-6"></div>
+          <div className="w-24 h-1 bg-red-700 mb-6"></div>
           
           <p className="mb-6">
             We're here to help! Fill out the form, and our team in Aligarh will get back to you within 24 hours.
@@ -86,7 +86,7 @@ const Contactus = () => {
         {/* Right Side: Contact Form */}
         <motion.div className="w-full md:w-1/2 p-8" variants={itemVariants}>
           <h2 className="text-3xl font-bold mb-2">Send us a Message </h2>
-          <div className="w-24 h-1 bg-blue-500 mb-6"></div>
+          <div className="w-24 h-1 bg-red-700 mb-6"></div>
           
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* Form Fields */}
@@ -168,7 +168,7 @@ const Contactus = () => {
 
             <motion.button
               type="submit"
-              className="py-3 px-6 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition-colors duration-300"
+              className="py-3 px-6 bg-red-700 text-white font-bold rounded-md hover:bg-red-900 transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
