@@ -202,7 +202,7 @@ export default function Navbar() {
                 ) : link.type === 'scroll' ? (
                   // CHANGED: Conditional logic for mobile scroll links
                   <li key={link.label}>
-                    {router.pathname === '/' ? (
+                    {pathname === '/' ? (
                       <ScrollLink to={link.to} smooth={true} duration={500} offset={-80} onClick={handleLinkClick} className="cursor-pointer text-lg text-gray-700 hover:text-black py-2 block">
                         {link.label}
                       </ScrollLink>
