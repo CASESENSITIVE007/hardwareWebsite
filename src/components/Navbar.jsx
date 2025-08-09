@@ -6,14 +6,16 @@ import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import  Image from 'next/image';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';; // ADDED: Import the useRouter hook
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
-  
-  // FIX: State to manage desktop dropdown visibility
   const [isProductsHovered, setIsProductsHovered] = useState(false);
+
+  // ADDED: Initialize the router to get the current path
+  const pathname = usePathname();
 
   const navLinks = [
     { href: '/', label: 'Home', type: 'link' },
@@ -37,7 +39,7 @@ export default function Navbar() {
     setIsMenuOpen(false);
     setOpenDropdown(null);
   };
-  
+
   const handleDropdownToggle = (label) => {
     setOpenDropdown(openDropdown === label ? null : label);
   };
@@ -53,7 +55,7 @@ export default function Navbar() {
     hidden: { opacity: 0, scale: 0.95, y: -10, transition: { duration: 0.2, ease: 'easeOut' } },
     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' } },
   };
-  
+
   const accordionVariants = {
     collapsed: { opacity: 0, height: 0 },
     open: { opacity: 1, height: 'auto', transition: { duration: 0.3, ease: 'easeInOut' } },
@@ -65,7 +67,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/">
-            <Image src="/logo.png" width={100} height={100} className=" lg:w-40 "  />
+            <Image src="/logo.png" width={100} height={100} alt="Company Logo" className=" lg:w-40 " />
           </Link>
         </div>
 
@@ -73,9 +75,8 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) =>
             link.type === 'dropdown' ? (
-              // FIX: Added mouse enter/leave events to the parent `li`
-              <li 
-                key={link.label} 
+              <li
+                key={link.label}
                 className="relative"
                 onMouseEnter={() => setIsProductsHovered(true)}
                 onMouseLeave={() => setIsProductsHovered(false)}
@@ -84,11 +85,9 @@ export default function Navbar() {
                   {link.label}
                   <ChevronDownIcon className={`ml-1 h-5 w-5 transition-transform duration-300 ${isProductsHovered ? 'rotate-180' : ''}`} />
                 </Link>
-                {/* FIX: AnimatePresence allows the dropdown to animate out */}
                 <AnimatePresence>
                   {isProductsHovered && (
                     <motion.div
-                      // FIX: Removed `whileHover` and used `initial`, `animate`, `exit`
                       variants={dropdownVariants}
                       initial="hidden"
                       animate="visible"
@@ -105,10 +104,17 @@ export default function Navbar() {
                 </AnimatePresence>
               </li>
             ) : link.type === 'scroll' ? (
+              // CHANGED: Conditional logic for scroll links
               <li key={link.label}>
-                <ScrollLink to={link.to} smooth={true} duration={500} offset={-80} className="cursor-pointer text-gray-600 hover:text-black transition-colors font-medium">
-                  {link.label}
-                </ScrollLink>
+                {pathname === '/' ? (
+                  <ScrollLink to={link.to} smooth={true} duration={500} offset={-80} className="cursor-pointer text-gray-600 hover:text-black transition-colors font-medium">
+                    {link.label}
+                  </ScrollLink>
+                ) : (
+                  <Link href={`/#${link.to}`} className="cursor-pointer text-gray-600 hover:text-black transition-colors font-medium">
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ) : (
               <li key={link.label}>
@@ -118,14 +124,28 @@ export default function Navbar() {
               </li>
             )
           )}
-          <ScrollLink to="contactus" smooth={true} duration={500} offset={-80}>
-            <li className="bg-red-700 rounded-md py-2 px-4 cursor-pointer font-medium text-white hover:bg-red-700 transition-all">Enquiry</li>
-          </ScrollLink>
+          {/* CHANGED: Conditional logic for the Enquiry button */}
+          {pathname === '/' ? (
+            <ScrollLink to="contactus" smooth={true} duration={500} offset={-80}>
+              <li className="bg-red-700 rounded-md py-2 px-4 cursor-pointer font-medium text-white hover:bg-red-800 transition-all">Enquiry</li>
+            </ScrollLink>
+          ) : (
+            <Link href="/#contactus">
+              <li className="bg-red-700 rounded-md py-2 px-4 cursor-pointer font-medium text-white hover:bg-red-800 transition-all">Enquiry</li>
+            </Link>
+          )}
         </ul>
         <div className="md:hidden flex font-medium items-center gap-4">
-          <ScrollLink to="contactus" smooth={true} duration={500} offset={-80}>
-            <div className="bg-red-700 rounded-md py-2 px-3 cursor-pointer font-medium text-white hover:bg-red-700 transition-all text-sm">Enquiry</div>
-          </ScrollLink>
+          {/* CHANGED: Conditional logic for the mobile Enquiry button */}
+          {pathname === '/' ? (
+            <ScrollLink to="contactus" smooth={true} duration={500} offset={-80}>
+              <div className="bg-red-700 rounded-md py-2 px-3 cursor-pointer font-medium text-white hover:bg-red-800 transition-all text-sm">Enquiry</div>
+            </ScrollLink>
+          ) : (
+            <Link href="contactus">
+              <div className="bg-red-700 rounded-md py-2 px-3 cursor-pointer font-medium text-white hover:bg-red-800 transition-all text-sm">Enquiry</div>
+            </Link>
+          )}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 hover:text-black font-medium focus:outline-none">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
@@ -142,17 +162,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            variants={mobileMenuVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full"
-          >
-            {/* ... mobile menu ul ... */}
-             {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -191,10 +200,17 @@ export default function Navbar() {
                     </AnimatePresence>
                   </li>
                 ) : link.type === 'scroll' ? (
+                  // CHANGED: Conditional logic for mobile scroll links
                   <li key={link.label}>
-                    <ScrollLink to={link.to} smooth={true} duration={500} offset={-80} onClick={handleLinkClick} className="cursor-pointer text-lg text-gray-700 hover:text-black py-2 block">
-                      {link.label}
-                    </ScrollLink>
+                    {router.pathname === '/' ? (
+                      <ScrollLink to={link.to} smooth={true} duration={500} offset={-80} onClick={handleLinkClick} className="cursor-pointer text-lg text-gray-700 hover:text-black py-2 block">
+                        {link.label}
+                      </ScrollLink>
+                    ) : (
+                      <Link href={`/#${link.to}`} onClick={handleLinkClick} className="cursor-pointer text-lg text-gray-700 hover:text-black py-2 block">
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ) : (
                   <li key={link.label}>
@@ -205,9 +221,6 @@ export default function Navbar() {
                 )
               )}
             </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
