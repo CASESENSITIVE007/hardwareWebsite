@@ -1,12 +1,10 @@
-// /components/ReviewCard.js
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-// Star Icon Component
 const StarIcon = ({ isFilled }) => (
   <svg
-    className={`h-4 w-4 ${isFilled ? 'text-yellow-400' : 'text-gray-300'}`}
+    className={`h-4 w-4 ${isFilled ? "text-yellow-400" : "text-gray-300"}`}
     viewBox="0 0 20 20"
     fill="currentColor"
   >
@@ -14,38 +12,32 @@ const StarIcon = ({ isFilled }) => (
   </svg>
 );
 
-// The card component now accepts a 'review' prop to be reusable
 const ReviewCard = ({ review }) => {
-  // If for some reason no review data is passed, it won't render
   if (!review) return null;
 
   return (
     <motion.div
-      // Using flexible width and letting content define height
-      className="flex  max-w-xs flex-col rounded-lg bg-gray-100 p-4 shadow-sm lg:h-60 lg:w-70 h-40 w-50 m-5 "
-      whileHover={{ y: -3, scale: 1.01 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 10 }}
+      className="flex flex-col rounded-lg bg-gray-100 p-4 shadow-sm w-full h-full max-w-xs sm:max-w-sm"
+      whileHover={{ y: -3, scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 10 }}
     >
-      {/* Star Rating and Score */}
-      <div className="mb-2 flex items-center ">
-        {/* Loop 5 times to create stars dynamically */}
+      <div className="mb-2 flex items-center">
         {Array.from({ length: 5 }).map((_, index) => (
-          // The 'isFilled' prop now correctly uses the rating
           <StarIcon key={index} isFilled={index < review.rating} />
         ))}
-        {/* The rating score is now displayed from the prop */}
         <span className="ml-2 text-sm font-semibold text-gray-700">
           {review.rating.toFixed(1)}
         </span>
       </div>
 
-      {/* The comment is now displayed from the prop */}
-      <p className="text-xs italic text-gray-500">{review.comment}</p>
+      <p className="text-sm italic text-gray-500">{review.comment}</p>
     </motion.div>
   );
 };
 
 export default ReviewCard;
+
+
 
 
 

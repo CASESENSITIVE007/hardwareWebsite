@@ -1,5 +1,5 @@
 'use client';
-
+import { Pickaxe } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // You can create a dedicated component for icons or import them from a library like 'lucide-react'
@@ -57,7 +57,7 @@ const WhyUs = () => {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Feature 1 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ const WhyUs = () => {
             </div>
             <h3 className="mt-5 text-lg font-medium text-white">Unmatched Quality</h3>
             <p className="mt-2 text-base text-red-200">
-              Our products are crafted with the highest standards to ensure durability and performance.
+            100% Authenticity over Product Delivery.
             </p>
           </motion.div>
 
@@ -88,9 +88,9 @@ const WhyUs = () => {
             <div className="flex items-center justify-center h-12 w-12 rounded-md bg-white/20 text-white mx-auto">
               <BoltIcon />
             </div>
-            <h3 className="mt-5 text-lg font-medium text-white">Expert Network</h3>
+            <h3 className="mt-5 text-lg font-medium text-white">Experienced</h3>
             <p className="mt-2 text-base text-red-200">
-              With over 2500+ dealers, our network is expansive and always ready to assist you.
+            Over 15+ years of Industry Exposure.
             </p>
           </motion.div>
 
@@ -106,9 +106,26 @@ const WhyUs = () => {
             <div className="flex items-center justify-center h-12 w-12 rounded-md bg-white/20 text-white mx-auto">
               <UserIcon />
             </div>
-            <h3 className="mt-5 text-lg font-medium text-white">Customer Focused</h3>
+            <h3 className="mt-5 text-lg font-medium text-white">Focused</h3>
             <p className="mt-2 text-base text-red-200">
-              Your satisfaction is our priority. We're committed to providing excellent support.
+            Focused on Durability and Reliability of Bearings.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+            className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-center shadow-lg"
+          >
+            <div className="flex items-center justify-center h-12 w-12 rounded-md bg-white/20 text-white mx-auto">
+              <Pickaxe />
+            </div>
+            <h3 className="mt-5 text-lg font-medium text-white">Services</h3>
+            <p className="mt-2 text-base text-red-200">
+            Providing Complimentary Technical Consultancy. (Terms and Condition applied)
             </p>
           </motion.div>
         </div>
