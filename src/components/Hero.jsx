@@ -38,6 +38,7 @@ function Hero() {
           autoPlay
           loop
           muted
+          poster='/heroplaceholder.png'
           playsInline
           preload="auto"
         >

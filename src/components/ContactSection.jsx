@@ -10,6 +10,7 @@ function ContactSection() {
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-75"
         autoPlay
+        poster='/whyussectionplaceholder.png'
         loop
         muted
         playsInline

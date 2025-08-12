@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const StarIcon = ({ isFilled }) => (
   <svg
-    className={`h-4 w-4 ${isFilled ? "text-yellow-400" : "text-gray-300"}`}
+    className={`h-6 w-6 ${isFilled ? "text-yellow-400" : "text-gray-300"}`} // bigger star
     viewBox="0 0 20 20"
     fill="currentColor"
   >
@@ -17,25 +17,30 @@ const ReviewCard = ({ review }) => {
 
   return (
     <motion.div
-      className="flex flex-col rounded-lg bg-gray-100 p-4 shadow-sm w-full h-full max-w-xs sm:max-w-sm"
-      whileHover={{ y: -3, scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 300, damping: 10 }}
+      className="flex flex-col rounded-xl bg-gray-100 p-8 sm:p-10 shadow-lg w-full h-full max-w-3xl"
+      whileHover={{ y: -5, scale: 1.03 }}
+      transition={{ type: "spring", stiffness: 300, damping: 15 }}
     >
-      <div className="mb-2 flex items-center">
+      {/* Rating Section */}
+      <div className="mb-4 flex items-center">
         {Array.from({ length: 5 }).map((_, index) => (
           <StarIcon key={index} isFilled={index < review.rating} />
         ))}
-        <span className="ml-2 text-sm font-semibold text-gray-700">
+        <span className="ml-3 text-lg font-semibold text-gray-700">
           {review.rating.toFixed(1)}
         </span>
       </div>
 
-      <p className="text-sm italic text-gray-500">{review.comment}</p>
+      {/* Review Comment */}
+      <p className="text-lg italic text-gray-600 leading-relaxed">
+        {review.comment}
+      </p>
     </motion.div>
   );
 };
 
 export default ReviewCard;
+
 
 
 
