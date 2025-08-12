@@ -19,23 +19,24 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { HomeIcon } from 'lucide-react';
+import { ShieldStarIcon } from '@phosphor-icons/react';
 
 const productCategories = [
   {
-    id: 'gears',
-    name: 'Gears & Transmissions',
-    description: 'High-precision gears for industrial applications',
-    icon: Cog6ToothIcon,
-    color: 'from-red-600 to-red-700',
-    bgPattern: 'radial-gradient(circle at 30% 70%, rgba(239, 68, 68, 0.1) 0%, transparent 50%)',
+    id: 'galaxy',
+    name: 'Galaxy Components',
+    description: 'High-quality components for space applications',
+    icon: ShieldStarIcon,
+    color: 'from-yellow-600 to-yellow-300',
+    bgPattern: 'radial-gradient(circle at 30% 70%, rgba(37, 99, 235, 0.1) 0%, transparent 50%)',
     products: [
       {
         id: 1,
-        name: 'Helical Gear Set',
-        description: 'Premium quality helical gears with superior torque transmission',
+        name: 'Helmet ',
+        description: 'Premium quality helmet for space applications',
         price: '$299.99',
-        specifications: ['Material: Hardened Steel', 'Ratio: 3:1', 'Torque: 500 Nm'],
-        image: '⚙️'
+        specifications: ['Material: Carbon Fiber', 'Size: Medium', 'Weight: 1.2 kg'],
+        image: '/products/helmet.jpg'
       },
       {
         id: 2,
@@ -43,7 +44,7 @@ const productCategories = [
         description: 'Compact planetary gearbox for high-efficiency applications',
         price: '$599.99',
         specifications: ['Efficiency: 97%', 'Ratio: 10:1', 'Compact Design'],
-        image: '🔧'
+        image: '/products/helmet.jpg'
       },
       {
         id: 3,
@@ -51,6 +52,41 @@ const productCategories = [
         description: 'Self-locking worm gear for precise positioning',
         price: '$199.99',
         specifications: ['Self-Locking', 'High Reduction', 'Quiet Operation'],
+        image: '/products/helmet.jpg'
+      }
+    ]
+  },
+
+  {
+    id: 'gears',
+    name: 'Gears & Transmissions',
+    description: 'High-precision gears for industrial applications and power transmission systems',
+    icon: Cog6ToothIcon,
+    color: 'from-red-600 to-red-700',
+    bgPattern: 'radial-gradient(circle at 30% 70%, rgba(239, 68, 68, 0.1) 0%, transparent 50%)',
+    products: [
+      {
+        id: 4,
+        name: 'Helical Gear Set',
+        description: 'Premium quality helical gears with superior torque transmission and reduced noise operation',
+        price: '$299.99',
+        specifications: ['Material: Hardened Steel', 'Ratio: 3:1', 'Torque: 500 Nm', 'Helix Angle: 20°'],
+        image: '⚙️'
+      },
+      {
+        id: 5,
+        name: 'Planetary Gearbox',
+        description: 'Compact planetary gearbox for high-efficiency applications with excellent power-to-weight ratio',
+        price: '$599.99',
+        specifications: ['Efficiency: 97%', 'Ratio: 10:1', 'Compact Design', 'Low Backlash'],
+        image: '🔧'
+      },
+      {
+        id: 6,
+        name: 'Worm Gear Assembly',
+        description: 'Self-locking worm gear for precise positioning and high reduction ratios',
+        price: '$199.99',
+        specifications: ['Self-Locking', 'High Reduction', 'Quiet Operation', 'Bronze Wheel'],
         image: '🔩'
       }
     ]
@@ -59,33 +95,33 @@ const productCategories = [
   {
     id: 'lubricants',
     name: 'Lubricants & Oils',
-    description: 'Advanced lubrication solutions for optimal performance',
+    description: 'Advanced lubrication solutions for optimal performance and extended equipment life',
     icon: SparklesIcon,
     color: 'from-blue-600 to-blue-700',
     bgPattern: 'radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%)',
     products: [
       {
-        id: 4,
+        id: 7,
         name: 'Synthetic Gear Oil',
-        description: 'High-performance synthetic oil for extreme conditions',
+        description: 'High-performance synthetic oil engineered for extreme conditions and extended service intervals',
         price: '$49.99',
-        specifications: ['Viscosity: SAE 75W-90', 'Temperature Range: -40°C to 150°C', 'Volume: 5L'],
+        specifications: ['Viscosity: SAE 75W-90', 'Temperature Range: -40°C to 150°C', 'Volume: 5L', 'Synthetic Base'],
         image: '🛢️'
       },
       {
-        id: 5,
+        id: 8,
         name: 'Bearing Grease',
-        description: 'Long-lasting grease for bearing applications',
+        description: 'Long-lasting lithium complex grease specially formulated for bearing applications',
         price: '$29.99',
-        specifications: ['High Temperature Resistance', 'Water Resistant', 'Extended Service Life'],
+        specifications: ['High Temperature Resistance', 'Water Resistant', 'Extended Service Life', 'NLGI Grade 2'],
         image: '🧴'
       },
       {
-        id: 6,
+        id: 9,
         name: 'Multi-Purpose Lubricant',
-        description: 'Versatile lubricant for general industrial use',
+        description: 'Versatile penetrating lubricant for general industrial maintenance and protection',
         price: '$19.99',
-        specifications: ['Multi-Purpose', 'Corrosion Protection', 'Easy Application'],
+        specifications: ['Multi-Purpose', 'Corrosion Protection', 'Easy Application', 'Food Grade Available'],
         image: '💧'
       }
     ]
@@ -93,34 +129,50 @@ const productCategories = [
   {
     id: 'bearings',
     name: 'Bearings & Bushings',
-    description: 'Precision bearings for smooth operation',
+    description: 'Precision bearings for smooth operation and superior performance',
     icon: CubeIcon,
     color: 'from-gray-600 to-gray-700',
     bgPattern: 'radial-gradient(circle at 50% 50%, rgba(75, 85, 99, 0.1) 0%, transparent 50%)',
     products: [
       {
         id: 7,
-        name: 'Ball Bearing Set',
-        description: 'High-precision ball bearings for low friction applications',
+        name: 'Ball Bearings',
+        description: 'High-precision ball bearings engineered for low friction and smooth operation in demanding industrial applications',
         price: '$89.99',
-        specifications: ['Bore: 20mm', 'Outer Diameter: 47mm', 'Load Rating: 5kN'],
+        specifications: ['Bore: 20mm', 'Outer Diameter: 47mm', 'Load Rating: 5kN', 'Material: Chrome Steel'],
         image: '⚪'
       },
       {
         id: 8,
-        name: 'Roller Bearing',
-        description: 'Heavy-duty roller bearing for high load applications',
+        name: 'Roller Bearings',
+        description: 'Heavy-duty cylindrical roller bearings designed for high radial load capacity and extended service life',
         price: '$159.99',
-        specifications: ['Heavy Load Capacity', 'High Durability', 'Sealed Design'],
+        specifications: ['Heavy Load Capacity', 'High Durability', 'Sealed Design', 'Temperature Range: -20°C to 120°C'],
         image: '🎯'
       },
       {
         id: 9,
-        name: 'Thrust Bearing',
-        description: 'Axial load bearing for rotational applications',
-        price: '$129.99',
-        specifications: ['Axial Load Support', 'Low Friction', 'Compact Design'],
+        name: 'Super Precision Bearings',
+        description: 'Ultra-precise bearings for critical applications requiring exceptional accuracy and minimal vibration',
+        price: '$299.99',
+        specifications: ['ABEC-7 Precision', 'Ultra-Low Friction', 'Ceramic Balls Available', 'Noise Level: <35dB'],
         image: '🔘'
+      },
+      {
+        id: 10,
+        name: 'Thrust Bearings',
+        description: 'Specialized axial load bearings for applications requiring smooth rotational movement under thrust loads',
+        price: '$129.99',
+        specifications: ['Axial Load Support', 'Low Friction Coefficient', 'Compact Design', 'Bi-directional Load'],
+        image: '⭕'
+      },
+      {
+        id: 11,
+        name: 'Needle Bearings',
+        description: 'Space-efficient needle roller bearings providing high load capacity in minimal radial space',
+        price: '$79.99',
+        specifications: ['High Load/Space Ratio', 'Minimal Radial Space', 'High Speed Capability', 'Self-Aligning'],
+        image: '�'
       }
     ]
   },
@@ -133,7 +185,7 @@ const productCategories = [
     bgPattern: 'radial-gradient(circle at 20% 80%, rgba(217, 119, 6, 0.1) 0%, transparent 50%)',
     products: [
       {
-        id: 10,
+        id: 15,
         name: 'Hex Bolt Set',
         description: 'Stainless steel hex bolts in various sizes',
         price: '$24.99',
@@ -141,7 +193,7 @@ const productCategories = [
         image: '🔩'
       },
       {
-        id: 11,
+        id: 16,
         name: 'Lock Washer Kit',
         description: 'Spring washers for secure fastening',
         price: '$15.99',
@@ -149,7 +201,7 @@ const productCategories = [
         image: '⭕'
       },
       {
-        id: 12,
+        id: 17,
         name: 'Machine Screws',
         description: 'Precision machine screws for mechanical assemblies',
         price: '$39.99',
@@ -323,9 +375,9 @@ export default function ProductsPage() {
                 {searchTerm ? (
                   searchResults.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {searchResults.map((product) => (
+                      {searchResults.map((product,index) => (
                         <motion.div
-                          key={product.id}
+                          key={index}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           className="bg-gradient-to-br from-white to-gray-50 rounded-lg p-4 border border-gray-200 hover:shadow-md transition-shadow"
@@ -551,96 +603,256 @@ export default function ProductsPage() {
                   <Separator className="mt-8 max-w-xs mx-auto bg-gray-300" />
                 </motion.div>
 
-                {/* Products Grid */}
-                <motion.div
-                  variants={containerVariants}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                  {category.products.map((product, index) => (
-                    <motion.div
-                      key={product.id}
-                      variants={itemVariants}
-                      custom={index}
-                    >
+                {/* Products Showcase - Alternating Layout */}
+                <div className="space-y-16">
+                  {category.products.map((product, index) => {
+                    const isEven = index % 2 === 0;
+                    
+                    return (
                       <motion.div
-                        variants={cardHoverVariants}
-                        initial="rest"
-                        whileHover="hover"
-                        whileTap={{ scale: 0.98 }}
+                        key={product.id}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, delay: index * 0.2 }}
+                        className="relative"
                       >
-                        <Card className="h-full overflow-hidden bg-white border-gray-200 hover:shadow-2xl transition-all duration-300 group">
-                          <CardHeader className="text-center pb-4 relative">
-                            {/* Subtle background pattern */}
-                            <div
-                              className="absolute inset-0 opacity-5"
-                              style={{ background: category.bgPattern }}
-                            ></div>
-
-                            <motion.div
-                              className="text-6xl mb-4 relative z-10"
-                              animate={{
-                                rotate: [0, 5, -5, 0],
-                                scale: [1, 1.05, 1]
-                              }}
-                              transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                repeatDelay: 4,
-                                ease: "easeInOut"
-                              }}
-                            >
-                              {product.image}
-                            </motion.div>
-                            <CardTitle className="text-xl font-bold text-gray-800 relative z-10 group-hover:text-red-700 transition-colors">
-                              {product.name}
-                            </CardTitle>
-                            <CardDescription className="text-gray-600 relative z-10">
-                              {product.description}
-                            </CardDescription>
-                          </CardHeader>
-
-                          <CardContent className="space-y-4">
-                            <div className="flex justify-center">
-                              <Badge
-                                className={`bg-gradient-to-r ${category.color} text-white text-lg px-4 py-2 shadow-lg`}
+                        <div className={`flex items-center gap-8 ${isEven ? 'flex-row' : 'flex-row-reverse'} max-w-6xl mx-auto`}>
+                          
+                          {/* Product Image Container */}
+                          <motion.div
+                            initial={{ 
+                              x: isEven ? -100 : 100, 
+                              opacity: 0 
+                            }}
+                            whileInView={{ 
+                              x: 0, 
+                              opacity: 1 
+                            }}
+                            viewport={{ once: true }}
+                            transition={{ 
+                              duration: 0.8, 
+                              delay: 0.3,
+                              type: "spring",
+                              stiffness: 100
+                            }}
+                            className="flex-1 max-w-md"
+                          >
+                            <div className={`relative p-8 rounded-3xl bg-gradient-to-br ${category.color} shadow-2xl overflow-hidden`}>
+                              {/* Background Pattern */}
+                              <div className="absolute inset-0 opacity-20">
+                                <div className="absolute top-4 right-4 w-20 h-20 rounded-full border-2 border-white"></div>
+                                <div className="absolute bottom-4 left-4 w-16 h-16 rounded-full border-2 border-white"></div>
+                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-white"></div>
+                              </div>
+                              
+                              {/* Product Image */}
+                              <motion.div
+                                className="relative z-10 bg-white rounded-2xl p-6 shadow-xl"
+                                whileHover={{ 
+                                  scale: 1.05,
+                                  rotate: [0, 1, -1, 0],
+                                }}
+                                transition={{ 
+                                  duration: 0.3,
+                                  rotate: { duration: 0.6, ease: "easeInOut" }
+                                }}
                               >
-                                {product.price}
-                              </Badge>
+                                {product.image.startsWith('/') ? (
+                                  <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    className="w-full h-48 object-cover rounded-lg"
+                                  />
+                                ) : (
+                                  <div className="text-8xl text-center py-8">
+                                    {product.image}
+                                  </div>
+                                )}
+                              </motion.div>
+                              
+                              {/* Floating Elements */}
+                              <motion.div
+                                className="absolute top-6 left-6 w-3 h-3 bg-white rounded-full"
+                                animate={{
+                                  y: [0, -10, 0],
+                                  opacity: [0.7, 1, 0.7]
+                                }}
+                                transition={{
+                                  duration: 2,
+                                  repeat: Infinity,
+                                  ease: "easeInOut"
+                                }}
+                              />
+                              <motion.div
+                                className="absolute bottom-8 right-8 w-2 h-2 bg-white rounded-full"
+                                animate={{
+                                  y: [0, -15, 0],
+                                  opacity: [0.5, 1, 0.5]
+                                }}
+                                transition={{
+                                  duration: 2.5,
+                                  repeat: Infinity,
+                                  ease: "easeInOut",
+                                  delay: 0.5
+                                }}
+                              />
+                            </div>
+                          </motion.div>
+
+                          {/* Product Name and Details */}
+                          <motion.div
+                            initial={{ 
+                              x: isEven ? 100 : -100, 
+                              opacity: 0 
+                            }}
+                            whileInView={{ 
+                              x: 0, 
+                              opacity: 1 
+                            }}
+                            viewport={{ once: true }}
+                            transition={{ 
+                              duration: 0.8, 
+                              delay: 0.5,
+                              type: "spring",
+                              stiffness: 100
+                            }}
+                            className="flex-1 space-y-6"
+                          >
+                            {/* Animated Product Name */}
+                            <div className="space-y-4">
+                              <motion.div
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                whileInView={{ scale: 1, opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ 
+                                  duration: 0.6, 
+                                  delay: 0.8,
+                                  type: "spring",
+                                  stiffness: 200
+                                }}
+                                className="relative"
+                              >
+                                {/* Animated Icon Behind Text */}
+                                <motion.div
+                                  className={`absolute -left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gradient-to-r ${category.color} rounded-full flex items-center justify-center opacity-20`}
+                                  animate={{
+                                    rotate: [0, 360],
+                                    scale: [1, 1.1, 1]
+                                  }}
+                                  transition={{
+                                    rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+                                    scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                                  }}
+                                >
+                                  <category.icon className="w-6 h-6 text-white" />
+                                </motion.div>
+                                
+                                <motion.h3
+                                  className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent relative z-10`}
+                                  animate={{
+                                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                                  }}
+                                  transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                  }}
+                                  style={{
+                                    backgroundSize: "200% 200%"
+                                  }}
+                                >
+                                  {product.name}
+                                </motion.h3>
+                              </motion.div>
+                              
+                              <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 1, duration: 0.6 }}
+                                className="text-lg text-gray-600 leading-relaxed"
+                              >
+                                {product.description}
+                              </motion.p>
                             </div>
 
-                            <div className="space-y-3">
-                              <h4 className="font-semibold text-gray-700 text-sm">Specifications:</h4>
+                            {/* Specifications */}
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 1.2, duration: 0.6 }}
+                              className="space-y-3"
+                            >
+                              <h4 className="text-lg font-semibold text-gray-800">Key Features:</h4>
                               <ul className="space-y-2">
                                 {product.specifications.map((spec, specIndex) => (
                                   <motion.li
                                     key={specIndex}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.1 * specIndex }}
-                                    className="text-sm text-gray-600 flex items-center gap-2"
+                                    initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ 
+                                      delay: 1.4 + (specIndex * 0.1), 
+                                      duration: 0.5 
+                                    }}
+                                    className="flex items-center gap-3 text-gray-700"
                                   >
-                                    <div className={`w-2 h-2 bg-gradient-to-r ${category.color} rounded-full`}></div>
-                                    {spec}
+                                    <motion.div
+                                      className={`w-3 h-3 bg-gradient-to-r ${category.color} rounded-full`}
+                                      whileInView={{
+                                        scale: [1, 1.3, 1],
+                                        rotate: [0, 180, 360]
+                                      }}
+                                      transition={{
+                                        delay: 1.4 + (specIndex * 0.1),
+                                        duration: 0.8
+                                      }}
+                                    />
+                                    <span className="font-medium">{spec}</span>
                                   </motion.li>
                                 ))}
                               </ul>
-                            </div>
-
-                            <motion.div
-                              whileHover={{ scale: 1.02 }}
-                              whileTap={{ scale: 0.98 }}
-                            >
-                              <Button className={`w-full mt-4 bg-gradient-to-r ${category.color} hover:opacity-90 transition-all duration-200 text-white border-none shadow-lg`}>
-                                <span>View Details</span>
-                                <ArrowRightIcon className="w-4 h-4 ml-2" />
-                              </Button>
                             </motion.div>
-                          </CardContent>
-                        </Card>
+
+                            {/* Action Button */}
+                            <motion.div
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: 1.6, duration: 0.5 }}
+                            >
+                              <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                              >
+                                <Button 
+                                  size="lg"
+                                  className={`bg-gradient-to-r ${category.color} hover:opacity-90 transition-all duration-300 text-white border-none shadow-xl px-8 py-4 text-lg font-semibold`}
+                                >
+                                  <span>Learn More</span>
+                                  <ArrowRightIcon className="w-5 h-5 ml-2" />
+                                </Button>
+                              </motion.div>
+                            </motion.div>
+                          </motion.div>
+                        </div>
+
+                        {/* Decorative Line */}
+                        {index < category.products.length - 1 && (
+                          <motion.div
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 1.8, duration: 0.8 }}
+                            className={`mt-16 h-px bg-gradient-to-r ${category.color} opacity-30 max-w-2xl mx-auto`}
+                          />
+                        )}
                       </motion.div>
-                    </motion.div>
-                  ))}
-                </motion.div>
+                    );
+                  })}
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
