@@ -33,7 +33,7 @@ const Contactus = () => {
   };
 
   return (
-    <div id="contactus" className="bg-slate-100  flex items-center justify-center p-4">
+    <div id="contactus" className="  flex items-center justify-center p-4">
       <motion.div
         className="max-w-6xl w-full mx-auto bg-white rounded-lg shadow-xl flex flex-col md:flex-row overflow-hidden"
         variants={containerVariants}

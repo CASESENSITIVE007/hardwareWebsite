@@ -12,8 +12,8 @@ function Cards() {
             <Card image="/hero-bg-image.webp" Name="Lubricant" desc="this is the description view"/>
             </div>
         <div  className="gap-10 flex flex-col"> 
-            <Card image="/hero-bg-image.webp" Name="Ball Bearing" desc="this is the description view" />
-            <Card image="/hero-bg-image.webp" Name="Ball Bearing" desc="this is the description view" />
+            <Card image="/hero-bg-image.webp" Name="Automotive Spare Parts" desc="this is the description view" />
+            <Card image="/hero-bg-image.webp" Name="Galaxy Brand" desc="this is the description view" />
         </div>
     
   

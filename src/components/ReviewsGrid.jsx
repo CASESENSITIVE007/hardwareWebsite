@@ -1,10 +1,9 @@
-// /components/ReviewsGrid.js
 "use client";
 
-import { motion } from 'framer-motion';
-import ReviewCard from './ReviewCard';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ReviewCard from "./ReviewCard";
 
-// This is your "dummy" data. You can change these values anytime.
 const staticReviews = [
   { rating: 5, comment: "Fantastic service and quality!" },
   { rating: 4, comment: "Really good, would recommend." },
@@ -14,50 +13,101 @@ const staticReviews = [
   { rating: 3, comment: "It was okay, did the job." },
 ];
 
-// Animation variants for the container and items
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
+const slideVariants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 300 : -300,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { duration: 0.5 },
   },
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
+  exit: (direction) => ({
+    x: direction > 0 ? -300 : 300,
+    opacity: 0,
+    transition: { duration: 0.5 },
+  }),
 };
 
 const ReviewsGrid = () => {
+  const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [reviewsPerSlide, setReviewsPerSlide] = useState(3);
+
+  // Update reviewsPerSlide based on screen size
+  useEffect(() => {
+    const updateReviewsPerSlide = () => {
+      if (window.innerWidth < 640) setReviewsPerSlide(1); // mobile
+      else if (window.innerWidth < 1024) setReviewsPerSlide(2); // tablet
+      else setReviewsPerSlide(3); // desktop
+    };
+    updateReviewsPerSlide();
+    window.addEventListener("resize", updateReviewsPerSlide);
+    return () => window.removeEventListener("resize", updateReviewsPerSlide);
+  }, []);
+
+  const totalPages = Math.ceil(staticReviews.length / reviewsPerSlide);
+
+  const paginate = (newPage) => {
+    setDirection(newPage > page ? 1 : -1);
+    setPage(newPage);
+  };
+
+  const currentReviews = staticReviews.slice(
+    page * reviewsPerSlide,
+    page * reviewsPerSlide + reviewsPerSlide
+  );
+
   return (
-    <div className="p-4 lg:w-2/3 mx-auto">
-      <h1 className="text-center m-10 lg:text-5xl  text-4xl font-bold">
+    <div className="p-4 max-w-7xl mx-auto">
+      <h1 className="text-center m-10 lg:text-5xl text-3xl font-bold">
         What they say about us?
       </h1>
 
-      <motion.div
-        // A grid layout is better for this than flexbox
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* We map over the dummy data array */}
-        {staticReviews.map((review, index) => (
-          // The motion.div and key are inside the loop
-          <motion.div key={index} variants={itemVariants}>
-            {/* We pass the 'review' object to each card */}
-            <ReviewCard review={review} />
+      {/* Carousel */}
+      <div className="overflow-hidden relative">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={page}
+            className="flex justify-center gap-6 flex-wrap"
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+          >
+            {currentReviews.map((review, index) => (
+              <div
+                key={index}
+                className="w-full sm:w-[45%] lg:w-[30%] flex justify-center"
+              >
+                <ReviewCard review={review} />
+              </div>
+            ))}
           </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center mt-6 space-x-2">
+        {Array.from({ length: totalPages }).map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => paginate(idx)}
+            className={`h-3 w-3 rounded-full transition-colors ${
+              page === idx ? "bg-gray-800" : "bg-gray-400"
+            }`}
+          />
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
 
 export default ReviewsGrid;
+
+
 
 
 
