@@ -1,7 +1,7 @@
-'use client'
+
 import  {FaWhatsapp}  from "react-icons/fa";
 
-const WhatsAppButton = () => {
+const WhatsappButton = () => {
   return (
     <a
       href="https://wa.me/919876543210" // Replace with your WhatsApp number (with country code, no + or spaces)
@@ -14,4 +14,4 @@ const WhatsAppButton = () => {
   );
 };
 
-export default WhatsAppButton;
+export default WhatsappButton;
