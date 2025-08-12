@@ -19,8 +19,44 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { HomeIcon } from 'lucide-react';
+import { ShieldStarIcon } from '@phosphor-icons/react';
 
 const productCategories = [
+  {
+    id: 'galaxy',
+    name: 'Galaxy Components',
+    description: 'High-quality components for space applications',
+    icon: ShieldStarIcon,
+    color: 'from-yellow-600 to-yellow-300',
+    bgPattern: 'radial-gradient(circle at 30% 70%, rgba(37, 99, 235, 0.1) 0%, transparent 50%)',
+    products: [
+      {
+        id: 1,
+        name: 'Helmet ',
+        description: 'Premium quality helmet for space applications',
+        price: '$299.99',
+        specifications: ['Material: Carbon Fiber', 'Size: Medium', 'Weight: 1.2 kg'],
+        image: '/products/helmet.jpg'
+      },
+      {
+        id: 2,
+        name: 'Planetary Gearbox',
+        description: 'Compact planetary gearbox for high-efficiency applications',
+        price: '$599.99',
+        specifications: ['Efficiency: 97%', 'Ratio: 10:1', 'Compact Design'],
+        image: '/products/helmet.jpg'
+      },
+      {
+        id: 3,
+        name: 'Worm Gear Assembly',
+        description: 'Self-locking worm gear for precise positioning',
+        price: '$199.99',
+        specifications: ['Self-Locking', 'High Reduction', 'Quiet Operation'],
+        image: '/products/helmet.jpg'
+      }
+    ]
+  },
+
   {
     id: 'gears',
     name: 'Gears & Transmissions',
@@ -323,9 +359,9 @@ export default function ProductsPage() {
                 {searchTerm ? (
                   searchResults.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {searchResults.map((product) => (
+                      {searchResults.map((product,index) => (
                         <motion.div
-                          key={product.id}
+                          key={index}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           className="bg-gradient-to-br from-white to-gray-50 rounded-lg p-4 border border-gray-200 hover:shadow-md transition-shadow"
@@ -579,17 +615,24 @@ export default function ProductsPage() {
                             <motion.div
                               className="text-6xl mb-4 relative z-10"
                               animate={{
-                                rotate: [0, 5, -5, 0],
+                                // rotate: [0, 5, -5, 0],
                                 scale: [1, 1.05, 1]
                               }}
                               transition={{
                                 duration: 3,
-                                repeat: Infinity,
+                                repeat: 1,
                                 repeatDelay: 4,
                                 ease: "easeInOut"
                               }}
                             >
-                              {product.image}
+                              <img
+                                src={product.image}
+                                alt={product.name}
+                                layout="responsive"
+                                className='rounded-lg shadow-md w-full h-auto object-cover'
+                                width={500}
+                                height={500}
+                              />
                             </motion.div>
                             <CardTitle className="text-xl font-bold text-gray-800 relative z-10 group-hover:text-red-700 transition-colors">
                               {product.name}
@@ -600,13 +643,13 @@ export default function ProductsPage() {
                           </CardHeader>
 
                           <CardContent className="space-y-4">
-                            <div className="flex justify-center">
+                            {/* <div className="flex justify-center">
                               <Badge
                                 className={`bg-gradient-to-r ${category.color} text-white text-lg px-4 py-2 shadow-lg`}
                               >
                                 {product.price}
                               </Badge>
-                            </div>
+                            </div> */}
 
                             <div className="space-y-3">
                               <h4 className="font-semibold text-gray-700 text-sm">Specifications:</h4>
