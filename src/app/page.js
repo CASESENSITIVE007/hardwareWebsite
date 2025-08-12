@@ -10,7 +10,7 @@ import ReviewsGrid from "../components/ReviewsGrid"
 import Cards from "../components/Cards";
 import Clientcards from "../components/Clientcards";
 import WhyUs from "../components/WhyUs";
-import ContactSection from "@/components/ContactSection";
+import ContactSection from "../components/ContactSection";
 export default function Home() {
   return (
    <div>
