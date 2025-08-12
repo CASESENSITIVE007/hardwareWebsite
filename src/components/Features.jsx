@@ -55,7 +55,7 @@ const Features = () => {
     <section 
       ref={sectionRef} 
       id="exact-stats-section" 
-      className="relative overflow-hidden bg-[#8c2a32] py-12 sm:py-20 md:py-24"
+      className="relative overflow-hidden bg-[#8c2a32] py-12 sm:py-20 md:py-24 "
     >
       {/* Background image */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10">
