@@ -9,7 +9,7 @@ function KeyIndustries() {
       </h1>
 
       {/* Responsive Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 ">
         <IndustryCard imageUrl={"/keyindustries/infrastructure.jpg"} altText={"Infrastructure"} title={"Infrastructure"} />
         <IndustryCard imageUrl={"/keyindustries/cement.jpg"} altText={"Cement"} title={"Cement"} />
         <IndustryCard imageUrl={"/keyindustries/automotive.png"} altText={"Automotive"} title={"Automotive"} />

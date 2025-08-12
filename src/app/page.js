@@ -24,8 +24,6 @@ export default function Home() {
     <Contactus/>
     <WhyUs/>
     <ContactSection/>
- 
-    
 
    </div>
   );

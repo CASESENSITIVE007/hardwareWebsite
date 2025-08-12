@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReviewCard from "./ReviewCard";
 
@@ -33,26 +33,33 @@ const slideVariants = {
 const ReviewsGrid = () => {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [reviewsPerSlide, setReviewsPerSlide] = useState(3);
+  const containerRef = useRef(null);
 
-  // Update reviewsPerSlide based on screen size
-  useEffect(() => {
-    const updateReviewsPerSlide = () => {
-      if (window.innerWidth < 640) setReviewsPerSlide(1); // mobile
-      else if (window.innerWidth < 1024) setReviewsPerSlide(2); // tablet
-      else setReviewsPerSlide(3); // desktop
-    };
-    updateReviewsPerSlide();
-    window.addEventListener("resize", updateReviewsPerSlide);
-    return () => window.removeEventListener("resize", updateReviewsPerSlide);
-  }, []);
-
+  const reviewsPerSlide = 1;
   const totalPages = Math.ceil(staticReviews.length / reviewsPerSlide);
 
   const paginate = (newPage) => {
+    if (newPage < 0) newPage = totalPages - 1;
+    if (newPage >= totalPages) newPage = 0;
     setDirection(newPage > page ? 1 : -1);
     setPage(newPage);
   };
+
+  // Desktop horizontal scroll
+  useEffect(() => {
+    const handleWheel = (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        if (e.deltaX > 0) {
+          paginate(page + 1);
+        } else if (e.deltaX < 0) {
+          paginate(page - 1);
+        }
+      }
+    };
+    const container = containerRef.current;
+    container.addEventListener("wheel", handleWheel, { passive: true });
+    return () => container.removeEventListener("wheel", handleWheel);
+  }, [page]);
 
   const currentReviews = staticReviews.slice(
     page * reviewsPerSlide,
@@ -66,21 +73,31 @@ const ReviewsGrid = () => {
       </h1>
 
       {/* Carousel */}
-      <div className="overflow-hidden relative">
+      <div ref={containerRef} className="overflow-hidden relative">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={page}
-            className="flex justify-center gap-6 flex-wrap"
+            className="flex justify-center"
             custom={direction}
             variants={slideVariants}
             initial="enter"
             animate="center"
             exit="exit"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = Math.abs(offset.x) * velocity.x;
+              if (swipe < -100) {
+                paginate(page + 1);
+              } else if (swipe > 100) {
+                paginate(page - 1);
+              }
+            }}
           >
             {currentReviews.map((review, index) => (
               <div
                 key={index}
-                className="w-full sm:w-[45%] lg:w-[30%] flex justify-center"
+                className="w-full max-w-[90%] sm:max-w-[70%] md:max-w-[50%] lg:max-w-[40%] flex justify-center"
               >
                 <ReviewCard review={review} />
               </div>
@@ -106,6 +123,8 @@ const ReviewsGrid = () => {
 };
 
 export default ReviewsGrid;
+
+
 
 
 

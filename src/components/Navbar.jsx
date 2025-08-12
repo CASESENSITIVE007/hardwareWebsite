@@ -24,6 +24,7 @@ export default function Navbar() {
       type: 'dropdown',
       href: '/products',
       subLinks: [
+        { href: '/products?id=galaxy', label: 'Galaxy' },
         { href: '/products?id=gears', label: 'Gears' },
         { href: '/products?id=lubricants', label: 'Lubricants' },
         { href: '/products?id=bearings', label: 'Bearings' },
