@@ -1,30 +1,29 @@
-
 import Image from 'next/image'
+
 function IndustryCard({ imageUrl, title, altText }) {
   return (
-     <div className="relative lg:w-72 lg:h-96 w-40 h-50 overflow-hidden rounded-xl lg:m-10 m-2 shadow-lg group">
+    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-sm aspect-[3/4] overflow-hidden rounded-xl shadow-lg m-2 p-2 group mx-auto">
       
-      {/* next/image component as the background */}
-      {/* The 'fill' prop makes the image cover the parent div. */}
-      {/* 'object-cover' ensures the image aspect ratio is maintained. */}
+      {/* Background image */}
       <Image
         src={imageUrl}
         alt={altText}
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-110"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        sizes="(max-width: 640px) 100vw, 
+               (max-width: 1024px) 50vw, 
+               25vw"
+        priority
       />
 
-      {/* Gradient overlay for text readability */}
-      {/* Placed between the image and the text using z-index. */}
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
 
-      {/* Title text */}
-      {/* Positioned at the bottom with padding. */}
-      <h3 className="absolute bottom-0 left-0 p-4 text-white text-2xl font-bold z-20">
+      {/* Title */}
+      <h3 className="absolute bottom-0 left-0 p-3 sm:p-4 text-white text-lg sm:text-xl md:text-2xl font-bold z-20">
         {title}
       </h3>
-      
+
     </div>
   )
 }

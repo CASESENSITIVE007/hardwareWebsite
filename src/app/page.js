@@ -17,10 +17,10 @@ export default function Home() {
     <Hero/>
     <Features/>
     <Cards/>
-    <Clientcards/>
-    <Contactus/>
-    <ReviewsGrid/>
     <KeyIndustries/>
+    <Clientcards/>
+    <ReviewsGrid/>
+    <Contactus/>
     <WhyUs/>
  
     
