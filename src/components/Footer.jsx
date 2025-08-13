@@ -22,7 +22,8 @@ const Footer = () => {
             {/* Column 1: Company Info */}
             <div>
               <h3 className="text-2xl font-bold uppercase">The Original Traders</h3>
-              <p className="mt-2 text-sm text-slate-300">Supplying Quality...</p>
+              <p className="mt-2 text-sm text-slate-300">At The Original Traders, we provide genuine auto parts with quality, reliability, and trust. Our focus is on competitive pricing, timely delivery, and minimizing downtime for your business. From single pieces to bulk supply, we’re your dependable partner for all bearing solutions.
+</p>
             </div>
 
             {/* Column 2: Quick Links */}
@@ -42,16 +43,23 @@ const Footer = () => {
               <ul className="mt-4 space-y-3 text-slate-300">
                 <li className="flex items-center justify-center md:justify-start">
                   <Mail className="mr-2" />
-                  <a href="mailto:sales@theoriginaltraders.in" className="hover:text-white transition-colors">sales@theoriginaltraders.in</a>
+                  <a href="mailto:sales@theoriginaltraders.in" className="hover:text-white transition-colors">theoriginaltraders@gmail.com</a>
                 </li>
                 <li className="flex items-center justify-center md:justify-start">
                  <Phone className="mr-2"/>
                   <a href="tel:+919800000009" className="hover:text-white transition-colors">+91-9800000009</a>
                 </li>
-                <li className="flex items-center justify-center md:justify-start">
+                  <a
+      href="https://wa.me/919876543210" // Replace with your WhatsApp number (with country code, no + or spaces)
+      target="_blank"
+      rel="noopener noreferrer">
+<li className="flex items-center justify-center md:justify-start hover:text-white transition-colors">
                   <WhatsAppIcon  />
                   <span>WhatsApp</span>
                 </li>
+      </a>
+
+                
               </ul>
             </div>
 

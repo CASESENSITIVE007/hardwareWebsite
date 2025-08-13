@@ -10,10 +10,10 @@ function Cards() {
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mt-8 lg:w-2/3 mx-auto">
-        <Card image="/hero-bg-image.webp" Name="Ball Bearing" desc="This is the description view" />
-        <Card image="/hero-bg-image.webp" Name="Lubricant" desc="This is the description view" />
-        <Card image="/hero-bg-image.webp" Name="Automotive Spare Parts" desc="This is the description view" />
-        <Card image="/hero-bg-image.webp" Name="Galaxy Brand" desc="This is the description view" />
+        <Card image="/bearingcard.jpeg" Name="Ball Bearings" desc="This is the description view" />
+        <Card image="/lubricantcard.jpeg" Name="Lubricant" desc="This is the description view" />
+        <Card image="/sparepartscard.png" Name="Automotive Spare Parts" desc="This is the description view" />
+        <Card image="/logogalaxy.png" Name="Galaxy Brand" desc="This is the description view" />
       </div>
 
       <Link href="/products">
