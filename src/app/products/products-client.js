@@ -3,6 +3,7 @@ import { useSearchParams } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image'; // Using Next.js Image component
 import {
   Cog6ToothIcon,
   CubeIcon,
@@ -12,8 +13,10 @@ import {
   ArrowDownTrayIcon as DownloadIcon,
 } from '@heroicons/react/24/outline';
 
+// --- Create a motion-compatible version of the Next.js Image component ---
+const MotionImage = motion(Image);
+
 // --- UPDATED DATA STRUCTURE FOR ALL CATEGORIES ---
-// Every category now has showcaseImages, brandLogos, and keyFeatures
 const productCategories = [
   {
     id: 'gears',
@@ -21,14 +24,14 @@ const productCategories = [
     description: 'High-precision gears for industrial applications and power transmission systems.',
     icon: Cog6ToothIcon,
     showcaseImages: [
-        { id: 'g1', src: '/products/spareparts/sp1.jpeg', alt: 'Hex Bolt Set' },
-        { id: 'g2', src: '/products/spareparts/sp2.jpeg', alt: 'Lock Washer Kit' },
-        { id: 'g3', src: '/products/spareparts/sp3.jpeg', alt: 'Machine Screws' },
-        { id: 'g4', src: '/products/spareparts/sp4.png', alt: 'Machine Screws' },
-        { id: 'g5', src: '/products/spareparts/sp5.png', alt: 'Machine Screws' },
-        { id: 'g6', src: '/products/spareparts/sp6.png', alt: 'Machine Screws' },
-        { id: 'g7', src: '/products/spareparts/sp7.png', alt: 'Machine Screws' },
-        { id: 'g8', src: '/products/spareparts/sp8.png', alt: 'Machine Screws' },
+        { id: 'g1', src: '/products/spareparts/sp1.jpeg', alt: 'Helical Gear Set' },
+        { id: 'g2', src: '/products/spareparts/sp2.jpeg', alt: 'Planetary Gearbox' },
+        { id: 'g3', src: '/products/spareparts/sp3.jpeg', alt: 'Worm Gear Assembly' },
+        { id: 'g4', src: '/products/spareparts/sp4.png', alt: 'Worm Gear Assembly' },
+        { id: 'g5', src: '/products/spareparts/sp5.png', alt: 'Worm Gear Assembly' },
+        { id: 'g6', src: '/products/spareparts/sp6.png', alt: 'Worm Gear Assembly' },
+        { id: 'g7', src: '/products/spareparts/sp7.png', alt: 'Worm Gear Assembly' },
+        { id: 'g8', src: '/products/spareparts/sp8.png', alt: 'Worm Gear Assembly' },
     ],
     brandLogos: [
       { id: 'gb1', src: '/products/bearings/brands/bb1.jpeg', alt: 'Brand A' },
@@ -44,25 +47,23 @@ const productCategories = [
       { id: 'b1', src: '/products/bearings/images/bb1.jpeg', alt: 'Ball Bearing' },
       { id: 'b2', src: '/products/bearings/images/bb2.jpeg', alt: 'Roller Bearing' },
       { id: 'b3', src: '/products/bearings/images/bb3.jpeg', alt: 'Thrust Bearing' },
-      { id: 'b4', src: '/products/bearings/images/bb4.jpeg', alt: 'Needle Bearing' },
-      { id: 'b5', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b6', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b7', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b8', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b9', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b10', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b11', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
+      { id: 'b4', src: '/products/bearings/images/bb4.jpeg', alt: 'Thrust Bearing' },
+      { id: 'b5', src: '/products/bearings/images/bb5.jpeg', alt: 'Thrust Bearing' },
+      { id: 'b6', src: '/products/bearings/images/bb6.jpeg', alt: 'Thrust Bearing' },
     ],
     brandLogos: [
       { id: 'bb1', src: '/products/bearings/brands/bb1.jpeg', alt: 'FAG Logo' },
       { id: 'bb2', src: '/products/bearings/brands/bb2.jpeg', alt: 'NSK Logo' },
-      { id: 'bb3', src: '/products/bearings/brands/bb3.jpeg', alt: 'NBC Logo' },
+      { id: 'bb3', src: '/products/bearings/brands/bb3.jpeg', alt: 'NSK Logo' },
+      { id: 'bb4', src: '/products/bearings/brands/bb4.jpeg', alt: 'NSK Logo' },
+      { id: 'bb5', src: '/products/bearings/brands/bb5.jpeg', alt: 'NSK Logo' },
+      { id: 'bb6', src: '/products/bearings/brands/bb6.jpeg', alt: 'NSK Logo' },
     ]
   },
   {
     id: 'lubricants',
     name: 'Lubricants & Oils',
-    description: 'Advanced lubrication solutions for optimal performance and extended equipment life.',
+    description: 'Advanced lubrication solutions for optimal performance.',
     icon: SparklesIcon,
     showcaseImages: [
         { id: 'l1', src: '/products/lubricants/engineoil/e1.jpg', alt: 'Synthetic Gear Oil' },
@@ -74,23 +75,16 @@ const productCategories = [
     ],
     brandLogos: [
         { id: 'lb1', src: '/products/bearings/brands/bb4.jpeg', alt: 'Lube Brand X' },
-        { id: 'lb2', src: '/products/bearings/brands/bb5.jpeg', alt: 'Lube Brand Y' },
     ]
   },
   {
     id: 'fasteners',
     name: 'Fasteners & Hardware',
-    description: 'A wide range of quality fasteners for secure and reliable connections.',
+    description: 'A wide range of quality fasteners for secure connections.',
     icon: BoltIcon,
     showcaseImages: [
         { id: 'f1', src: '/products/spareparts/sp1.jpeg', alt: 'Hex Bolt Set' },
         { id: 'f2', src: '/products/spareparts/sp2.jpeg', alt: 'Lock Washer Kit' },
-        { id: 'f3', src: '/products/spareparts/sp3.jpeg', alt: 'Machine Screws' },
-        { id: 'f4', src: '/products/spareparts/sp4.png', alt: 'Machine Screws' },
-        { id: 'f5', src: '/products/spareparts/sp5.png', alt: 'Machine Screws' },
-        { id: 'f6', src: '/products/spareparts/sp6.png', alt: 'Machine Screws' },
-        { id: 'f7', src: '/products/spareparts/sp7.png', alt: 'Machine Screws' },
-        { id: 'f8', src: '/products/spareparts/sp8.png', alt: 'Machine Screws' },
     ],
     brandLogos: [
         { id: 'fb1', src: '/products/bearings/brands/bb6.jpeg', alt: 'Fastener Brand' },
@@ -100,6 +94,7 @@ const productCategories = [
 
 // --- REUSABLE CategoryShowcase Component ---
 const CategoryShowcase = ({ category }) => {
+   
     const { showcaseImages, brandLogos } = category;
     const [selectedImage, setSelectedImage] = useState(null);
     const constraintsRef = useRef(null);
@@ -107,16 +102,15 @@ const CategoryShowcase = ({ category }) => {
     const [dragConstraint, setDragConstraint] = useState(0);
 
     useEffect(() => {
-        // Debounce or delay calculation to ensure images are loaded
         const timer = setTimeout(() => {
             if (contentRef.current && constraintsRef.current) {
                 const contentWidth = contentRef.current.scrollWidth;
                 const viewportWidth = constraintsRef.current.clientWidth;
                 setDragConstraint(Math.max(0, contentWidth - viewportWidth));
             }
-        }, 300); // 300ms delay
+        }, 300);
         return () => clearTimeout(timer);
-    }, [showcaseImages]); // Recalculate if images change
+    }, [showcaseImages]);
 
     return (
         <>
@@ -133,11 +127,13 @@ const CategoryShowcase = ({ category }) => {
                     whileTap={{ cursor: "grabbing" }}
                 >
                     {showcaseImages.map((image) => (
-                        <div key={image.id} className="flex-shrink-0 first:ml-auto last:mr-auto">
-                            <motion.img 
+                        <div key={image.id} className="relative flex-shrink-0 first:ml-auto last:mr-auto h-24 md:h-32 w-48">
+                            <MotionImage 
                                 src={image.src} 
                                 alt={image.alt}
-                                className="h-24 md:h-32 w-auto object-contain pointer-events-none"
+                                fill
+                                sizes="(max-width: 768px) 30vw, 10vw"
+                                className="object-contain pointer-events-none"
                                 onClick={() => setSelectedImage(image)}
                                 layoutId={`image-${image.id}`}
                             />
@@ -148,7 +144,15 @@ const CategoryShowcase = ({ category }) => {
 
             <div className="flex justify-center items-center flex-wrap gap-x-8 gap-y-4 mb-8">
                 {brandLogos.map(logo => (
-                    <img key={logo.id} src={logo.src} alt={logo.alt} className="h-6 md:h-8 object-contain" />
+                    <div key={logo.id} className="relative h-6 md:h-8 w-24">
+                        <Image 
+                            src={logo.src} 
+                            alt={logo.alt}
+                            fill
+                            sizes="100px"
+                            className="object-contain"
+                        />
+                    </div>
                 ))}
             </div>
             
@@ -162,19 +166,22 @@ const CategoryShowcase = ({ category }) => {
             <AnimatePresence>
                 {selectedImage && (
                     <motion.div
-                        className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center"
+                        className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
                         onClick={() => setSelectedImage(null)}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                     >
-                        <motion.img
-                            src={selectedImage.src}
-                            alt={selectedImage.alt}
-                            className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg shadow-2xl"
-                            layoutId={`image-${selectedImage.id}`}
-                            onClick={(e) => e.stopPropagation()}
-                        />
+                        <div className="relative w-full h-full max-w-4xl max-h-[80vh]" onClick={(e) => e.stopPropagation()}>
+                           <MotionImage
+                                src={selectedImage.src}
+                                alt={selectedImage.alt}
+                                fill
+                                sizes="90vw"
+                                className="object-contain"
+                                layoutId={`image-${selectedImage.id}`}
+                           />
+                        </div>
                         <button
                             onClick={() => setSelectedImage(null)}
                             className="absolute top-5 right-5 text-white bg-black/50 rounded-full p-2 hover:bg-black/75 transition-colors"
@@ -256,7 +263,6 @@ export default function ProductsPage() {
                                 <p className="mt-2 text-gray-600 max-w-xl mx-auto">{category.description}</p>
                             </div>
                             
-                            {/* Always render the showcase, passing the whole category object */}
                             <CategoryShowcase category={category} />
                             
                         </motion.section>
