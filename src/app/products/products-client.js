@@ -10,183 +10,27 @@ import {
   SparklesIcon,
   XMarkIcon as XIcon,
   ArrowDownTrayIcon as DownloadIcon,
+  WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
+import { ShieldStarIcon } from '@phosphor-icons/react/dist/ssr';
+import CategoryShowcase from './CategoryShowcase';
+import { productCategories as rawCategories } from './productData';
 
-// --- UPDATED DATA STRUCTURE FOR ALL CATEGORIES ---
-// Every category now has showcaseImages, brandLogos, and keyFeatures
-const productCategories = [
-  {
-    id: 'gears',
-    name: 'Gears & Transmissions',
-    description: 'High-precision gears for industrial applications and power transmission systems.',
-    icon: Cog6ToothIcon,
-    showcaseImages: [
-        { id: 'g1', src: '/products/spareparts/sp1.jpeg', alt: 'Hex Bolt Set' },
-        { id: 'g2', src: '/products/spareparts/sp2.jpeg', alt: 'Lock Washer Kit' },
-        { id: 'g3', src: '/products/spareparts/sp3.jpeg', alt: 'Machine Screws' },
-        { id: 'g4', src: '/products/spareparts/sp4.png', alt: 'Machine Screws' },
-        { id: 'g5', src: '/products/spareparts/sp5.png', alt: 'Machine Screws' },
-        { id: 'g6', src: '/products/spareparts/sp6.png', alt: 'Machine Screws' },
-        { id: 'g7', src: '/products/spareparts/sp7.png', alt: 'Machine Screws' },
-        { id: 'g8', src: '/products/spareparts/sp8.png', alt: 'Machine Screws' },
-    ],
-    brandLogos: [
-      { id: 'gb1', src: '/products/bearings/brands/bb1.jpeg', alt: 'Brand A' },
-      { id: 'gb2', src: '/products/bearings/brands/bb2.jpeg', alt: 'Brand B' },
-    ]
-  },
-  {
-    id: 'bearings',
-    name: 'Bearings & Bushings',
-    description: 'Precision bearings for smooth operation and superior performance.',
-    icon: CubeIcon,
-    showcaseImages: [
-      { id: 'b1', src: '/products/bearings/images/bb1.jpeg', alt: 'Ball Bearing' },
-      { id: 'b2', src: '/products/bearings/images/bb2.jpeg', alt: 'Roller Bearing' },
-      { id: 'b3', src: '/products/bearings/images/bb3.jpeg', alt: 'Thrust Bearing' },
-      { id: 'b4', src: '/products/bearings/images/bb4.jpeg', alt: 'Needle Bearing' },
-      { id: 'b5', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b6', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b7', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b8', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b9', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b10', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-      { id: 'b11', src: '/products/bearings/images/bb5.jpeg', alt: 'Plain Bearing' },
-    ],
-    brandLogos: [
-      { id: 'bb1', src: '/products/bearings/brands/bb1.jpeg', alt: 'FAG Logo' },
-      { id: 'bb2', src: '/products/bearings/brands/bb2.jpeg', alt: 'NSK Logo' },
-      { id: 'bb3', src: '/products/bearings/brands/bb3.jpeg', alt: 'NBC Logo' },
-    ]
-  },
-  {
-    id: 'lubricants',
-    name: 'Lubricants & Oils',
-    description: 'Advanced lubrication solutions for optimal performance and extended equipment life.',
-    icon: SparklesIcon,
-    showcaseImages: [
-        { id: 'l1', src: '/products/lubricants/engineoil/e1.jpg', alt: 'Synthetic Gear Oil' },
-        { id: 'l2', src: '/products/lubricants/engineoil/e2.jpg', alt: 'Bearing Grease' },
-        { id: 'l3', src: '/products/lubricants/engineoil/e3.jpg', alt: 'Bearing Grease' },
-        { id: 'l4', src: '/products/lubricants/engineoil/e4.jpg', alt: 'Bearing Grease' },
-        { id: 'l5', src: '/products/lubricants/engineoil/e5.png', alt: 'Bearing Grease' },
-        { id: 'l6', src: '/products/lubricants/engineoil/e6.jpeg', alt: 'Bearing Grease' },
-    ],
-    brandLogos: [
-        { id: 'lb1', src: '/products/bearings/brands/bb4.jpeg', alt: 'Lube Brand X' },
-        { id: 'lb2', src: '/products/bearings/brands/bb5.jpeg', alt: 'Lube Brand Y' },
-    ]
-  },
-  {
-    id: 'fasteners',
-    name: 'Fasteners & Hardware',
-    description: 'A wide range of quality fasteners for secure and reliable connections.',
-    icon: BoltIcon,
-    showcaseImages: [
-        { id: 'f1', src: '/products/spareparts/sp1.jpeg', alt: 'Hex Bolt Set' },
-        { id: 'f2', src: '/products/spareparts/sp2.jpeg', alt: 'Lock Washer Kit' },
-        { id: 'f3', src: '/products/spareparts/sp3.jpeg', alt: 'Machine Screws' },
-        { id: 'f4', src: '/products/spareparts/sp4.png', alt: 'Machine Screws' },
-        { id: 'f5', src: '/products/spareparts/sp5.png', alt: 'Machine Screws' },
-        { id: 'f6', src: '/products/spareparts/sp6.png', alt: 'Machine Screws' },
-        { id: 'f7', src: '/products/spareparts/sp7.png', alt: 'Machine Screws' },
-        { id: 'f8', src: '/products/spareparts/sp8.png', alt: 'Machine Screws' },
-    ],
-    brandLogos: [
-        { id: 'fb1', src: '/products/bearings/brands/bb6.jpeg', alt: 'Fastener Brand' },
-    ]
-  },
-];
-
-// --- REUSABLE CategoryShowcase Component ---
-const CategoryShowcase = ({ category }) => {
-    const { showcaseImages, brandLogos } = category;
-    const [selectedImage, setSelectedImage] = useState(null);
-    const constraintsRef = useRef(null);
-    const contentRef = useRef(null);
-    const [dragConstraint, setDragConstraint] = useState(0);
-
-    useEffect(() => {
-        // Debounce or delay calculation to ensure images are loaded
-        const timer = setTimeout(() => {
-            if (contentRef.current && constraintsRef.current) {
-                const contentWidth = contentRef.current.scrollWidth;
-                const viewportWidth = constraintsRef.current.clientWidth;
-                setDragConstraint(Math.max(0, contentWidth - viewportWidth));
-            }
-        }, 300); // 300ms delay
-        return () => clearTimeout(timer);
-    }, [showcaseImages]); // Recalculate if images change
-
-    return (
-        <>
-            <motion.div 
-                ref={constraintsRef}
-                className="relative w-full h-40 md:h-56 mb-12 overflow-hidden cursor-grab"
-            >
-                <motion.div
-                    ref={contentRef}
-                    className="absolute inset-0 flex items-center gap-4 px-4 h-full"
-                    drag="x"
-                    dragConstraints={{ right: 0, left: -dragConstraint }}
-                    dragMomentum={false}
-                    whileTap={{ cursor: "grabbing" }}
-                >
-                    {showcaseImages.map((image) => (
-                        <div key={image.id} className="flex-shrink-0 first:ml-auto last:mr-auto">
-                            <motion.img 
-                                src={image.src} 
-                                alt={image.alt}
-                                className="h-24 md:h-32 w-auto object-contain pointer-events-none"
-                                onClick={() => setSelectedImage(image)}
-                                layoutId={`image-${image.id}`}
-                            />
-                        </div>
-                    ))}
-                </motion.div>
-            </motion.div>
-
-            <div className="flex justify-center items-center flex-wrap gap-x-8 gap-y-4 mb-8">
-                {brandLogos.map(logo => (
-                    <img key={logo.id} src={logo.src} alt={logo.alt} className="h-6 md:h-8 object-contain" />
-                ))}
-            </div>
-            
-          
-
-            <button className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gray-800 text-white font-semibold rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300">
-                <DownloadIcon className="w-5 h-5" />
-                Download Catalogue
-            </button>
-
-            <AnimatePresence>
-                {selectedImage && (
-                    <motion.div
-                        className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center"
-                        onClick={() => setSelectedImage(null)}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                    >
-                        <motion.img
-                            src={selectedImage.src}
-                            alt={selectedImage.alt}
-                            className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg shadow-2xl"
-                            layoutId={`image-${selectedImage.id}`}
-                            onClick={(e) => e.stopPropagation()}
-                        />
-                        <button
-                            onClick={() => setSelectedImage(null)}
-                            className="absolute top-5 right-5 text-white bg-black/50 rounded-full p-2 hover:bg-black/75 transition-colors"
-                        >
-                            <XIcon className="w-6 h-6" />
-                        </button>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </>
-    );
+// Map icon string to actual component reference
+const iconMap = {
+    ShieldStarIcon,
+    CubeIcon,
+    BoltIcon,
+    SparklesIcon,
+    Cog6ToothIcon,
 };
+
+// Enhance imported data with real icon components
+const productCategories = rawCategories.map(cat => ({
+    ...cat,
+    icon: iconMap[cat.icon] || CubeIcon
+}));
+
 
 // --- Main Page Component ---
 export default function ProductsPage() {
@@ -200,7 +44,52 @@ export default function ProductsPage() {
 
     return (
         <main className="bg-slate-50 min-h-screen">
-            <header className="bg-white text-center py-20">
+         
+            <motion.section
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative bg-gradient-to-r from-red-700 via-red-800 to-blue-700 text-white py-20 overflow-hidden"
+            >
+              {/* Background bearing pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-10 left-10 w-40 h-40 rounded-full border-4 border-white"></div>
+                <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full border-4 border-white"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 rounded-full border-2 border-white"></div>
+              </div>
+
+              <div className="container mx-auto px-6 relative z-10">
+                <div className="text-center max-w-4xl mx-auto">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    className="mb-6"
+                  >
+                    <h1 className="text-6xl md:text-8xl font-extrabold mb-4 leading-tight">
+                      THE<br />ORIGINAL<br />TRADERS
+                    </h1>
+                    <p className="text-2xl md:text-3xl italic font-medium">
+                      Keeping Machines in Motion
+                    </p>
+                  </motion.div>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                    className="text-xl text-red-100 mb-8 leading-relaxed"
+                  >
+                    Premium industrial hardware components engineered for performance and reliability
+                  </motion.p>
+
+                  
+                </div>
+              </div>
+            </motion.section>
+
+            <header className="bg-gradient-to-br from-red-50 via-white to-blue-50 relative text-center py-20">
+              
                 <h1 className="text-5xl font-extrabold text-gray-900 tracking-tighter">Our Products</h1>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
                     Explore our comprehensive range of industrial hardware, engineered for reliability and performance.
@@ -222,22 +111,56 @@ export default function ProductsPage() {
                         )}
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {productCategories.map(category => (
-                            <motion.button
-                                key={category.id}
-                                onClick={() => setSelectedCategory(selectedCategory === category.id ? null : category.id)}
-                                className={`p-4 rounded-lg border-2 text-center transition-all duration-300 ${
-                                    selectedCategory === category.id
-                                        ? 'bg-red-100 border-red-600 shadow-lg'
-                                        : 'bg-white border-gray-200 hover:border-red-500 hover:shadow-md'
+                      {productCategories.map(category => {
+                        const isSelected = selectedCategory === category.id;
+                        return (
+                          <motion.button
+                            key={category.id}
+                            onClick={() => setSelectedCategory(isSelected ? null : category.id)}
+                            className={`relative group p-4 rounded-xl border-2 text-center transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#9a2700] ${
+                              isSelected
+                                ? 'border-[#9a2700] shadow-lg'
+                                : 'border-gray-200 hover:border-[#9a2700] hover:shadow-md'
+                            }`}
+                            whileHover={{ y: -5 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            {/* Background / pattern layers */}
+                            <div className="absolute inset-0 ">
+                              {isSelected ? (
+                                <>
+                                  <span className="absolute inset-0 bg-[linear-gradient(140deg,#9a2700_0%,#611500_40%,#2c5685_100%)]" />
+                                  <span className="absolute inset-0 mix-blend-overlay opacity-25 bg-[repeating-linear-gradient(45deg,rgba(255,255,255,0.18)_0_10px,transparent_10px_20px)]" />
+                                  <span className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-white/10 blur-xl" />
+                                  <span className="absolute -bottom-10 -left-10 w-28 h-28 rounded-full bg-white/10 blur-2xl" />
+                                </>
+                              ) : (
+                                <>
+                                  <span className="absolute inset-0 bg-white transition-colors group-hover:bg-[linear-gradient(140deg,#ffffff,#fef2f2,#f0f6ff)]" />
+                                  <span className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity bg-[radial-gradient(circle_at_30%_20%,#9a270022,transparent_60%),radial-gradient(circle_at_75%_75%,#2c568522,transparent_65%)]" />
+                                </>
+                              )}
+                            </div>
+                            <div className="relative">
+                              <category.icon
+                                className={`w-8 h-8 mx-auto mb-2 transition-colors drop-shadow-sm ${
+                                  isSelected ? 'text-white' : 'text-gray-500 group-hover:text-[#9a2700]'
                                 }`}
-                                whileHover={{ y: -5 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <category.icon className={`w-8 h-8 mx-auto mb-2 transition-colors ${selectedCategory === category.id ? 'text-red-700' : 'text-gray-500'}`} />
-                                <span className="font-semibold text-sm text-gray-800">{category.name}</span>
-                            </motion.button>
-                        ))}
+                              />
+                              <span
+                                className={`font-semibold text-sm transition-colors ${
+                                  isSelected ? 'text-white' : 'text-gray-800 group-hover:text-[#611500]'
+                                }`}
+                              >
+                                {category.name}
+                              </span>
+                            </div>
+                            {isSelected && (
+                              <span className="absolute inset-x-0 bottom-0 h-1 bg-[linear-gradient(to_right,#9a2700,#2c5685)]" />
+                            )}
+                          </motion.button>
+                        );
+                      })}
                     </div>
                 </section>
 
@@ -263,6 +186,73 @@ export default function ProductsPage() {
                     ))}
                 </AnimatePresence>
             </div>
+
+             {/* Call to Action */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="bg-gradient-to-r from-red-700 via-red-800 to-blue-700 text-white py-20 relative overflow-hidden"
+      >
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-32 h-32 rounded-full border-2 border-white"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full border-2 border-white"></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 rounded-full border-2 border-white"></div>
+        </div>
+
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-4xl font-bold mb-6"
+          >
+            Need Custom Engineering Solutions?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-red-100 mb-8 max-w-2xl mx-auto text-lg"
+          >
+            Our expert engineering team specializes in designing and manufacturing precision hardware components
+            tailored to your exact specifications and performance requirements.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="flex flex-wrap justify-center gap-4"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                size="lg"
+                className="bg-white text-red-700 hover:bg-red-50 font-semibold shadow-xl" 
+              >
+                <WrenchScrewdriverIcon className="w-5 h-5 mr-2" />
+                Contact Our Engineers
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white hover:bg-red-50 text-red-700 font-semibold"
+              >
+                Request Quote
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.section>
         </main>
     );
 }
