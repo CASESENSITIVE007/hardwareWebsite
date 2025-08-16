@@ -30,17 +30,17 @@ function Cards() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center mt-8 lg:w-2/3 mx-auto">
           {[
             {
-              image: "/bearingcard.jpeg",
-              Name: "Ball Bearings",
+              image: "/cardbearingbg.png",
+              Name: "Bearings",
               desc: "This is the description view",
             },
             {
-              image: "/lubricantcard.jpeg",
-              Name: "Lubricant",
+              image: "/cardlubricantsbg.png",
+              Name: "Lubricants",
               desc: "This is the description view",
             },
             {
-              image: "/sparepartscard.png",
+              image: "/cardsparepartsbg.png",
               Name: "Automotive Spare Parts",
               desc: "This is the description view",
             },

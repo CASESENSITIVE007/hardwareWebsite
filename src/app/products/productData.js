@@ -229,8 +229,6 @@ export const productCategories = [
 	{
 		id: 'spare_parts',
 		name: 'Auto Spare Parts',
-		id: 'spareparts',
-		name: 'Spare Parts',
 		description: 'Reliable fastening solutions for structural integrity.',
 		icon: 'BoltIcon',
 		brandLogos: [

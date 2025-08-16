@@ -25,12 +25,12 @@ function Card({ Name, image, descName, desc }) {
           {/* Background Image */}
           <div
             style={{ backgroundImage: `url(${image})` }}
-            className="absolute inset-0 h-full w-full bg-contain bg-no-repeat  bg-center opacity-50"
+            className="absolute inset-0 h-full w-full bg-contain bg-no-repeat   bg-center opacity-50"
           ></div>
 
           {/* Content */}
           <div className="relative flex h-full w-full flex-col items-center justify-center px-6 text-center">
-            <h1 className="absolute bottom-0 left-0 p-3 sm:p-4 text-white text-lg sm:text-xl md:text-2xl font-bold z-20">
+            <h1 className="absolute bottom-0  p-3 sm:p-4 text-white text-lg  sm:text-xl md:text-2xl font-bold z-20">
               {Name}
             </h1>
           </div>

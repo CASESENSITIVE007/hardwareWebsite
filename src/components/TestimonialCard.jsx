@@ -1,46 +1,49 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from 'next/image';
 
-const StarIcon = ({ isFilled }) => (
-  <svg
-    className={`h-6 w-6 ${isFilled ? "text-yellow-400" : "text-gray-300"}`} // bigger star
-    viewBox="0 0 20 20"
-    fill="currentColor"
-  >
-    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.95-.69l1.07-3.292z" />
-  </svg>
-);
-
-const ReviewCard = ({ review }) => {
-  if (!review) return null;
+const TestimonialCard = ({ testimonial }) => {
+  if (!testimonial) return null;
 
   return (
-    <motion.div
-      className="flex flex-col rounded-xl bg-gray-100 p-8 sm:p-10 shadow-lg w-full h-full max-w-3xl"
-      whileHover={{ y: -5, scale: 1.03 }}
-      transition={{ type: "spring", stiffness: 300, damping: 15 }}
-    >
-      {/* Rating Section */}
-      <div className="mb-4 flex items-center">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <StarIcon key={index} isFilled={index < review.rating} />
-        ))}
-        <span className="ml-3 text-lg font-semibold text-gray-700">
-          {review.rating.toFixed(1)}
-        </span>
+    <div className="flex flex-col md:flex-row items-center md:items-start w-full h-full gap-8 p-4">
+      
+      {/* Left Side: Profile Info */}
+      <div className="flex flex-col items-center md:items-start flex-shrink-0">
+        {/* Profile Image with colored ring */}
+        <div className="mb-4">
+          <Image
+            src={testimonial.image}
+            alt={testimonial.name}
+            width={112} // 7rem
+            height={112} // 7rem
+            className="rounded-full  "
+          />
+        </div>
+
+        {/* Name */}
+        <div className="bg-red-700 text-white text-sm font-semibold px-4 py-1.5 rounded-md shadow-sm">
+          {testimonial.name}
+        </div>
+
+        {/* Title */}
+        <div className="bg-red-700 text-white text-xs font-medium px-5 py-1.5 rounded-md mt-2 shadow-sm">
+          {testimonial.title}
+        </div>
       </div>
 
-      {/* Review Comment */}
-      <p className="text-lg italic text-gray-600 leading-relaxed">
-        {review.comment}
-      </p>
-    </motion.div>
+      {/* Right Side: Testimonial Quote */}
+      <div className="flex-grow text-center md:text-left">
+        <p className="text-base text-gray-700 leading-relaxed pt-2">
+          {testimonial.quote}
+        </p>
+      </div>
+
+    </div>
   );
 };
 
-export default ReviewCard;
-
+export default TestimonialCard;
 
 
 

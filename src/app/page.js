@@ -6,7 +6,7 @@ import Contactus from "../components/Contactus"
 import Features from "../components/Features"
 import Navbar from "../components/Navbar";
 import KeyIndustries from "../components/KeyIndustries";
-import ReviewsGrid from "../components/ReviewsGrid"
+import Testimonials from "../components/Testimonials"
 import Cards from "../components/Cards";
 import Clientcards from "../components/Clientcards";
 import WhyUs from "../components/WhyUs";
@@ -20,7 +20,7 @@ export default function Home() {
     <Cards/>
     <KeyIndustries/>
     <Clientcards/>
-    <ReviewsGrid/>
+    <Testimonials/>
     <Contactus/>
     <WhyUs/>
     <ContactSection/>

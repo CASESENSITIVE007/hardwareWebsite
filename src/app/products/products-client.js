@@ -39,6 +39,12 @@ export default function ProductsPage() {
     const id = searchParams.get('id');
     const [selectedCategory, setSelectedCategory] = useState(id || null);
 
+ 
+    useEffect(() => {
+        // It updates the component's state to match the URL.
+        setSelectedCategory(id || null);
+    }, [id]); // The dependency array makes this effect watch for changes to 'id'.
+
     const categoriesToShow = selectedCategory
         ? productCategories.filter(cat => cat.id === selectedCategory)
         : productCategories;
