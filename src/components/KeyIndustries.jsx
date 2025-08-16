@@ -1,25 +1,104 @@
-import IndustryCard from "./IndustryCard"
+"use client";
+import IndustryCard from "./IndustryCard";
+import { motion } from "framer-motion";
+
+const cards = [
+  { src: "/keyindustries/infra.jpeg", title: "Infrastructure" },
+  { src: "/keyindustries/cement.jpeg", title: "Cement" },
+  { src: "/keyindustries/automotive.jpeg", title: "Automotive" },
+  { src: "/keyindustries/motorandgearbox.jpeg", title: "Motor and Gearbox" },
+  { src: "/keyindustries/papermill.jpeg", title: "Paper Mills" },
+  { src: "/keyindustries/Textile.jpeg", title: "Textile" },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: (delay = 0) => ({
+    opacity: 1,
+    transition: { delay, staggerChildren: 0.12, ease: "easeOut" },
+  }),
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.96 },
+  show: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: i * 0.04 },
+  }),
+};
 
 function KeyIndustries() {
   return (
-    <section id="keyindustries" className="text-center mx-auto m-4">
+    <section
+      id="keyindustries"
+      className="relative text-center mx-auto m-4 py-8 overflow-hidden"
+    >
+      {/* Ambient backdrop accents */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-40 left-1/3 w-[38rem] h-[38rem] rounded-full bg-gradient-to-br from-red-700/15 via-red-600/5 to-transparent blur-3xl" />
+        <div className="absolute bottom-0 right-10 w-[30rem] h-[30rem] rounded-full bg-gradient-to-tr from-blue-700/20 to-transparent blur-3xl" />
+        <motion.div
+          aria-hidden
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[55rem] h-[55rem] rounded-full border border-white/5"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+        />
+      </div>
+
       {/* Heading */}
-      <h1 className="text-center lg:text-5xl text-3xl font-bold mb-10">
-        Key Industries
-      </h1>
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.6 }}
+        variants={containerVariants}
+        custom={0}
+        className="mb-12"
+      >
+        <motion.h1
+          initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0, y: 40 }}
+          whileInView={{ clipPath: "inset(0 0 0% 0)", opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.8 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="relative inline-block text-center lg:text-5xl text-3xl font-bold tracking-tight"
+        >
+          <span className="bg-clip-text text-transparent bg-[linear-gradient(90deg,#1e293b,#9a2700,#2c5685)] animate-[pulse_9s_linear_infinite]">
+            Key Industries
+          </span>
+          {/* Underline grow */}
+          <motion.span
+            aria-hidden
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.35, duration: 0.7, ease: "easeOut" }}
+            className="absolute -bottom-2 left-0 h-[3px] w-full origin-left bg-gradient-to-r from-red-600 via-red-700 to-blue-700 rounded"
+          />
+        </motion.h1>
+      </motion.div>
 
       {/* Responsive Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4  ">
-        <IndustryCard imageUrl={"/keyindustries/infra.jpeg"} altText={"Infrastructure"} title={"Infrastructure"} />
-        <IndustryCard imageUrl={"/keyindustries/cement.jpeg"} altText={"Cement"} title={"Cement"} />
-        <IndustryCard imageUrl={"/keyindustries/automotive.jpeg"} altText={"Automotive"} title={"Automotive"} />
-        <IndustryCard imageUrl={"/keyindustries/motorandgearbox.jpeg"} altText={"Motor and Gearbox"} title={"Motor and Gearbox"} />
-        <IndustryCard imageUrl={"/keyindustries/papermill.jpeg"} altText={"Paper Mills"} title={"Paper Mills"} />
-        <IndustryCard imageUrl={"/keyindustries/Textile.jpeg"} altText={"Textile"} title={"Textile"} />
-        
-      </div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4"
+      >
+        {cards.map((c, i) => (
+          <motion.div key={c.title} variants={itemVariants} custom={i}>
+            <IndustryCard
+              imageUrl={c.src}
+              altText={c.title}
+              title={c.title}
+              index={i}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
-  )
+  );
 }
 
-export default KeyIndustries
+export default KeyIndustries;
