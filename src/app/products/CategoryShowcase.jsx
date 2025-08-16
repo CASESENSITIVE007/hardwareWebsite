@@ -66,7 +66,7 @@ const ProductBlock = ({ product, category }) => {
           {images.map((img, idx) => (
             <motion.div
               key={img.id}
-              className="snap-center flex-shrink-0 basis-[78%] sm:basis-[52%] md:basis-1/3 bg-white/80 backdrop-blur rounded-xl p-0 flex items-center justify-center shadow ring-1 ring-slate-200/60 relative overflow-hidden group/card"
+              className="snap-center flex-shrink-0 basis-[78%] sm:basis-[52%] md:basis-1/3 bg-white backdrop-blur rounded-xl p-0 flex items-center justify-center shadow ring-1 ring-slate-200/60 relative overflow-hidden group/card"
               initial={{ opacity: 0, y: 30, scale: 0.92 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -88,7 +88,7 @@ const ProductBlock = ({ product, category }) => {
               <motion.img
                 src={img.src}
                 alt={img.alt}
-                className="h-full w-auto max-w-full object-contain drop-shadow-sm select-none"
+                className="h-full w-auto max-w-full object-contain  select-none"
                 draggable={false}
                 animate={{ y: [0, -2, 0] }}
                 whileHover={{
@@ -136,7 +136,7 @@ const ProductBlock = ({ product, category }) => {
             key={logo.id}
             src={logo.src}
             alt={logo.alt}
-            className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity"
+            className="h-8 md:h-10 lg:h-20 object-contain opacity-70 hover:opacity-100 transition-opacity"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 0.7, y: 0 }}
             transition={{ delay: i * 0.08 }}

@@ -44,7 +44,7 @@ export default function ProductsPage() {
         : productCategories;
 
     return (
-        <main className="bg-slate-50 min-h-screen">
+        <main className="bg-white min-h-screen">
          
             <motion.section
               initial={{ opacity: 0, y: -20 }}
@@ -97,7 +97,7 @@ export default function ProductsPage() {
                 </p>
             </header>
 
-            <div className="container mx-auto px-4 py-16">
+            <div className="container mx-auto px-4 py-16 bg-white ">
                 <section className="mb-16">
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-3xl font-bold tracking-tight text-gray-800">Product Categories</h2>

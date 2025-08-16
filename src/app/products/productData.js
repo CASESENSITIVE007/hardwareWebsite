@@ -3,73 +3,7 @@
 // Each product now contains: id, name, description, images (array of {id, src, alt}), specifications (array of strings)
 
 export const productCategories = [
-	{
-		id: 'galaxy',
-		name: 'Galaxy',
-		description: 'High performance precision spare parts and assemblies engineered for durability.',
-		icon: 'ShieldStarIcon',
-		brandLogos: [
-			{ id: 'gb1', src: '/products/bearings/brands/bb1.jpeg', alt: 'Brand A' },
-			{ id: 'gb2', src: '/products/bearings/brands/bb2.jpeg', alt: 'Brand B' },
-		],
-		products: [
-			{
-				id: 'galaxy-spare-parts',
-				name: 'Spare Parts',
-				description: 'OEM-grade replacement parts ensuring seamless integration and reliability.',
-				images: [
-					{ id: 'galaxy-sp1-1', src: '/products/spareparts/sp1.jpeg', alt: 'Spare Part primary' },
-					{ id: 'galaxy-sp1-2', src: '/products/spareparts/sp2.jpeg', alt: 'Spare Part alt 1' },
-					{ id: 'galaxy-sp1-3', src: '/products/spareparts/sp3.jpeg', alt: 'Spare Part alt 2' },
-				],
-				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
-			},
-			{
-				id: 'galaxy-lubricants',
-				name: 'Lubricants',
-				description: 'High-performance lubricants for optimal machinery efficiency.',
-				images: [
-					{ id: 'galaxy-lub-1', src: '/products/spareparts/sp2.jpeg', alt: 'Lubricant primary' },
-					{ id: 'galaxy-lub-2', src: '/products/spareparts/sp3.jpeg', alt: 'Lubricant alt 1' },
-					{ id: 'galaxy-lub-3', src: '/products/spareparts/sp4.png', alt: 'Lubricant alt 2' },
-				],
-				specifications: ['Tight Tolerances', 'CNC Machined', 'ISO Certified']
-			},
-			{
-				id: 'galaxy-assemblies',
-				name: 'Assemblies',
-				description: 'Pre‑assembled units reducing installation time and errors.',
-				images: [
-					{ id: 'galaxy-assy-1', src: '/products/spareparts/sp3.jpeg', alt: 'Assembly primary' },
-					{ id: 'galaxy-assy-2', src: '/products/spareparts/sp4.png', alt: 'Assembly alt 1' },
-					{ id: 'galaxy-assy-3', src: '/products/spareparts/sp5.png', alt: 'Assembly alt 2' },
-				],
-				specifications: ['Plug & Play', 'Factory Tested', 'Traceable Lots']
-			},
-			{
-				id: 'galaxy-hardware',
-				name: 'Hardware',
-				description: 'General industrial hardware for versatile mechanical use.',
-				images: [
-					{ id: 'galaxy-hw-1', src: '/products/spareparts/sp4.png', alt: 'Hardware primary' },
-					{ id: 'galaxy-hw-2', src: '/products/spareparts/sp5.png', alt: 'Hardware alt 1' },
-					{ id: 'galaxy-hw-3', src: '/products/spareparts/sp6.png', alt: 'Hardware alt 2' },
-				],
-				specifications: ['Multiple Sizes', 'High Strength', 'Surface Treated']
-			},
-			{
-				id: 'galaxy-accessories',
-				name: 'Accessories',
-				description: 'Enhancement accessories extending system functionality.',
-				images: [
-					{ id: 'galaxy-acc-1', src: '/products/spareparts/sp5.png', alt: 'Accessory primary' },
-					{ id: 'galaxy-acc-2', src: '/products/spareparts/sp6.png', alt: 'Accessory alt 1' },
-					{ id: 'galaxy-acc-3', src: '/products/spareparts/sp7.png', alt: 'Accessory alt 2' },
-				],
-				specifications: ['Modular', 'Quick Install', 'Durable Coating']
-			}
-		]
-	},
+	
 	{
 		id: 'bearings',
 		name: 'Bearings & Bushings',
@@ -206,8 +140,8 @@ export const productCategories = [
 		]
 	},
 	{
-		id: 'fasteners',
-		name: 'Fasteners & Hardware',
+		id: 'spare_parts',
+		name: 'Auto Spare Parts',
 		description: 'Reliable fastening solutions for structural integrity.',
 		icon: 'BoltIcon',
 		brandLogos: [
@@ -270,7 +204,74 @@ export const productCategories = [
 				specifications: ['High Tensile', 'Cut-To-Length', 'Coarse / Fine']
 			}
 		]
-	}
+	},
+	{
+		id: 'galaxy',
+		name: 'Galaxy',
+		description: 'High performance precision spare parts and assemblies engineered for durability.',
+		icon: 'ShieldStarIcon',
+		brandLogos: [
+			{ id: 'gb1', src: '/products/bearings/brands/bb1.jpeg', alt: 'Brand A' },
+			{ id: 'gb2', src: '/products/bearings/brands/bb2.jpeg', alt: 'Brand B' },
+		],
+		products: [
+			{
+				id: 'galaxy-spare-parts',
+				name: 'Spare Parts',
+				description: 'OEM-grade replacement parts ensuring seamless integration and reliability.',
+				images: [
+					{ id: 'galaxy-sp1-1', src: '/products/spareparts/sp1.jpeg', alt: 'Spare Part primary' },
+					{ id: 'galaxy-sp1-2', src: '/products/spareparts/sp2.jpeg', alt: 'Spare Part alt 1' },
+					{ id: 'galaxy-sp1-3', src: '/products/spareparts/sp3.jpeg', alt: 'Spare Part alt 2' },
+				],
+				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
+			},
+			{
+				id: 'galaxy-lubricants',
+				name: 'Lubricants',
+				description: 'High-performance lubricants for optimal machinery efficiency.',
+				images: [
+					{ id: 'galaxy-lub-1', src: '/products/spareparts/sp2.jpeg', alt: 'Lubricant primary' },
+					{ id: 'galaxy-lub-2', src: '/products/spareparts/sp3.jpeg', alt: 'Lubricant alt 1' },
+					{ id: 'galaxy-lub-3', src: '/products/spareparts/sp4.png', alt: 'Lubricant alt 2' },
+				],
+				specifications: ['Tight Tolerances', 'CNC Machined', 'ISO Certified']
+			},
+			{
+				id: 'galaxy-assemblies',
+				name: 'Assemblies',
+				description: 'Pre‑assembled units reducing installation time and errors.',
+				images: [
+					{ id: 'galaxy-assy-1', src: '/products/spareparts/sp3.jpeg', alt: 'Assembly primary' },
+					{ id: 'galaxy-assy-2', src: '/products/spareparts/sp4.png', alt: 'Assembly alt 1' },
+					{ id: 'galaxy-assy-3', src: '/products/spareparts/sp5.png', alt: 'Assembly alt 2' },
+				],
+				specifications: ['Plug & Play', 'Factory Tested', 'Traceable Lots']
+			},
+			{
+				id: 'galaxy-hardware',
+				name: 'Hardware',
+				description: 'General industrial hardware for versatile mechanical use.',
+				images: [
+					{ id: 'galaxy-hw-1', src: '/products/spareparts/sp4.png', alt: 'Hardware primary' },
+					{ id: 'galaxy-hw-2', src: '/products/spareparts/sp5.png', alt: 'Hardware alt 1' },
+					{ id: 'galaxy-hw-3', src: '/products/spareparts/sp6.png', alt: 'Hardware alt 2' },
+				],
+				specifications: ['Multiple Sizes', 'High Strength', 'Surface Treated']
+			},
+			{
+				id: 'galaxy-accessories',
+				name: 'Accessories',
+				description: 'Enhancement accessories extending system functionality.',
+				images: [
+					{ id: 'galaxy-acc-1', src: '/products/spareparts/sp5.png', alt: 'Accessory primary' },
+					{ id: 'galaxy-acc-2', src: '/products/spareparts/sp6.png', alt: 'Accessory alt 1' },
+					{ id: 'galaxy-acc-3', src: '/products/spareparts/sp7.png', alt: 'Accessory alt 2' },
+				],
+				specifications: ['Modular', 'Quick Install', 'Durable Coating']
+			}
+		]
+	},
 ];
 
 export default productCategories;

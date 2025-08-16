@@ -1,5 +1,5 @@
-'use client'
-import React, { useEffect, useRef } from 'react';
+"use client";
+import React, { useEffect, useRef } from "react";
 
 const Features = () => {
   const sectionRef = useRef(null);
@@ -8,41 +8,47 @@ const Features = () => {
     const statsSectionNode = sectionRef.current;
     if (!statsSectionNode) return;
 
-    const counters = statsSectionNode.querySelectorAll('.counter');
+    const counters = statsSectionNode.querySelectorAll(".counter");
     const animationDuration = 2000;
 
     const countUp = (el) => {
       const target = parseInt(el.dataset.target, 10);
-      const suffix = el.dataset.suffix || '';
+      const suffix = el.dataset.suffix || "";
       let startTime = null;
 
       const animate = (currentTime) => {
         if (!startTime) startTime = currentTime;
-        const progress = Math.min((currentTime - startTime) / animationDuration, 1);
+        const progress = Math.min(
+          (currentTime - startTime) / animationDuration,
+          1
+        );
         const currentVal = Math.floor(progress * target);
-        el.textContent = currentVal.toLocaleString('en-US') + suffix;
+        el.textContent = currentVal.toLocaleString("en-US") + suffix;
 
         if (progress < 1) {
           requestAnimationFrame(animate);
         } else {
-          el.textContent = target.toLocaleString('en-US') + suffix;
+          el.textContent = target.toLocaleString("en-US") + suffix;
         }
       };
       requestAnimationFrame(animate);
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          counters.forEach(counter => {
-            if (!counter.dataset.animated) {
-              countUp(counter);
-              counter.dataset.animated = 'true';
-            }
-          });
-        }
-      });
-    }, { threshold: 0.3 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            counters.forEach((counter) => {
+              if (!counter.dataset.animated) {
+                countUp(counter);
+                counter.dataset.animated = "true";
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
 
     observer.observe(statsSectionNode);
 
@@ -52,44 +58,58 @@ const Features = () => {
   }, []);
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="exact-stats-section" 
+    <section
+      ref={sectionRef}
+      id="exact-stats-section"
       className="relative overflow-hidden bg-[#8c2a32] py-12 sm:py-20 md:py-24 "
     >
       {/* Background image */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-        <img 
-          src="https://i.imgur.com/gQV397V.png" 
-          alt="Alloy wheel background" 
+        <img
+          src="https://i.imgur.com/gQV397V.png"
+          alt="Alloy wheel background"
           className="h-auto w-full max-w-4xl"
         />
       </div>
 
       {/* Radial overlay */}
-      <div 
-        className="absolute inset-0" 
+      <div
+        className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(206,44,56,0.85) 0%, rgba(140,42,50,0.95) 70%, rgba(106,29,35,1) 100%)'
+          background:
+            "radial-gradient(ellipse at center, rgba(206,44,56,0.85) 0%, rgba(140,42,50,0.95) 70%, rgba(106,29,35,1) 100%)",
         }}
       ></div>
 
       {/* Content */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-y-10 gap-x-4 sm:gap-x-6 md:grid-cols-4 md:gap-x-8">
-
           {/* Stat item */}
           {[
             { icon: GlobeIcon, target: "3", suffix: "+", label: "Locations" },
             { icon: BoxIcon, target: "1000", suffix: "+", label: "Products" },
-            { icon: UsersIcon, target: "800", suffix: "+", label: "Dealer Network" },
-            { icon: FactoryIcon, target: "6", suffix: "", label: "Countries" },
+            {
+              icon: UsersIcon,
+              target: "800",
+              suffix: "+",
+              label: "Dealer Network",
+            },
+            {
+              icon: FactoryIcon,
+              target: "6",
+              suffix: "+",
+              label: "Export Countries",
+            },
           ].map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center text-center">
               <div className="mb-4 sm:mb-6 flex h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 items-center justify-center rounded-full border border-white/80">
                 <stat.icon className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 text-white" />
               </div>
-              <p className="counter text-3xl sm:text-4xl md:text-5xl font-semibold text-white" data-target={stat.target} data-suffix={stat.suffix}>
+              <p
+                className="counter text-3xl sm:text-4xl md:text-5xl font-semibold text-white"
+                data-target={stat.target}
+                data-suffix={stat.suffix}
+              >
                 0{stat.suffix}
               </p>
               <p className="mt-1 sm:mt-2 text-sm sm:text-base md:text-lg font-light leading-snug text-white/90">
@@ -97,7 +117,6 @@ const Features = () => {
               </p>
             </div>
           ))}
-
         </div>
       </div>
     </section>
@@ -114,7 +133,13 @@ const GlobeIcon = (props) => (
 );
 
 const BoxIcon = (props) => (
-  <svg {...props} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2.5">
+  <svg
+    {...props}
+    viewBox="0 0 64 64"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+  >
     <path d="M22.42 13.33V31.9L41.54 42.66V24.09L22.42 13.33Z"></path>
     <path d="M3.31 24.09L22.43 13.33L41.54 24.09L22.43 34.85L3.31 24.09Z"></path>
     <path d="M22.43 34.85V53.42L41.55 42.66V24.09L22.43 34.85Z"></path>
@@ -130,7 +155,13 @@ const UsersIcon = (props) => (
 );
 
 const FactoryIcon = (props) => (
-  <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+  <svg
+    {...props}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+  >
     <path d="M2 21H22"></path>
     <path d="M4 21V6.31C4 5.45 4.55 4.7 5.39 4.39l6-2.01c.37-.14.77-.14 1.15 0l6.09 2.02C19.45 4.7 20 5.45 20 6.31V21"></path>
     <path d="M15 15h2"></path>
