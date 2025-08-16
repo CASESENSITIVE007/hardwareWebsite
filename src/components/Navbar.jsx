@@ -143,7 +143,7 @@ export default function Navbar() {
               <div className="bg-red-700 rounded-md py-2 px-3 cursor-pointer font-medium text-white hover:bg-red-800 transition-all text-sm">Enquiry</div>
             </ScrollLink>
           ) : (
-            <Link href="contactus">
+            <Link href="/#contactus">
               <div className="bg-red-700 rounded-md py-2 px-3 cursor-pointer font-medium text-white hover:bg-red-800 transition-all text-sm">Enquiry</div>
             </Link>
           )}

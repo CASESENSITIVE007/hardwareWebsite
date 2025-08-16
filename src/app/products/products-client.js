@@ -3,6 +3,7 @@ import { useSearchParams } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image'; // Using Next.js Image component
 import {
   Cog6ToothIcon,
   CubeIcon,
@@ -179,7 +180,6 @@ export default function ProductsPage() {
                                 <p className="mt-2 text-gray-600 max-w-xl mx-auto">{category.description}</p>
                             </div>
                             
-                            {/* Always render the showcase, passing the whole category object */}
                             <CategoryShowcase category={category} />
                             
                         </motion.section>
