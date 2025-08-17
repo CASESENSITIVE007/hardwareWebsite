@@ -11,21 +11,21 @@ const testimonials = [
     title: "Salesforce Developer",
     image: "/logo.png", // Replace with your image
     quote:
-      "lorem epsum",
+      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel.",
   },
   {
     name: "Cole Pammer",
     title: "Sales Intern",
     image: "/bearingcard.jpeg", // Replace with your image
     quote:
-      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel, while anticipating the exciting journey ahead.",
+      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel",
   },
   {
     name: "Anam Alam",
     title: "Associate Manager - Marketing",
     image: "/logogalaxy.png", // Replace with your image
     quote:
-      "lorem epsum",
+      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel",
   },
 ];
 
@@ -116,12 +116,7 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Work With Us Button */}
-        <div className="mt-8 text-center">
-            <button className="bg-red-700 text-white font-semibold py-3 px-8 rounded-md hover:bg-red-900 transition-colors">
-                Work With Us
-            </button>
-        </div>
+        
       </div>
     </div>
   );
