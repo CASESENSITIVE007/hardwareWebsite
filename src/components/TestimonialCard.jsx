@@ -22,14 +22,12 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
 
         {/* Name */}
-        <div className="bg-red-700 text-white text-sm font-semibold px-4 py-1.5 rounded-md shadow-sm">
+        <div className="text-sm font-semibold px-4 py-1.5 rounded-md shadow-sm">
           {testimonial.name}
         </div>
 
-        {/* Title */}
-        <div className="bg-red-700 text-white text-xs font-medium px-5 py-1.5 rounded-md mt-2 shadow-sm">
-          {testimonial.title}
-        </div>
+       
+      
       </div>
 
       {/* Right Side: Testimonial Quote */}
