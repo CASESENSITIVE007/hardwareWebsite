@@ -27,7 +27,7 @@ const ProductBlock = ({ product, category }) => {
           {product.name}
         </h3>
       </motion.div>
-      <div className="relative group">
+      <div className="relative group px-2 md:px-0">
         {/* Hero-style gradient + bearing ring pattern (softened) */}
         <div className="pointer-events-none absolute inset-0 rounded-xl overflow-hidden">
           {/* Base gradient further softened */}
@@ -47,11 +47,12 @@ const ProductBlock = ({ product, category }) => {
         </div>
         <motion.div
           id={scrollId}
+          style={{ scrollbarWidth: "none" }}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex gap-5 px-6 py-8 h-72 md:h-80 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-xl ring-1 ring-white/15 shadow-inner relative backdrop-blur-[2px]"
+          className="flex gap-5 px-6 py-8 h-72 md:h-80 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-xl md:ring-1 md:ring-white/15 shadow-inner relative backdrop-blur-[2px]"
         >
           {/* Slow animated glow overlay */}
           <motion.div
@@ -66,7 +67,7 @@ const ProductBlock = ({ product, category }) => {
           {images.map((img, idx) => (
             <motion.div
               key={img.id}
-              className="snap-center flex-shrink-0 basis-[78%] sm:basis-[52%] md:basis-1/3 bg-white backdrop-blur rounded-xl p-0 flex items-center justify-center shadow ring-1 ring-slate-200/60 relative overflow-hidden group/card"
+              className="snap-center flex-shrink-0 basis-[78%] sm:basis-[52%] md:basis-1/3 bg-white backdrop-blur rounded-xl p-0 flex items-center justify-center shadow ring-1 ring-slate-200/60 relative overflow-hidden group/card "
               initial={{ opacity: 0, y: 30, scale: 0.92 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
