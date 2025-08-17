@@ -18,15 +18,15 @@ function ContactSection() {
   }, [open]);
 
   // Prevent body scroll when modal open
-  // useEffect(() => {
-  //   if (open) {
-  //     const prev = document.body.style.overflow;
-  //     document.body.style.overflow = "hidden";
-  //     return () => {
-  //       document.body.style.overflow = prev;
-  //     };
-  //   }
-  // }, [open]);
+  useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [open]);
 
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
@@ -176,13 +176,13 @@ const ContactModal = ({ onClose }) => {
             </p>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <span className="mt-1">📧</span> company.email@example.com
+                <span className="mt-1">📧</span> theoriginaltraders@gmail.com
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1">📍</span> 123 Business Rd, Aligarh, UP
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1">📞</span> +91 98765 43210
+                <span className="mt-1">📞</span> +91-7827505517
               </li>
             </ul>
             <p className="text-xs mt-8 opacity-70">
