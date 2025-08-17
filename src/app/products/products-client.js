@@ -16,6 +16,7 @@ import {
 import { ShieldStarIcon } from '@phosphor-icons/react/dist/ssr';
 import CategoryShowcase from './CategoryShowcase';
 import { productCategories as rawCategories } from './productData';
+import ContactSection from '@/components/ContactSection';
 
 // Map icon string to actual component reference
 const iconMap = {
@@ -193,72 +194,132 @@ export default function ProductsPage() {
                 </AnimatePresence>
             </div>
 
-             {/* Call to Action */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="bg-gradient-to-r from-red-700 via-red-800 to-blue-700 text-white py-20 relative overflow-hidden"
-      >
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 rounded-full border-2 border-white"></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full border-2 border-white"></div>
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 rounded-full border-2 border-white"></div>
-        </div>
+            <section className='flex items-center justify-center'>
+             
+                      <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: 'easeOut' }}
+                        className="mb-6"
+                      >
+                        <motion.a
+                          href="/catalogue.pdf" 
+                          download
+                          whileHover={{ scale: 1.06, rotate: 0.5 }}
+                          whileTap={{ scale: 0.94 }}
+                          className="group relative inline-flex items-center gap-2 rounded-xl px-6 py-4 font-semibold tracking-wide overflow-hidden"
+                        >
+                          {/* Glow / Border background */}
+                          <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-red-600 via-pink-600 to-blue-700 opacity-90" />
+                          {/* Animated sheen */}
+                          <span className="absolute -inset-1 rounded-xl bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.25),transparent_60%)] mix-blend-overlay" />
+                          {/* Moving light bar */}
+                          <span className="pointer-events-none absolute top-0 left-[-150%] h-full w-[150%] skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/25 to-transparent animate-[slide_2.8s_linear_infinite]" />
+                          <span className="relative flex items-center gap-2 text-white drop-shadow-sm">
 
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl font-bold mb-6"
-          >
-            Need Custom Engineering Solutions?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-red-100 mb-8 max-w-2xl mx-auto text-lg"
-          >
-            Our expert engineering team specializes in designing and manufacturing precision hardware components
-            tailored to your exact specifications and performance requirements.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-4"
-          >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+                            <motion.span
+                              aria-hidden
+                              animate={{ rotate: [0, 4, -4, 0] }}
+                              transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+                              className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/15 backdrop-blur-sm ring-1 ring-white/30"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="h-5 w-5"
+                              >
+                                <path d="M12 3v14" />
+                                <path d="M6 11l6 6 6-6" />
+                                <path d="M5 21h14" />
+                              </svg>
+                            </motion.span>
+                            <span className="text-lg">Download Catalogue</span>
+                          </span>
+   
+                          <span className="absolute inset-0 rounded-xl ring-2 ring-white/0 group-hover:ring-white/40 transition" />
+                        </motion.a>
+                      </motion.div>
+                      <style jsx global>{`
+                        @keyframes slide { 0% { transform: translateX(0); } 100% { transform: translateX(100%); } }
+                      `}</style>
+            </section>
+
+             {/* Call to Action */}
+
+            <ContactSection/>
+             
+            {/* <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-r from-red-700 via-red-800 to-blue-700 text-white py-20 relative overflow-hidden"
             >
-              <Button
-                size="lg"
-                className="bg-white text-red-700 hover:bg-red-50 font-semibold shadow-xl" 
-              >
-                <WrenchScrewdriverIcon className="w-5 h-5 mr-2" />
-                Contact Our Engineers
-              </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white hover:bg-red-50 text-red-700 font-semibold"
-              >
-                Request Quote
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.section>
+            
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-10 left-10 w-32 h-32 rounded-full border-2 border-white"></div>
+                <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full border-2 border-white"></div>
+                <div className="absolute top-1/2 left-1/3 w-24 h-24 rounded-full border-2 border-white"></div>
+              </div>
+
+              <div className="container mx-auto px-6 text-center relative z-10">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="text-4xl font-bold mb-6"
+                >
+                  Need Custom Engineering Solutions?
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="text-red-100 mb-8 max-w-2xl mx-auto text-lg"
+                >
+                  Our expert engineering team specializes in designing and manufacturing precision hardware components
+                  tailored to your exact specifications and performance requirements.
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                  className="flex flex-wrap justify-center gap-4"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      size="lg"
+                      className="bg-white text-red-700 hover:bg-red-50 font-semibold shadow-xl" 
+                    >
+                      <WrenchScrewdriverIcon className="w-5 h-5 mr-2" />
+                      Contact Our Engineers
+                    </Button>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-white hover:bg-red-50 text-red-700 font-semibold"
+                    >
+                      Request Quote
+                    </Button>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.section> */}
+        
+        
         </main>
     );
 }

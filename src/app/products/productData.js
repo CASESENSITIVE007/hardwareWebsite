@@ -1,84 +1,11 @@
 // Central product data module
-// Each category contains: id, name, description, icon (string key), brandLogos, products
-// Each product now contains: id, name, description, images (array of {id, src, alt}), specifications (array of strings)
+// Each category contains: id, name, description, icon (string key), products
+// Each product now contains: id, name, description, images (array of {id, src, alt}), brands (array of {id,name,logo}), specifications (array of strings)
 
 export const productCategories = [
 	
 
-	// Galaxy products
 
-	{
-		id: 'galaxy',
-		name: 'Galaxy',
-		description: 'High performance precision spare parts and assemblies engineered for durability.',
-		icon: 'ShieldStarIcon',
-		brandLogos: [
-			{ id: 'g1', src: '/logogalaxy.png', alt: 'Brand galaxy' },
-			// { id: 'gb2', src: '/products/bearings/brands/bb2.jpeg', alt: 'Brand B' },
-		],
-		products: [
-			{
-				id: 'galaxy-spare-parts',
-				name: 'Spare Parts',
-				description: 'OEM-grade replacement parts ensuring seamless integration and reliability.',
-				images: [
-					{ id: 'galaxy-sp1-1', src: '/products/spareparts/sp1.jpeg', alt: 'Spare Part primary' },
-					{ id: 'galaxy-sp1-2', src: '/products/spareparts/sp2.jpeg', alt: 'Spare Part alt 1' },
-					{ id: 'galaxy-sp1-3', src: '/products/spareparts/sp3.jpeg', alt: 'Spare Part alt 2' },
-					{ id: 'galaxy-sp1-4', src: '/products/spareparts/sp4.png', alt: 'Spare Part alt 3' },
-					{ id: 'galaxy-sp1-5', src: '/products/spareparts/sp5.png', alt: 'Spare Part alt 4' },
-					{ id: 'galaxy-sp1-6', src: '/products/spareparts/sp6.png', alt: 'Spare Part alt 5' },
-					{ id: 'galaxy-sp1-7', src: '/products/spareparts/sp7.png', alt: 'Spare Part alt 6' },
-					{ id: 'galaxy-sp1-8', src: '/products/spareparts/sp8.png', alt: 'Spare Part alt 7' },
-					{ id: 'galaxy-sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'Spare Part alt 8' },
-				],
-				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
-			},
-			{
-				id: 'galaxy-engineoil',
-				name: 'Engine Oils',
-				description: 'High-performance lubricants for optimal machinery efficiency.',
-				images: [
-					{ id: 'galaxy-lub-1', src: '/products/lubricants/engineoil/e1.jpg', alt: 'Lubricant primary' },
-					{ id: 'galaxy-lub-2', src: '/products/lubricants/engineoil/e2.jpg', alt: 'Lubricant alt 1' },
-					{ id: 'galaxy-lub-3', src: '/products/lubricants/engineoil/e3.jpg', alt: 'Lubricant alt 2' },
-					{ id: 'galaxy-lub-4', src: '/products/lubricants/engineoil/e4.jpg', alt: 'Lubricant alt 3' },
-					{ id: 'galaxy-lub-5', src: '/products/lubricants/engineoil/e5.png', alt: 'Lubricant alt 4' },
-					{ id: 'galaxy-lub-6', src: '/products/lubricants/engineoil/e6.jpeg', alt: 'Lubricant alt 5' },
-				],
-				specifications: ['Tight Tolerances', 'CNC Machined', 'ISO Certified']
-			},
-			{
-				id: 'galaxy-grease',
-				name: 'Grease',
-				description: 'High-performance lubricants for optimal machinery efficiency.',
-				images: [
-					{ id: 'galaxy-g-1', src: '/products/lubricants/grease/g1.jpg', alt: 'Assembly primary' },
-					{ id: 'galaxy-g-2', src: '/products/lubricants/grease/g2.jpg', alt: 'Assembly alt 1' },
-					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g3.jpg', alt: 'Assembly alt 2' },
-					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g4.jpg', alt: 'Assembly alt 3' },
-				],
-				specifications: ['Plug & Play', 'Factory Tested', 'Traceable Lots']
-			},
-			{
-				id: 'galaxy-industrialoil',
-				name: 'Industrial Oil',
-				description: 'General industrial hardware for versatile mechanical use.',
-				images: [
-					{ id: 'galaxy-i-1', src: '/products/lubricants/industrialoil/i1.png', alt: 'oil primary' },
-					{ id: 'galaxy-i-2', src: '/products/lubricants/industrialoil/i2.jpg', alt: 'oil alt 1' },
-					{ id: 'galaxy-i-3', src: '/products/lubricants/industrialoil/i3.jpg', alt: 'oil alt 2' },
-					{ id: 'galaxy-i-4', src: '/products/lubricants/industrialoil/i4.png', alt: 'oil alt 3' },
-					{ id: 'galaxy-i-5', src: '/products/lubricants/industrialoil/i5.png', alt: 'oil alt 4' },
-					{ id: 'galaxy-i-6', src: '/products/lubricants/industrialoil/i6.png', alt: 'oil alt 5' },
-					{ id: 'galaxy-i-7', src: '/products/lubricants/industrialoil/i7.png', alt: 'oil alt 6' },
-					{ id: 'galaxy-i-8', src: '/products/lubricants/industrialoil/i8.png', alt: 'oil alt 7' },
-				],
-				specifications: ['Multiple Sizes', 'High Strength', 'Surface Treated']
-			}
-			
-		]
-	},
 
 	// Bearings 
 	{
@@ -86,11 +13,6 @@ export const productCategories = [
 		name: 'Bearings & Bushings',
 		description: 'Precision bearings for smooth, efficient and reliable motion.',
 		icon: 'CubeIcon',
-		brandLogos: [
-			{ id: 'bb1', src: '/products/bearings/ballbearing/brands/bb1.jpeg', alt: 'FAG Logo' },
-			{ id: 'bb2', src: '/products/bearings/ballbearing/brands/bb2.jpeg', alt: 'NSK Logo' },
-			{ id: 'bb3', src: '/products/bearings/ballbearing/brands/bb3.jpeg', alt: 'NBC Logo' },
-		],
 		products: [
 			{
 				id: 'bearings-ball',
@@ -103,6 +25,11 @@ export const productCategories = [
 					{ id: 'bearings-ball-4', src: '/products/bearings/ballbearing/images/bb4.jpeg', alt: 'Ball Bearing alt 3' },
 					{ id: 'bearings-ball-5', src: '/products/bearings/ballbearing/images/bb5.jpeg', alt: 'Ball Bearing alt 4' },
 					{ id: 'bearings-ball-6', src: '/products/bearings/ballbearing/images/bb6.jpeg', alt: 'Ball Bearing alt 5' },
+				],
+				brands: [
+					{ id: 'bb1', name: 'FAG', logo: '/products/bearings/ballbearing/brands/bb1.jpeg' },
+					{ id: 'bb2', name: 'NSK', logo: '/products/bearings/ballbearing/brands/bb2.jpeg' },
+					{ id: 'bb3', name: 'NBC', logo: '/products/bearings/ballbearing/brands/bb3.jpeg' },
 				],
 				specifications: ['Bore: 20mm', 'ABEC-5', 'Sealed / Open Options']
 			},
@@ -119,6 +46,11 @@ export const productCategories = [
 					{ id: 'needle-bearings-roller-6', src: '/products/bearings/needlerollerbearing/images/nrb6.jpeg', alt: 'Roller Bearing alt 5' },
 					{ id: 'needle-bearings-roller-7', src: '/products/bearings/needlerollerbearing/images/nrb7.jpeg', alt: 'Roller Bearing alt 6' },
 				],
+				brands: [
+					{ id: 'bb1', name: 'FAG', logo: '/products/bearings/ballbearing/brands/bb1.jpeg' },
+					{ id: 'bb2', name: 'NSK', logo: '/products/bearings/ballbearing/brands/bb2.jpeg' },
+					{ id: 'bb3', name: 'NBC', logo: '/products/bearings/ballbearing/brands/bb3.jpeg' },
+				],
 				specifications: ['High Load', 'Precision Ground', 'Heat Treated']
 			},
 			{
@@ -129,6 +61,11 @@ export const productCategories = [
 					{ id: 'pillow-block-bearings-1', src: '/products/bearings/pillowblockbearings/images/pbr1.jpeg', alt: 'pillow Bearing primary' },
 					{ id: 'pillow-block-bearings-2', src: '/products/bearings/pillowblockbearings/images/pbr2.jpeg', alt: 'pillow Bearing alt 1' },
 					{ id: 'pillow-block-bearings-3', src: '/products/bearings/pillowblockbearings/images/pbr3.jpeg', alt: 'pillow Bearing alt 2' },
+				],
+				brands: [
+					{ id: 'bb1', name: 'FAG', logo: '/products/bearings/ballbearing/brands/bb1.jpeg' },
+					{ id: 'bb2', name: 'NSK', logo: '/products/bearings/ballbearing/brands/bb2.jpeg' },
+					{ id: 'bb3', name: 'NBC', logo: '/products/bearings/ballbearing/brands/bb3.jpeg' },
 				],
 				specifications: ['Axial Loads', 'Hardened Raceways', 'Compact Design']
 			},
@@ -147,6 +84,11 @@ export const productCategories = [
 					{ id: 'bearings-precision-7', src: '/products/bearings/PrecisionBearing/images/p7.jpeg', alt: 'Needle Bearing primary' },
 					
 				],
+				brands: [
+					{ id: 'bb1', name: 'FAG', logo: '/products/bearings/ballbearing/brands/bb1.jpeg' },
+					{ id: 'bb2', name: 'NSK', logo: '/products/bearings/ballbearing/brands/bb2.jpeg' },
+					{ id: 'bb3', name: 'NBC', logo: '/products/bearings/ballbearing/brands/bb3.jpeg' },
+				],
 				specifications: ['Slim Profile', 'High Speed', 'Caged / Full Complement']
 			},
 			{
@@ -163,6 +105,11 @@ export const productCategories = [
 					{ id: 'bearings-roller-7', src: '/products/bearings/RollerBearing/images/r7.jpeg', alt: 'roller Bearing 6' },
 				
 				],
+				brands: [
+					{ id: 'bb1', name: 'FAG', logo: '/products/bearings/ballbearing/brands/bb1.jpeg' },
+					{ id: 'bb2', name: 'NSK', logo: '/products/bearings/ballbearing/brands/bb2.jpeg' },
+					{ id: 'bb3', name: 'NBC', logo: '/products/bearings/ballbearing/brands/bb3.jpeg' },
+				],
 				specifications: ['Self-Lubricating', 'Shock Resistant', 'Wide Temp Range']
 			}
 		]
@@ -175,9 +122,6 @@ export const productCategories = [
 		name: 'Lubricants & Oils',
 		description: 'Advanced lubrication solutions extending component life.',
 		icon: 'SparklesIcon',
-		brandLogos: [
-			{ id: 'fb1', src: '/logogalaxy.png', alt: 'galaxylogo' },
-		],
 		products: [
 			{
 				id: 'engineoil',
@@ -191,6 +135,9 @@ export const productCategories = [
 					{ id: 'galaxy-lub-5', src: '/products/lubricants/engineoil/e5.png', alt: 'Lubricant alt 4' },
 					{ id: 'galaxy-lub-6', src: '/products/lubricants/engineoil/e6.jpeg', alt: 'Lubricant alt 5' },
 				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
+				],
 				specifications: ['Tight Tolerances', 'CNC Machined', 'ISO Certified']
 			},
 			{
@@ -202,6 +149,9 @@ export const productCategories = [
 					{ id: 'galaxy-g-2', src: '/products/lubricants/grease/g2.jpg', alt: 'Assembly alt 1' },
 					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g3.jpg', alt: 'Assembly alt 2' },
 					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g4.jpg', alt: 'Assembly alt 3' },
+				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
 				],
 				specifications: ['Plug & Play', 'Factory Tested', 'Traceable Lots']
 			},
@@ -219,6 +169,9 @@ export const productCategories = [
 					{ id: 'galaxy-i-7', src: '/products/lubricants/industrialoil/i7.png', alt: 'oil alt 6' },
 					{ id: 'galaxy-i-8', src: '/products/lubricants/industrialoil/i8.png', alt: 'oil alt 7' },
 				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
+				],
 				specifications: ['Multiple Sizes', 'High Strength', 'Surface Treated']
 			}
 		]
@@ -231,9 +184,6 @@ export const productCategories = [
 		name: 'Auto Spare Parts',
 		description: 'Reliable fastening solutions for structural integrity.',
 		icon: 'BoltIcon',
-		brandLogos: [
-			{ id: 'fb1', src: '/logogalaxy.png', alt: 'galaxylogo' },
-		],
 		products: [
 			{
 				id: 'galaxy-spare-parts',
@@ -250,10 +200,96 @@ export const productCategories = [
 					{ id: 'galaxy-sp1-8', src: '/products/spareparts/sp8.png', alt: 'Spare Part alt 7' },
 					{ id: 'galaxy-sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'Spare Part alt 8' },
 				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
+				],
 				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
 			}
 		]
-	}
+	},
+
+		// Galaxy products
+
+	{
+		id: 'galaxy',
+		name: 'Galaxy',
+		description: 'High performance precision spare parts and assemblies engineered for durability.',
+		icon: 'ShieldStarIcon',
+		products: [
+			{
+				id: 'galaxy-spare-parts',
+				name: 'Spare Parts',
+				description: 'OEM-grade replacement parts ensuring seamless integration and reliability.',
+				images: [
+					{ id: 'galaxy-sp1-1', src: '/products/spareparts/sp1.jpeg', alt: 'Spare Part primary' },
+					{ id: 'galaxy-sp1-2', src: '/products/spareparts/sp2.jpeg', alt: 'Spare Part alt 1' },
+					{ id: 'galaxy-sp1-3', src: '/products/spareparts/sp3.jpeg', alt: 'Spare Part alt 2' },
+					{ id: 'galaxy-sp1-4', src: '/products/spareparts/sp4.png', alt: 'Spare Part alt 3' },
+					{ id: 'galaxy-sp1-5', src: '/products/spareparts/sp5.png', alt: 'Spare Part alt 4' },
+					{ id: 'galaxy-sp1-6', src: '/products/spareparts/sp6.png', alt: 'Spare Part alt 5' },
+					{ id: 'galaxy-sp1-7', src: '/products/spareparts/sp7.png', alt: 'Spare Part alt 6' },
+					{ id: 'galaxy-sp1-8', src: '/products/spareparts/sp8.png', alt: 'Spare Part alt 7' },
+					{ id: 'galaxy-sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'Spare Part alt 8' },
+				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
+				],
+				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
+			},
+			{
+				id: 'galaxy-engineoil',
+				name: 'Engine Oils',
+				description: 'High-performance lubricants for optimal machinery efficiency.',
+				images: [
+					{ id: 'galaxy-lub-1', src: '/products/lubricants/engineoil/e1.jpg', alt: 'Lubricant primary' },
+					{ id: 'galaxy-lub-2', src: '/products/lubricants/engineoil/e2.jpg', alt: 'Lubricant alt 1' },
+					{ id: 'galaxy-lub-3', src: '/products/lubricants/engineoil/e3.jpg', alt: 'Lubricant alt 2' },
+					{ id: 'galaxy-lub-4', src: '/products/lubricants/engineoil/e4.jpg', alt: 'Lubricant alt 3' },
+					{ id: 'galaxy-lub-5', src: '/products/lubricants/engineoil/e5.png', alt: 'Lubricant alt 4' },
+					{ id: 'galaxy-lub-6', src: '/products/lubricants/engineoil/e6.jpeg', alt: 'Lubricant alt 5' },
+				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
+				],
+				specifications: ['Tight Tolerances', 'CNC Machined', 'ISO Certified']
+			},
+			{
+				id: 'galaxy-grease',
+				name: 'Grease',
+				description: 'High-performance lubricants for optimal machinery efficiency.',
+				images: [
+					{ id: 'galaxy-g-1', src: '/products/lubricants/grease/g1.jpg', alt: 'Assembly primary' },
+					{ id: 'galaxy-g-2', src: '/products/lubricants/grease/g2.jpg', alt: 'Assembly alt 1' },
+					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g3.jpg', alt: 'Assembly alt 2' },
+					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g4.jpg', alt: 'Assembly alt 3' },
+				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
+				],
+				specifications: ['Plug & Play', 'Factory Tested', 'Traceable Lots']
+			},
+			{
+				id: 'galaxy-industrialoil',
+				name: 'Industrial Oil',
+				description: 'General industrial hardware for versatile mechanical use.',
+				images: [
+					{ id: 'galaxy-i-1', src: '/products/lubricants/industrialoil/i1.png', alt: 'oil primary' },
+					{ id: 'galaxy-i-2', src: '/products/lubricants/industrialoil/i2.jpg', alt: 'oil alt 1' },
+					{ id: 'galaxy-i-3', src: '/products/lubricants/industrialoil/i3.jpg', alt: 'oil alt 2' },
+					{ id: 'galaxy-i-4', src: '/products/lubricants/industrialoil/i4.png', alt: 'oil alt 3' },
+					{ id: 'galaxy-i-5', src: '/products/lubricants/industrialoil/i5.png', alt: 'oil alt 4' },
+					{ id: 'galaxy-i-6', src: '/products/lubricants/industrialoil/i6.png', alt: 'oil alt 5' },
+					{ id: 'galaxy-i-7', src: '/products/lubricants/industrialoil/i7.png', alt: 'oil alt 6' },
+					{ id: 'galaxy-i-8', src: '/products/lubricants/industrialoil/i8.png', alt: 'oil alt 7' },
+				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
+				],
+				specifications: ['Multiple Sizes', 'High Strength', 'Surface Treated']
+			}
+			
+		]
+	},
 ];
 
 export default productCategories;
