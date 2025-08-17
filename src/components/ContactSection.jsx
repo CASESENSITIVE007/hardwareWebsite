@@ -18,21 +18,21 @@ function ContactSection() {
   }, [open]);
 
   // Prevent body scroll when modal open
-  useEffect(() => {
-    if (open) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = prev;
-      };
-    }
-  }, [open]);
+  // useEffect(() => {
+  //   if (open) {
+  //     const prev = document.body.style.overflow;
+  //     document.body.style.overflow = "hidden";
+  //     return () => {
+  //       document.body.style.overflow = prev;
+  //     };
+  //   }
+  // }, [open]);
 
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
 
   return (
-    <div className="relative flex flex-col justify-center items-center w-full min-h-[50vh] overflow-hidden p-4 sm:p-6 lg:p-8 backdrop-blur-2xl  ">
+    <div className="relative flex flex-col justify-center items-center w-full min-h-[50vh] overflow-hidden p-4 sm:p-6 lg:p-8   ">
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-75"
@@ -87,7 +87,6 @@ function ContactSection() {
   );
 }
 
-// Modal component reusing form structure similar to Contactus (without map section for compact overlay)
 const ContactModal = ({ onClose }) => {
   const {
     register,
@@ -95,12 +94,35 @@ const ContactModal = ({ onClose }) => {
     formState: { errors },
     reset,
   } = useForm();
+  const [status, setStatus] = useState({ state: "idle", error: null });
 
-  const onSubmit = (data) => {
-    console.log("Modal form submitted:", data);
-    alert("Thank you for your message!");
-    reset();
-    onClose();
+  const onSubmit = async (data) => {
+    setStatus({ state: "submitting", error: null });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.ok) {
+        setStatus({
+          state: "error",
+          error: json.error || "Submission failed.",
+        });
+        return;
+      }
+      setStatus({ state: "success", error: null });
+      // Auto close a bit later to let user read message
+      setTimeout(() => {
+        reset();
+        onClose();
+        setStatus({ state: "idle", error: null });
+      }, 1800);
+    } catch (e) {
+      console.error(e);
+      setStatus({ state: "error", error: "Network error. Please try again." });
+    }
   };
 
   // Animations
@@ -121,7 +143,7 @@ const ContactModal = ({ onClose }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[990] flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       initial="hidden"
@@ -298,10 +320,28 @@ const ContactModal = ({ onClose }) => {
                 >
                   Cancel
                 </Button>
-                <Button type="submit" className="bg-red-700 hover:bg-red-900">
-                  Send Message
+                <Button
+                  type="submit"
+                  disabled={status.state === "submitting"}
+                  className="bg-red-700 hover:bg-red-900 disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status.state === "submitting"
+                    ? "Sending..."
+                    : status.state === "success"
+                    ? "Sent!"
+                    : "Send Message"}
                 </Button>
               </div>
+              {status.state === "error" && (
+                <p className="text-red-600 text-sm text-right">
+                  {status.error}
+                </p>
+              )}
+              {status.state === "success" && (
+                <p className="text-green-600 text-sm text-right">
+                  Message sent successfully.
+                </p>
+              )}
             </form>
           </div>
         </div>
