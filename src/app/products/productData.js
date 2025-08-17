@@ -81,8 +81,8 @@ export const productCategories = [
 					{ id: 'bearings-precision-5', src: '/products/bearings/PrecisionBearing/images/p4.jpeg', alt: 'Needle Bearing primary' },
 					{ id: 'bearings-precision-6', src: '/products/bearings/PrecisionBearing/images/p5.jpeg', alt: 'Needle Bearing primary' },
 					{ id: 'bearings-precision-7', src: '/products/bearings/PrecisionBearing/images/p6.jpeg', alt: 'Needle Bearing primary' },
-					{ id: 'bearings-precision-7', src: '/products/bearings/PrecisionBearing/images/p7.jpeg', alt: 'Needle Bearing primary' },
-					
+					{ id: 'bearings-precision-8', src: '/products/bearings/PrecisionBearing/images/p7.jpeg', alt: 'Needle Bearing primary' },
+
 				],
 				brands: [
 					{ id: 'bb1', name: 'FAG', logo: '/products/bearings/ballbearing/brands/bb1.jpeg' },
@@ -148,7 +148,7 @@ export const productCategories = [
 					{ id: 'galaxy-g-1', src: '/products/lubricants/grease/g1.jpg', alt: 'Assembly primary' },
 					{ id: 'galaxy-g-2', src: '/products/lubricants/grease/g2.jpg', alt: 'Assembly alt 1' },
 					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g3.jpg', alt: 'Assembly alt 2' },
-					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g4.jpg', alt: 'Assembly alt 3' },
+					{ id: 'galaxy-g-4', src: '/products/lubricants/grease/g4.jpg', alt: 'Assembly alt 3' },
 				],
 				brands: [
 					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
@@ -261,7 +261,7 @@ export const productCategories = [
 					{ id: 'galaxy-g-1', src: '/products/lubricants/grease/g1.jpg', alt: 'Assembly primary' },
 					{ id: 'galaxy-g-2', src: '/products/lubricants/grease/g2.jpg', alt: 'Assembly alt 1' },
 					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g3.jpg', alt: 'Assembly alt 2' },
-					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g4.jpg', alt: 'Assembly alt 3' },
+					{ id: 'galaxy-g-4', src: '/products/lubricants/grease/g4.jpg', alt: 'Assembly alt 3' },
 				],
 				brands: [
 					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
