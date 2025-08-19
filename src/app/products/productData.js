@@ -188,7 +188,7 @@ export const productCategories = [
 		]
 	},
 
-	// fastners
+	// Spare parts
 
 	{
 		id: 'spare_parts',
@@ -227,26 +227,6 @@ export const productCategories = [
 		description: 'High performance precision spare parts and assemblies engineered for durability.',
 		icon: 'ShieldStarIcon',
 		products: [
-			{
-				id: 'galaxy-spare-parts',
-				name: 'Spare Parts',
-				description: 'OEM-grade replacement parts ensuring seamless integration and reliability.',
-				images: [
-					{ id: 'galaxy-sp1-1', src: '/products/spareparts/sp1.jpeg', alt: 'Spare Part primary' },
-					{ id: 'galaxy-sp1-2', src: '/products/spareparts/sp2.jpeg', alt: 'Spare Part alt 1' },
-					{ id: 'galaxy-sp1-3', src: '/products/spareparts/sp3.jpeg', alt: 'Spare Part alt 2' },
-					{ id: 'galaxy-sp1-4', src: '/products/spareparts/sp4.png', alt: 'Spare Part alt 3' },
-					{ id: 'galaxy-sp1-5', src: '/products/spareparts/sp5.png', alt: 'Spare Part alt 4' },
-					{ id: 'galaxy-sp1-6', src: '/products/spareparts/sp6.png', alt: 'Spare Part alt 5' },
-					{ id: 'galaxy-sp1-7', src: '/products/spareparts/sp7.png', alt: 'Spare Part alt 6' },
-					{ id: 'galaxy-sp1-8', src: '/products/spareparts/sp8.png', alt: 'Spare Part alt 7' },
-					{ id: 'galaxy-sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'Spare Part alt 8' },
-				],
-				brands: [
-					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
-				],
-				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
-			},
 			{
 				id: 'galaxy-engineoil',
 				name: 'Engine Oils',
@@ -297,6 +277,26 @@ export const productCategories = [
 					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
 				],
 				specifications: ['Multiple Sizes', 'High Strength', 'Surface Treated']
+			},
+			{
+				id: 'galaxy-spare-parts',
+				name: 'Spare Parts',
+				description: 'OEM-grade replacement parts ensuring seamless integration and reliability.',
+				images: [
+					{ id: 'galaxy-sp1-1', src: '/products/spareparts/sp1.jpeg', alt: 'galaxy Spare Part primary' },
+					{ id: 'galaxy-sp1-2', src: '/products/spareparts/sp2.jpeg', alt: 'galaxy Spare Part alt 1' },
+					{ id: 'galaxy-sp1-3', src: '/products/spareparts/sp3.jpeg', alt: 'galaxy Spare Part alt 2' },
+					{ id: 'galaxy-sp1-4', src: '/products/spareparts/sp4.png', alt: 'galaxy Spare Part alt 3' },
+					{ id: 'galaxy-sp1-5', src: '/products/spareparts/sp5.png', alt: ' galaxy Spare Part alt 4' },
+					{ id: 'galaxy-sp1-6', src: '/products/spareparts/sp6.png', alt: 'galaxy Spare Part alt 5' },
+					{ id: 'galaxy-sp1-7', src: '/products/spareparts/sp7.png', alt: 'galaxy Spare Part alt 6' },
+					{ id: 'galaxy-sp1-8', src: '/products/spareparts/sp8.png', alt: 'galaxy Spare Part alt 7' },
+					// { id: 'galaxy-sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'galaxy Spare Part alt 8' },
+				],
+				brands: [
+					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
+				],
+				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
 			}
 			
 		]
