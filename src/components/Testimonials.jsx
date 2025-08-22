@@ -11,21 +11,21 @@ const testimonials = [
     title: "Salesforce Developer",
     image: "/logo.png", // Replace with your image
     quote:
-      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel.",
+      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel.",
   },
   {
     name: "Cole Pammer",
     title: "Sales Intern",
     image: "/bearingcard.jpeg", // Replace with your image
     quote:
-      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel",
+      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel.",
   },
   {
     name: "Anam Alam",
     title: "Associate Manager - Marketing",
     image: "/logogalaxy.png", // Replace with your image
     quote:
-      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel",
+      "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel.",
   },
 ];
 
@@ -62,8 +62,8 @@ const Testimonials = () => {
   const currentIndex = page;
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-gray-50 min-h-[600px] font-sans">
-      <div className="relative w-full max-w-3xl p-8 bg-white border border-gray-200 rounded-lg shadow-md">
+    <div className=" flex flex-col items-center justify-center p-4 bg-gray-50 min-h-[600px] font-sans">
+      <div className="relative w-full max-w-6xl  p-8 bg-white border border-gray-200 rounded-lg shadow-md">
         
         {/* Large Quotation Mark Icon */}
         <div className="absolute top-6 left-6 text-7xl text-[#0D2F4B] font-serif z-0 opacity-80">

@@ -56,26 +56,12 @@ function KeyIndustries() {
         custom={0}
         className="mb-12"
       >
-        <motion.h1
-          initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0, y: 40 }}
-          whileInView={{ clipPath: "inset(0 0 0% 0)", opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative inline-block text-center lg:text-5xl text-3xl font-bold tracking-tight"
-        >
-          <span className="bg-clip-text text-transparent bg-[linear-gradient(90deg,#1e293b,#9a2700,#2c5685)] animate-[pulse_9s_linear_infinite]">
-            Key Industries
-          </span>
+        
+         
+           <h1 className="text-3xl lg:text-5xl font-bold" >Key Industries</h1>
+        
           {/* Underline grow */}
-          <motion.span
-            aria-hidden
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.35, duration: 0.7, ease: "easeOut" }}
-            className="absolute -bottom-2 left-0 h-[3px] w-full origin-left bg-gradient-to-r from-red-600 via-red-700 to-blue-700 rounded"
-          />
-        </motion.h1>
+          
       </motion.div>
 
       {/* Responsive Grid */}

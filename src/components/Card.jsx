@@ -42,7 +42,7 @@ function Card({ Name, image, descName, desc }) {
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
               {descName || Name}
             </h1>
-            <p className="mt-2 text-sm sm:text-base md:text-lg">{desc}</p>
+            <p className="mt-2 text-sm sm:text-base md:text-lg ">{desc}</p>
           </div>
         </div>
       </div>

@@ -90,7 +90,7 @@ const Features = () => {
             { icon: BoxIcon, target: "1000", suffix: "+", label: "Products" },
             {
               icon: UsersIcon,
-              target: "800",
+              target: "10",
               suffix: "+",
               label: "Dealer Network",
             },

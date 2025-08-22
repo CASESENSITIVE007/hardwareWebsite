@@ -14,7 +14,7 @@ function Cards() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="md:text-4xl lg:text-5xl text-3xl font-bold m-2"
       >
-        Discover 50+ product choices
+        Our Products
       </motion.h1>
 
       <motion.div
@@ -32,22 +32,22 @@ function Cards() {
             {
               image: "/cardbearingbg.png",
               Name: "Bearings",
-              desc: "This is the description view",
+              desc: "You are right place if you need any bearing solution. We are supplying genuine and authentic bearings trusted for durability, precision and performance across industries",
             },
             {
               image: "/cardlubricantsbg.png",
               Name: "Lubricants",
-              desc: "This is the description view",
+              desc: "Complete lubricant solutions that safeguard your bearings and maximize machine uptime.",
             },
             {
               image: "/cardsparepartsbg.png",
               Name: "Automotive Spare Parts",
-              desc: "This is the description view",
+              desc: "Supplying quality tested spare parts to exporters serving international market.",
             },
             {
               image: "/logogalaxy.png",
               Name: "Galaxy Brand",
-              desc: "This is the description view",
+              desc: "The Original Traders is official All India distributor of renowned automotive aftermarket and lubricant brand.",
             },
           ].map((c, i) => (
             <Card {...c} key={i} />
