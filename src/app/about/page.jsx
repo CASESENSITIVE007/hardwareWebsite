@@ -67,11 +67,18 @@ const page = () => {
         {/* Section 2: Our Values */}
         <div className="mt-16 md:flex md:items-center md:space-x-12 flex-row-reverse">
           <motion.div className="md:w-1/2" variants={itemVariants}>
-            <img
-              className="rounded-lg shadow-xl w-full"
-              src="/hero-bg-image.webp"
-              alt="Our dedicated team"
-            />
+                <video
+          className=" rounded-xl  m-2 inset-0 w-full h-full object-center object-cover  opacity-100 bg-white"
+          autoPlay
+          loop
+          muted
+          poster='/videoplaceholder.png'
+          playsInline
+          preload="auto"
+        >
+          <source src="/aboutvideo.mp4" type="video/mp4" />
+        </video>
+
           </motion.div>
           <motion.div className="md:w-1/2 mt-8 md:mt-0" variants={itemVariants}>
             <h3 className="text-2xl font-bold text-gray-900">Our Values</h3>

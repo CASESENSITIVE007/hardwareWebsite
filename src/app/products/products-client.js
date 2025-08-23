@@ -32,7 +32,16 @@ const productCategories = rawCategories.map(cat => ({
     ...cat,
     icon: iconMap[cat.icon] || CubeIcon
 }));
-
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
 
 // --- Main Page Component ---
 export default function ProductsPage() {
@@ -185,7 +194,7 @@ export default function ProductsPage() {
                         >
                             <div className="mb-12">
                                 <h2 className="text-4xl font-bold tracking-tighter text-gray-900">{category.name}</h2>
-                                <p className="mt-2 text-gray-600 max-w-xl mx-auto">{category.description}</p>
+                                <p className="mt-4 text-gray-600 max-w-4xl mx-auto text-justify ">{category.description}</p>
                             </div>
                             
                             <CategoryShowcase category={category} />
@@ -194,6 +203,41 @@ export default function ProductsPage() {
                     ))}
                 </AnimatePresence>
             </div>
+      {selectedCategory === "galaxy" ? (
+  <div className="mt-4 mb-10 md:flex md:items-center max-w-7xl mx-auto  md:space-x-12 flex-col-reverse md:flex-row">
+    {/* Video Section */}
+    <motion.div className="md:w-1/2" variants={itemVariants}>
+      <video
+        className="rounded-xl  w-full h-full object-cover bg-white"
+        autoPlay
+        loop
+        muted
+        poster=""
+        playsInline
+        preload="auto"
+        aria-label="About us promotional video"
+      >
+        <source src="/galaxyvideo.mov" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </motion.div>
+
+    {/* Text Section */}
+    <motion.div className="md:w-1/2  mt-8  md:mt-0" variants={itemVariants}>
+      <h3 className="text-2xl font-bold text-gray-900 m-2">Our Values</h3>
+      
+    <p className="m-2" >Galaxy stands for reliability, durability, and value in auto spare parts. After strong success in Africa 
+Gulf Countries, we are proud to expand our footprint in India. The Original Trader is the authorized channel partner to promote this brand in India.</p>
+     
+            
+        
+      
+     
+      
+    </motion.div>
+  </div>
+) : null}
+
 
             <section className='flex items-center justify-center'>
              
@@ -239,6 +283,7 @@ export default function ProductsPage() {
                                 <path d="M5 21h14" />
                               </svg>
                             </motion.span>
+
                             <span className="text-lg">Download Catalogue</span>
                           </span>
    

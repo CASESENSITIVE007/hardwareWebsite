@@ -11,8 +11,8 @@ export const productCategories = [
 	{
 		id: 'bearings',
 		name: 'Bearings & Bushings',
-		description: 'Precision bearings for smooth, efficient and reliable motion.',
-		// description: 'Our bearings are engineered for optimal performance in various industrial applications, ensuring reliability and durability. Whether you need ball bearings, roller bearings, or custom solutions, we deliver high-quality products tailored to your needs.',
+		description: '20% bearing supplied in India are spurious. We offer a complete range of premium and authentic bearings to meet diverse industrial and automotive needs. Trusted by leading manufacturers and traders, our products ensure durability, precision, and performance. With strong sourcing and reliable supply, we deliver bearings that keep businesses moving.',
+	
 		icon: 'CubeIcon',
 		products: [
 			{
@@ -132,13 +132,13 @@ export const productCategories = [
 	{
 		id: 'lubricants',
 		name: 'Lubricants & Oils',
-		description: 'Advanced lubrication solutions extending component life.',
+		description: 'Do you know that more than 50% bearing fails due to poor or insufficient lubrication. The Original Traders offers a suitable product meeting your needs as per application. We supply high quality lubricants specially formulated to enhance bearing performance and extend equipment life.',
 		icon: 'SparklesIcon',
 		products: [
 			{
 				id: 'engineoil',
 				name: 'Engine Oils',
-				description: 'High-performance lubricants for optimal machinery efficiency.',
+				description: '',
 				images: [
 					{ id: 'lub-1', src: '/products/galaxy/lubricants/engineoil/e1.jpg', alt: 'Lubricant primary' },
 					{ id: 'lub-2', src: '/products/galaxy/lubricants/engineoil/e2.jpg', alt: 'Lubricant alt 1' },
@@ -160,7 +160,7 @@ export const productCategories = [
 					{ id: 'g-1', src: '/products/galaxy/lubricants/grease/g1.png', alt: 'Assembly primary' },
 					{ id: 'g-2', src: '/products/galaxy/lubricants/grease/g2.png', alt: 'Assembly alt 1' },
 					{ id: 'g-3', src: '/products/galaxy/lubricants/grease/g3.png', alt: 'Assembly alt 2' },
-					{ id: 'g-3', src: '/products/galaxy/lubricants/grease/g4.png', alt: 'Assembly alt 3' },
+					{ id: 'g-4', src: '/products/galaxy/lubricants/grease/g4.png', alt: 'Assembly alt 3' },
 				],
 				brands: [
 					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
@@ -194,7 +194,7 @@ export const productCategories = [
 	{
 		id: 'spare_parts',
 		name: 'Auto Spare Parts',
-		description: 'Reliable fastening solutions for structural integrity.',
+		description: 'We deal in a wide range of premium-quality aftermarket auto parts, ensuring reliable performance and cost-effective solutions for every vehicle. Our products are sourced from trusted manufacturers and supplied to leading exporters and distributors across India.',
 		icon: 'BoltIcon',
 		products: [
 			{
@@ -287,7 +287,7 @@ export const productCategories = [
 	{
 		id: 'galaxy',
 		name: 'Galaxy',
-		description: 'High performance precision spare parts and assemblies engineered for durability.',
+		description: '&quot;Galaxy stands for reliability, durability, and value in auto spare parts. After strong success in Africa &amp; Gulf Countries, we are proud to expand our footprint in India.&quot; The Original Trader is the authorized channel partner to promote this brand in India.',
 		icon: 'ShieldStarIcon',
 		products: [
 			{
@@ -315,7 +315,7 @@ export const productCategories = [
 					{ id: 'galaxy-g-1', src: '/products/galaxy/lubricants/grease/g1.png', alt: 'Assembly primary' },
 					{ id: 'galaxy-g-2', src: '/products/galaxy/lubricants/grease/g2.png', alt: 'Assembly alt 1' },
 					{ id: 'galaxy-g-3', src: '/products/galaxy/lubricants/grease/g3.png', alt: 'Assembly alt 2' },
-					{ id: 'galaxy-g-3', src: '/products/galaxy/lubricants/grease/g4.png', alt: 'Assembly alt 3' },
+					{ id: 'galaxy-g-4', src: '/products/galaxy/lubricants/grease/g4.png', alt: 'Assembly alt 3' },
 				],
 				brands: [
 					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
