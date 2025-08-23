@@ -6,7 +6,7 @@ const TestimonialCard = ({ testimonial }) => {
   if (!testimonial) return null;
 
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-start w-full h-full gap-8 p-4">
+    <div className=" w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start  h-full gap-8 p-4">
       
       {/* Left Side: Profile Info */}
       <div className="flex flex-col items-center md:items-start flex-shrink-0">

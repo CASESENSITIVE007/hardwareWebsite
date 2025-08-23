@@ -38,11 +38,11 @@ function Hero() {
           autoPlay
           loop
           muted
-          poster='/heroplaceholder.png'
+          poster='/videoplaceholder.png'
           playsInline
           preload="auto"
         >
-          <source src="/bg.mp4" type="video/mp4" />
+          <source src="/video.mp4" type="video/mp4" />
         </video>
 
 
