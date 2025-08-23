@@ -12,6 +12,7 @@ export const productCategories = [
 		id: 'bearings',
 		name: 'Bearings & Bushings',
 		description: 'Precision bearings for smooth, efficient and reliable motion.',
+		// description: 'Our bearings are engineered for optimal performance in various industrial applications, ensuring reliability and durability. Whether you need ball bearings, roller bearings, or custom solutions, we deliver high-quality products tailored to your needs.',
 		icon: 'CubeIcon',
 		products: [
 			{

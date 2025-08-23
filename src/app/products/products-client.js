@@ -50,8 +50,9 @@ export default function ProductsPage() {
         ? productCategories.filter(cat => cat.id === selectedCategory)
         : productCategories;
 
-    return (
-        <main className="bg-white min-h-screen">
+  return (
+    <>
+    <main className="bg-white min-h-screen">
          
             <motion.section
               initial={{ opacity: 0, y: -20 }}
@@ -251,9 +252,9 @@ export default function ProductsPage() {
 
              {/* Call to Action */}
 
-            <ContactSection/>
+            {/* <ContactSection/> */}
              
-            {/* <motion.section
+            <motion.section
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -297,29 +298,25 @@ export default function ProductsPage() {
                   >
                     <Button
                       size="lg"
-                      className="bg-white text-red-700 hover:bg-red-50 font-semibold shadow-xl" 
+                      className="bg-white text-red-700 hover:bg-red-50 font-semibold shadow-xl cursor-pointer" 
+                      onClick={() => {
+                        // Dispatch a global event to open the contact overlay
+                        window.dispatchEvent(new Event('contact:open'));
+                      }}
                     >
                       <WrenchScrewdriverIcon className="w-5 h-5 mr-2" />
-                      Contact Our Engineers
+                      Contact Us
                     </Button>
                   </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-white hover:bg-red-50 text-red-700 font-semibold"
-                    >
-                      Request Quote
-                    </Button>
-                  </motion.div>
+                  
                 </motion.div>
               </div>
-            </motion.section> */}
+            </motion.section>
         
         
-        </main>
-    );
+    </main>
+    {/* Mount overlay-only contact section so it can open from this page */}
+    <ContactSection overlayOnly />
+    </>
+  );
 }
