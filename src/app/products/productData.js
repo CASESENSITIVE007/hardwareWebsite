@@ -142,7 +142,7 @@ export const productCategories = [
 				images: [
 					{ id: 'lub-1', src: '/products/galaxy/lubricants/engineoil/e1.jpg', alt: 'Lubricant primary' },
 					{ id: 'lub-2', src: '/products/galaxy/lubricants/engineoil/e2.jpg', alt: 'Lubricant alt 1' },
-					{ id: 'lub-3', src: '/products/lubricants/engineoil/e3.jpg', alt: 'Lubricant alt 2' },
+					{ id: 'lub-3', src: '/products/galaxy/lubricants/engineoil/e3.jpg', alt: 'Lubricant alt 2' },
 					// { id: 'lub-4', src: '/products/lubricants/engineoil/e4.jpg', alt: 'Lubricant alt 3' },
 					{ id: 'lub-5', src: '/products/galaxy/lubricants/engineoil/e5.png', alt: 'Lubricant alt 4' },
 					{ id: 'lub-6', src: '/products/galaxy/lubricants/engineoil/e6.jpeg', alt: 'Lubricant alt 5' },
@@ -202,10 +202,10 @@ export const productCategories = [
 				name: 'Rubber Parts',
 				description: 'OEM-grade replacement parts ensuring seamless integration and reliability.',
 				images: [
-					{ id: 'rb-1', src: '/products/galaxy/spareparts/rb.png', alt: 'Spare Part primary' },
-					{ id: 'rb-2', src: '/products/galaxy/spareparts/rb2.png', alt: 'Spare Part alt 1' },
-					{ id: 'rb-3', src: '/products/galaxy/spareparts/rb3.png', alt: 'Spare Part alt 2' },
-					{ id: 'rb-4', src: '/products/galaxy/spareparts/rb44.png', alt: 'Spare Part alt 3' },
+					{ id: 'rb-1', src: '/products/spareparts/rb.png', alt: 'Spare Part primary' },
+					{ id: 'rb-2', src: '/products/spareparts/rb2.png', alt: 'Spare Part alt 1' },
+					{ id: 'rb-3', src: '/products/spareparts/rb3.png', alt: 'Spare Part alt 2' },
+					{ id: 'rb-4', src: '/products/spareparts/rb44.png', alt: 'Spare Part alt 3' },
 			
 					// { id: 'sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'Spare Part alt 8' },
 				],
@@ -224,9 +224,7 @@ export const productCategories = [
 				
 					// { id: 'sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'Spare Part alt 8' },
 				],
-				brands: [
-					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
-				],
+				
 				
 				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
 			},
@@ -245,9 +243,7 @@ export const productCategories = [
 					{ id: 'b8', src: '/products/break/b8.png', alt: 'Spare Part alt 7' },
 					// { id: 'sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'Spare Part alt 8' },
 				],
-				brands: [
-					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
-				],
+				
 				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
 			},
 			{
@@ -279,9 +275,7 @@ export const productCategories = [
 					{ id: 'o9', src: '/products/other/o9.png', alt: 'Spare Part alt 7' },
 					// { id: 'sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'Spare Part alt 8' },
 				],
-				brands: [
-					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
-				],
+			
 				
 				specifications: ['OEM Fit', 'Hardened Steel', 'Corrosion Resistant']
 			},
@@ -301,12 +295,12 @@ export const productCategories = [
 				name: 'Engine Oils',
 				description: 'High-performance lubricants for optimal machinery efficiency.',
 				images: [
-					{ id: 'galaxy-lub-1', src: '/products/lubricants/engineoil/e1.jpg', alt: 'Lubricant primary' },
-					{ id: 'galaxy-lub-2', src: '/products/lubricants/engineoil/e2.jpg', alt: 'Lubricant alt 1' },
-					{ id: 'galaxy-lub-3', src: '/products/lubricants/engineoil/e3.jpg', alt: 'Lubricant alt 2' },
+					{ id: 'galaxy-lub-1', src: '/products/galaxy/lubricants/engineoil/e1.jpg', alt: 'Lubricant primary' },
+					{ id: 'galaxy-lub-2', src: '/products/galaxy/lubricants/engineoil/e2.jpg', alt: 'Lubricant alt 1' },
+					{ id: 'galaxy-lub-3', src: '/products/galaxy/lubricants/engineoil/e3.jpg', alt: 'Lubricant alt 2' },
 					// { id: 'galaxy-lub-4', src: '/products/lubricants/engineoil/e4.jpg', alt: 'Lubricant alt 3' },
-					{ id: 'galaxy-lub-5', src: '/products/lubricants/engineoil/e5.png', alt: 'Lubricant alt 4' },
-					{ id: 'galaxy-lub-6', src: '/products/lubricants/engineoil/e6.jpeg', alt: 'Lubricant alt 5' },
+					{ id: 'galaxy-lub-5', src: '/products/galaxy/lubricants/engineoil/e5.png', alt: 'Lubricant alt 4' },
+					{ id: 'galaxy-lub-6', src: '/products/galaxy/lubricants/engineoil/e6.jpeg', alt: 'Lubricant alt 5' },
 				],
 				brands: [
 					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
@@ -318,10 +312,10 @@ export const productCategories = [
 				name: 'Grease',
 				description: 'High-performance lubricants for optimal machinery efficiency.',
 				images: [
-					{ id: 'galaxy-g-1', src: '/products/lubricants/grease/g1.png', alt: 'Assembly primary' },
-					{ id: 'galaxy-g-2', src: '/products/lubricants/grease/g2.png', alt: 'Assembly alt 1' },
-					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g3.png', alt: 'Assembly alt 2' },
-					{ id: 'galaxy-g-3', src: '/products/lubricants/grease/g4.png', alt: 'Assembly alt 3' },
+					{ id: 'galaxy-g-1', src: '/products/galaxy/lubricants/grease/g1.png', alt: 'Assembly primary' },
+					{ id: 'galaxy-g-2', src: '/products/galaxy/lubricants/grease/g2.png', alt: 'Assembly alt 1' },
+					{ id: 'galaxy-g-3', src: '/products/galaxy/lubricants/grease/g3.png', alt: 'Assembly alt 2' },
+					{ id: 'galaxy-g-3', src: '/products/galaxy/lubricants/grease/g4.png', alt: 'Assembly alt 3' },
 				],
 				brands: [
 					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
@@ -333,14 +327,14 @@ export const productCategories = [
 				name: 'Industrial Oil',
 				description: 'General industrial hardware for versatile mechanical use.',
 				images: [
-					{ id: 'galaxy-i-1', src: '/products/lubricants/industrialoil/i1.png', alt: 'oil primary' },
-					{ id: 'galaxy-i-2', src: '/products/lubricants/industrialoil/i2.jpg', alt: 'oil alt 1' },
-					{ id: 'galaxy-i-3', src: '/products/lubricants/industrialoil/i3.jpg', alt: 'oil alt 2' },
-					{ id: 'galaxy-i-4', src: '/products/lubricants/industrialoil/i4.png', alt: 'oil alt 3' },
-					{ id: 'galaxy-i-5', src: '/products/lubricants/industrialoil/i5.png', alt: 'oil alt 4' },
-					{ id: 'galaxy-i-6', src: '/products/lubricants/industrialoil/i6.png', alt: 'oil alt 5' },
-					{ id: 'galaxy-i-7', src: '/products/lubricants/industrialoil/i7.png', alt: 'oil alt 6' },
-					{ id: 'galaxy-i-8', src: '/products/lubricants/industrialoil/i8.png', alt: 'oil alt 7' },
+					{ id: 'galaxy-i-1', src: '/products/galaxy/lubricants/industrialoil/i1.png', alt: 'oil primary' },
+					{ id: 'galaxy-i-2', src: '/products/galaxy/lubricants/industrialoil/i2.jpg', alt: 'oil alt 1' },
+					{ id: 'galaxy-i-3', src: '/products/galaxy/lubricants/industrialoil/i3.jpg', alt: 'oil alt 2' },
+					{ id: 'galaxy-i-4', src: '/products/galaxy/lubricants/industrialoil/i4.png', alt: 'oil alt 3' },
+					{ id: 'galaxy-i-5', src: '/products/galaxy/lubricants/industrialoil/i5.png', alt: 'oil alt 4' },
+					{ id: 'galaxy-i-6', src: '/products/galaxy/lubricants/industrialoil/i6.png', alt: 'oil alt 5' },
+					{ id: 'galaxy-i-7', src: '/products/galaxy/lubricants/industrialoil/i7.png', alt: 'oil alt 6' },
+					{ id: 'galaxy-i-8', src: '/products/galaxy/lubricants/industrialoil/i8.png', alt: 'oil alt 7' },
 				],
 				brands: [
 					{ id: 'galaxy', name: 'Galaxy', logo: '/logogalaxy.png' },
@@ -352,14 +346,14 @@ export const productCategories = [
 				name: 'Spare Parts',
 				description: 'OEM-grade replacement parts ensuring seamless integration and reliability.',
 				images: [
-					{ id: 'galaxy-sp1-1', src: '/products/spareparts/sp1.jpeg', alt: 'galaxy Spare Part primary' },
-					{ id: 'galaxy-sp1-2', src: '/products/spareparts/sp2.jpeg', alt: 'galaxy Spare Part alt 1' },
-					{ id: 'galaxy-sp1-3', src: '/products/spareparts/sp3.jpeg', alt: 'galaxy Spare Part alt 2' },
-					{ id: 'galaxy-sp1-4', src: '/products/spareparts/sp4.png', alt: 'galaxy Spare Part alt 3' },
-					{ id: 'galaxy-sp1-5', src: '/products/spareparts/sp5.png', alt: ' galaxy Spare Part alt 4' },
-					{ id: 'galaxy-sp1-6', src: '/products/spareparts/sp6.png', alt: 'galaxy Spare Part alt 5' },
-					{ id: 'galaxy-sp1-7', src: '/products/spareparts/sp7.png', alt: 'galaxy Spare Part alt 6' },
-					{ id: 'galaxy-sp1-8', src: '/products/spareparts/sp8.png', alt: 'galaxy Spare Part alt 7' },
+					{ id: 'galaxy-sp1-1', src: '/products/galaxy/spareparts/sp1.jpeg', alt: 'galaxy Spare Part primary' },
+					{ id: 'galaxy-sp1-2', src: '/products/galaxy/spareparts/sp2.jpeg', alt: 'galaxy Spare Part alt 1' },
+					{ id: 'galaxy-sp1-3', src: '/products/galaxy/spareparts/sp3.jpeg', alt: 'galaxy Spare Part alt 2' },
+					{ id: 'galaxy-sp1-4', src: '/products/galaxy/spareparts/sp4.png', alt: 'galaxy Spare Part alt 3' },
+					{ id: 'galaxy-sp1-5', src: '/products/galaxy/spareparts/sp5.png', alt: ' galaxy Spare Part alt 4' },
+					{ id: 'galaxy-sp1-6', src: '/products/galaxy/spareparts/sp6.png', alt: 'galaxy Spare Part alt 5' },
+					{ id: 'galaxy-sp1-7', src: '/products/galaxy/spareparts/sp7.png', alt: 'galaxy Spare Part alt 6' },
+					{ id: 'galaxy-sp1-8', src: '/products/galaxy/spareparts/sp8.png', alt: 'galaxy Spare Part alt 7' },
 					// { id: 'galaxy-sp1-9', src: '/products/spareparts/sp9.jpeg', alt: 'galaxy Spare Part alt 8' },
 				],
 				brands: [
