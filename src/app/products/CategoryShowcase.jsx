@@ -132,7 +132,7 @@ const ProductBlock = ({ product, category }) => {
       </div>
 
       <div className="flex justify-center items-center flex-wrap gap-x-16 gap-y-4 pt-4">
-        {product.brands.map((logo, i) => (
+        {product.brands?.map((logo, i) => (
           <motion.img
             key={logo.id}
             src={logo.logo}
