@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
 
-function ContactSection() {
+function ContactSection({ overlayOnly = false }) {
   const [open, setOpen] = useState(false);
 
   // Close on ESC
@@ -31,59 +31,76 @@ function ContactSection() {
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
 
-  return (
-    <div className="relative flex flex-col justify-center items-center w-full min-h-[50vh] overflow-hidden p-4 sm:p-6 lg:p-8   ">
-      {/* Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover opacity-75"
-        autoPlay
-        poster="/whyussectionplaceholder.png"
-        loop
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src="/whyus.mp4" type="video/mp4" />
-      </video>
+  // Allow opening from anywhere via a custom window event
+  useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener("contact:open", onOpen);
+    return () => window.removeEventListener("contact:open", onOpen);
+  }, []);
 
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-xl ">
-        {/* <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+  return (
+    <>
+      {!overlayOnly && (
+        <div className="relative flex flex-col justify-center items-center w-full min-h-[50vh] overflow-hidden p-4 sm:p-6 lg:p-8   ">
+          {/* Background Video */}
+          <video
+            className="absolute inset-0 w-full h-full object-cover opacity-75"
+            autoPlay
+            poster="/whyussectionplaceholder.png"
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="/whyus.mp4" type="video/mp4" />
+          </video>
+
+          {/* Content */}
+          <div className="relative z-10 text-center text-white px-4 max-w-xl ">
+            {/* <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
           Have Questions?
         </h1>
         <p className="text-base sm:text-lg md:text-xl lg:text-3xl">
           Reach out to us for any queries.
         </p> */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-4xl font-bold mb-6"
-        >
-          Need Custom Engineering Solutions?
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-red-100 mb-8 max-w-2xl mx-auto text-lg text-justify backdrop-blur rounded-2xl p-4"
-        >
-          Our expert engineering team specializes in designing and manufacturing
-          precision hardware components tailored to your exact specifications
-          and performance requirements.
-        </motion.p>
-        <Button
-          onClick={handleOpen}
-          className="mt-8 inline-flex items-center gap-x-2 rounded-lg bg-gradient-to-r from-red-600 to-blue-700 px-6 py-6 text-lg font-semibold text-white shadow-sm transition-all hover:from-red-700 hover:to-blue-800 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-500"
-        >
-          Contact Us
-        </Button>
-      </div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-4xl font-bold mb-6"
+            >
+              Need Custom Engineering Solutions?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-red-100 mb-8 max-w-2xl mx-auto text-xl text-justify backdrop-blur rounded-2xl p-4 "
+            >
+              Our expert engineering team specializes in designing and
+              manufacturing precision hardware components tailored to your exact
+              specifications and performance requirements.
+            </motion.p>
+            <Button
+              onClick={handleOpen}
+              className="mt-8 inline-flex cursor-pointer items-center gap-x-2 rounded-lg bg-gradient-to-r from-red-600 to-blue-700 px-6 py-6 text-lg font-semibold text-white shadow-sm transition-all hover:from-red-700 hover:to-blue-800 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+            >
+              Contact Us
+            </Button>
+          </div>
 
-      <AnimatePresence>
-        {open && <ContactModal onClose={handleClose} />}
-      </AnimatePresence>
-    </div>
+          <AnimatePresence>
+            {open && <ContactModal onClose={handleClose} />}
+          </AnimatePresence>
+        </div>
+      )}
+
+      {overlayOnly && (
+        <AnimatePresence>
+          {open && <ContactModal onClose={handleClose} />}
+        </AnimatePresence>
+      )}
+    </>
   );
 }
 
@@ -163,7 +180,7 @@ const ContactModal = ({ onClose }) => {
         <button
           onClick={onClose}
           aria-label="Close contact form"
-          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl leading-none"
+          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl leading-none cursor-pointer"
         >
           &times;
         </button>
@@ -176,10 +193,11 @@ const ContactModal = ({ onClose }) => {
             </p>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <span className="mt-1">📧</span> theoriginaltraders@gmail.com
+                <span className="mt-1">📧</span> sales@theoriginaltraders.com
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1">📍</span> 123 Business Rd, Aligarh, UP
+                <span className="mt-1">📍</span> 11, Divya Lok, Mathura, Maholi,
+                Mathura, Uttar Pradesh - 281004
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1">📞</span> +91-7827505517
@@ -316,14 +334,14 @@ const ContactModal = ({ onClose }) => {
                   type="button"
                   variant="ghost"
                   onClick={onClose}
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-700"
+                  className="bg-gray-100 hover:bg-gray-200 text-gray-700 cursor-pointer"
                 >
                   Cancel
                 </Button>
                 <Button
                   type="submit"
                   disabled={status.state === "submitting"}
-                  className="bg-red-700 hover:bg-red-900 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="bg-red-700 hover:bg-red-900 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {status.state === "submitting"
                     ? "Sending..."

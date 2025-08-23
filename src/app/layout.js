@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "The Original Traders",
-  description: "Your one-stop solution for precision hardware components.",
+  description: "Your trusted partner for precision hardware components and genuine auto parts in the automotive and industrial sectors.",
 };
 
 export default function RootLayout({ children }) {
