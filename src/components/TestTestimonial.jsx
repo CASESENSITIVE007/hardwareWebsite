@@ -1,3 +1,4 @@
+"use client"
 import LogoLoop from './ui/LogoLoop';
 
 
@@ -16,41 +17,22 @@ const imageLogos = [
   
 ];
 
-
-
-
-
-function Clientcards() {
+function TestTestimonial() {
   return (
-    <>
-      
-
-      <section className="bg-gradient-to-b from-[#f2f2f7] to-[#acbcdb] py-8 sm:py-24 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black ">
-            Our Clients
-          </h2>
-        </div>
-        <div style={{ height: '200px', position: 'relative', overflow: 'hidden'}}>
+    <div style={{ height: '200px', position: 'relative', overflow: 'hidden'}}>
       <LogoLoop
         logos={imageLogos}
         speed={120}
         direction="left"
-        logoHeight={150}
+        logoHeight={100}
         gap={50}
         pauseOnHover
         scaleOnHover
         fadeOut
         fadeOutColor="#ffffff"
-        ariaLabel=""
-        className="rounded-2xl mt-4" 
+        ariaLabel="Technology partners"
       />
-        </div>
-        
-        
-      </section>
-    </>
+    </div>
   );
 }
-
-export default Clientcards;
+export default TestTestimonial;

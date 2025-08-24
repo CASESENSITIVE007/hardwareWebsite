@@ -8,14 +8,14 @@ import TestimonialCard from "./TestimonialCard";
 const testimonials = [
   {
     name: "Poorna Rao",
-    title: "Salesforce Developer",
+    title: "Manager-durga Bearings",
     image: "/logo.png", // Replace with your image
     quote:
       "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel.",
   },
   {
     name: "Cole Pammer",
-    title: "Sales Intern",
+    title: "Sales Intern-Tesla",
     image: "/bearingcard.jpeg", // Replace with your image
     quote:
       "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel.",
@@ -62,8 +62,8 @@ const Testimonials = () => {
   const currentIndex = page;
 
   return (
-    <div className=" flex flex-col items-center justify-center p-4 bg-gray-50 min-h-[600px] font-sans">
-      <div className="relative w-full max-w-6xl  p-8 bg-white border border-gray-200 rounded-lg shadow-md">
+    <div className=" flex flex-col items-center justify-center p-2 bg-gray-50 min-h-[500px] font-sans">
+      <div className="relative w-full max-w-4xl  p-4 bg-white border border-gray-200 rounded-lg shadow-md">
         
         {/* Large Quotation Mark Icon */}
         <div className="absolute top-6 left-6 text-7xl text-[#0D2F4B] font-serif z-0 opacity-80">
@@ -80,7 +80,7 @@ const Testimonials = () => {
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={page}
-              className="absolute w-full h-full"
+              className="absolute w-full "
               custom={direction}
               variants={slideVariants}
               initial="enter"
@@ -104,7 +104,7 @@ const Testimonials = () => {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center mt-6 space-x-2">
+        <div className="flex justify-center mt-2 space-x-2">
           {testimonials.map((_, index) => (
             <button
               key={index}
@@ -116,8 +116,11 @@ const Testimonials = () => {
           ))}
         </div>
 
-        
+          <div className="absolute bottom-2 right-6 text-7xl text-[#0D2F4B] font-serif z-0 opacity-80">
+          ”
+        </div>
       </div>
+       
     </div>
   );
 };

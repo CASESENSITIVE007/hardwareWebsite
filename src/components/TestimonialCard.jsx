@@ -1,42 +1,32 @@
 "use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 const TestimonialCard = ({ testimonial }) => {
   if (!testimonial) return null;
 
   return (
-    <div className=" w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start  h-full gap-8 p-4">
-      
-      {/* Left Side: Profile Info */}
-      <div className="flex flex-col items-center md:items-start flex-shrink-0">
-        {/* Profile Image with colored ring */}
-        <div className="mb-4">
-          <Image
-            src={testimonial.image}
-            alt={testimonial.name}
-            width={112} // 7rem
-            height={112} // 7rem
-            className="rounded-full  "
-          />
-        </div>
+    <div className="w-full max-w-6xl flex flex-col md:flex-row items-center md:items-start h-full p-4">
+      {/* Left Side: (Optional for profile image) */}
 
-        {/* Name */}
-        <div className="text-sm font-semibold px-4 py-1.5 rounded-md shadow-sm">
-          {testimonial.name}
-        </div>
-
-       
-      
-      </div>
 
       {/* Right Side: Testimonial Quote */}
-      <div className="flex-grow text-center md:text-left">
+      <div className="flex-grow text-left">
         <p className="text-base text-gray-700 leading-relaxed pt-2">
           {testimonial.quote}
         </p>
-      </div>
 
+        {/* Name and Title below the message - right aligned */}
+      <div className="mt-4 text-right">
+      <div className="text-base text-black font-semibold">
+      {testimonial.name}
+      </div>
+      <div className="text-sm text-gray-600 italic">
+        {testimonial.title}
+  </div>
+</div>
+
+      </div>
     </div>
   );
 };

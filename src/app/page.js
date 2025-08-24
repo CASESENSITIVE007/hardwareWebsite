@@ -11,6 +11,7 @@ import Cards from "../components/Cards";
 import Clientcards from "../components/Clientcards";
 import WhyUs from "../components/WhyUs";
 import ContactSection from "../components/ContactSection";
+import TestTestimonial from "../components/TestTestimonial";
 export default function Home() {
   return (
    <div>
@@ -20,6 +21,7 @@ export default function Home() {
     <Cards/>
     <KeyIndustries/>
     <Clientcards/>
+    {/* <TestTestimonial/> */}
     <Testimonials/>
     <Contactus/>
     <WhyUs/>

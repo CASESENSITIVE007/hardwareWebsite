@@ -75,7 +75,7 @@ function ContactSection({ overlayOnly = false }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-red-100 mb-8 max-w-2xl mx-auto text-xl text-justify backdrop-blur rounded-2xl p-4 "
+              className="text-white mb-8 max-w-2xl mx-auto text-xl text-justify rounded-2xl p-4 "
             >
               Our expert engineering team specializes in designing and
               manufacturing precision hardware components tailored to your exact

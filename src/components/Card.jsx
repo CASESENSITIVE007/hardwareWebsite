@@ -37,12 +37,12 @@ function Card({ Name, image, descName, desc }) {
         </div>
 
         {/* Back Face */}
-        <div className="absolute inset-0 h-full w-full rounded-xl bg-red-700 px-6 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+        <div className="absolute inset-0 h-full w-full rounded-xl bg-red-700 px-6 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-hidden ">
           <div className="flex h-full flex-col items-center justify-center">
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
               {descName || Name}
             </h1>
-            <p className="mt-2 text-sm sm:text-base md:text-lg ">{desc}</p>
+            <p className="mt-2 text-sm sm:text-base md:text-md   ">{desc}</p>
           </div>
         </div>
       </div>
