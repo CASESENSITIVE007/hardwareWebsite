@@ -71,26 +71,62 @@ function generateHomeStructuredData() {
       itemListElement: [
         {
           "@type": "Offer",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+          seller: {
+            "@type": "Organization",
+            name: "The Original Traders"
+          },
           itemOffered: {
             "@type": "Product",
             name: "Industrial Bearings",
-            category: "Industrial Hardware"
-          }
-        },
-        {
-          "@type": "Offer", 
-          itemOffered: {
-            "@type": "Product",
-            name: "Industrial Lubricants",
-            category: "Industrial Hardware"
+            category: "Industrial Hardware",
+            description: "Precision bearings from top brands",
+            image: `${baseUrl}/products/bb1.jpeg`,
+            brand: {
+              "@type": "Brand",
+              name: "SKF, FAG, TIMKEN"
+            }
           }
         },
         {
           "@type": "Offer",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+          seller: {
+            "@type": "Organization",
+            name: "The Original Traders"
+          },
+          itemOffered: {
+            "@type": "Product",
+            name: "Industrial Lubricants",
+            category: "Industrial Hardware",
+            description: "High-performance industrial oils and grease",
+            image: `${baseUrl}/products/helmet.jpg`,
+            brand: {
+              "@type": "Brand",
+              name: "Galaxy"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          priceCurrency: "INR",
+          availability: "https://schema.org/InStock",
+          seller: {
+            "@type": "Organization",
+            name: "The Original Traders"
+          },
           itemOffered: {
             "@type": "Product", 
             name: "Auto Spare Parts",
-            category: "Automotive"
+            category: "Automotive",
+            description: "Genuine automotive components and spare parts",
+            image: `${baseUrl}/products/helmet.jpg`,
+            brand: {
+              "@type": "Brand",
+              name: "OEM Brands"
+            }
           }
         }
       ]
