@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sendContactEmails } from '@/lib/mail';
 
-// Simple helper to validate fields
 function validate(body) {
   const errors = {};
   function req(field, label = field) {

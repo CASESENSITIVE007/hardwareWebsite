@@ -4,7 +4,7 @@
 
 import { productCategories } from '@/app/products/productData';
 
-const BASE_URL = process.env.SITE_URL || 'https://theoriginaltraders.com';
+const BASE_URL = process.env.SITE_URL || 'https://www.theoriginaltraders.com';
 
 export default async function sitemap() {
   const now = new Date();
@@ -70,6 +70,6 @@ export default async function sitemap() {
     lastModified: lastMod,
     changeFrequency: entry.changeFrequency,
     priority: entry.priority,
-    images: entry.images, // Next.js will emit <image:image> blocks when provided
+    images: entry.images, 
   }));
 }
