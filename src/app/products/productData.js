@@ -38,6 +38,31 @@ export const productCategories = [
 				specifications: ['Bore: 20mm', 'ABEC-5', 'Sealed / Open Options']
 			},
 			{
+				id: 'roller-bearings',
+				name: 'Roller Bearings',
+				description: 'Maintenance-free bushings with low wear surfaces.',
+				images: [
+					{ id: 'bearings-roller-1', src: '/products/bearings/RollerBearing/images/r1.jpeg', alt: 'roller Bearing primary' },
+					{ id: 'bearings-roller-2', src: '/products/bearings/RollerBearing/images/r2.jpeg', alt: 'roller Bearing 1' },
+					{ id: 'bearings-roller-3', src: '/products/bearings/RollerBearing/images/r3.jpeg', alt: 'roller Bearing 2' },
+					{ id: 'bearings-roller-4', src: '/products/bearings/RollerBearing/images/r4.jpeg', alt: 'roller Bearing 3' },
+					// { id: 'bearings-roller-5', src: '/products/bearings/RollerBearing/images/r5.jpeg', alt: 'roller Bearing 4' },
+					{ id: 'bearings-roller-6', src: '/products/bearings/RollerBearing/images/r6.jpeg', alt: 'roller Bearing 5' },
+					{ id: 'bearings-roller-7', src: '/products/bearings/RollerBearing/images/r7.jpeg', alt: 'roller Bearing 6' },
+				
+				],
+				brands: [
+					{ id: 'rb1', name: 'ZKL', logo: '/products/bearings/RollerBearing/brands/b1.jpeg' },
+					{ id: 'rb2', name: 'SKF', logo: '/products/bearings/RollerBearing/brands/b2.jpeg' },
+					{ id: 'rb3', name: 'FAG', logo: '/products/bearings/RollerBearing/brands/b3.jpeg' },
+					{ id: 'rb4', name: 'TIMKEN', logo: '/products/bearings/RollerBearing/brands/b4.jpeg' },
+					{ id: 'rb5', name: 'ZWZ', logo: '/products/bearings/RollerBearing/brands/b5.jpeg' },
+					{ id: 'rb6', name: 'NSK', logo: '/products/bearings/RollerBearing/brands/b6.jpeg' },
+					{ id: 'rb7', name: 'URB', logo: '/products/bearings/RollerBearing/brands/b7.jpeg' },
+				],
+				specifications: ['Self-Lubricating', 'Shock Resistant', 'Wide Temp Range']
+			},
+			{
 				id: 'needle-bearings-roller',
 				name: 'Needle Roller Bearings',
 				description: 'Cylindrical & tapered roller bearings for heavy radial loads.',
@@ -55,24 +80,6 @@ export const productCategories = [
 					{ id: 'nb3', name: 'NRB', logo: '/products/bearings/needlerollerbearing/brands/nrb7.jpeg' },
 				],
 				specifications: ['High Load', 'Precision Ground', 'Heat Treated']
-			},
-			{
-				id: 'pillow-block-bearings',
-				name: 'Pillow Block Bearings',
-				description: 'Axial load support with minimal friction & wear.',
-				images: [
-					{ id: 'pillow-block-bearings-1', src: '/products/bearings/pillowblockbearings/images/pbr1.jpeg', alt: 'pillow Bearing primary' },
-					{ id: 'pillow-block-bearings-2', src: '/products/bearings/pillowblockbearings/images/pbr2.jpeg', alt: 'pillow Bearing alt 1' },
-					{ id: 'pillow-block-bearings-3', src: '/products/bearings/pillowblockbearings/images/pbr3.jpeg', alt: 'pillow Bearing alt 2' },
-				],
-				brands: [
-					{ id: 'pbb1', name: 'SKF', logo: '/products/bearings/pillowblockbearings/brands/b1.jpeg' },
-					{ id: 'pbb2', name: 'FYH', logo: '/products/bearings/pillowblockbearings/brands/b2.jpeg' },
-					{ id: 'pbb3', name: 'ASAHI', logo: '/products/bearings/pillowblockbearings/brands/b3.jpeg' },
-					{ id: 'pbb4', name: 'FK', logo: '/products/bearings/pillowblockbearings/brands/b4.jpeg' },
-					{ id: 'pbb5', name: 'FKD', logo: '/products/bearings/pillowblockbearings/brands/b5.jpeg' },
-				],
-				specifications: ['Axial Loads', 'Hardened Raceways', 'Compact Design']
 			},
 			{
 				id: 'bearings-precision',
@@ -100,30 +107,24 @@ export const productCategories = [
 				specifications: ['Slim Profile', 'High Speed', 'Caged / Full Complement']
 			},
 			{
-				id: 'roller-bearings',
-				name: 'Roller Bearings',
-				description: 'Maintenance-free bushings with low wear surfaces.',
+				id: 'pillow-block-bearings',
+				name: 'Pillow Block Bearings',
+				description: 'Axial load support with minimal friction & wear.',
 				images: [
-					{ id: 'bearings-roller-1', src: '/products/bearings/RollerBearing/images/r1.jpeg', alt: 'roller Bearing primary' },
-					{ id: 'bearings-roller-2', src: '/products/bearings/RollerBearing/images/r2.jpeg', alt: 'roller Bearing 1' },
-					{ id: 'bearings-roller-3', src: '/products/bearings/RollerBearing/images/r3.jpeg', alt: 'roller Bearing 2' },
-					{ id: 'bearings-roller-4', src: '/products/bearings/RollerBearing/images/r4.jpeg', alt: 'roller Bearing 3' },
-					// { id: 'bearings-roller-5', src: '/products/bearings/RollerBearing/images/r5.jpeg', alt: 'roller Bearing 4' },
-					{ id: 'bearings-roller-6', src: '/products/bearings/RollerBearing/images/r6.jpeg', alt: 'roller Bearing 5' },
-					{ id: 'bearings-roller-7', src: '/products/bearings/RollerBearing/images/r7.jpeg', alt: 'roller Bearing 6' },
-				
+					{ id: 'pillow-block-bearings-1', src: '/products/bearings/pillowblockbearings/images/pbr1.jpeg', alt: 'pillow Bearing primary' },
+					{ id: 'pillow-block-bearings-2', src: '/products/bearings/pillowblockbearings/images/pbr2.jpeg', alt: 'pillow Bearing alt 1' },
+					{ id: 'pillow-block-bearings-3', src: '/products/bearings/pillowblockbearings/images/pbr3.jpeg', alt: 'pillow Bearing alt 2' },
 				],
 				brands: [
-					{ id: 'rb1', name: 'ZKL', logo: '/products/bearings/RollerBearing/brands/b1.jpeg' },
-					{ id: 'rb2', name: 'SKF', logo: '/products/bearings/RollerBearing/brands/b2.jpeg' },
-					{ id: 'rb3', name: 'FAG', logo: '/products/bearings/RollerBearing/brands/b3.jpeg' },
-					{ id: 'rb4', name: 'TIMKEN', logo: '/products/bearings/RollerBearing/brands/b4.jpeg' },
-					{ id: 'rb5', name: 'ZWZ', logo: '/products/bearings/RollerBearing/brands/b5.jpeg' },
-					{ id: 'rb6', name: 'NSK', logo: '/products/bearings/RollerBearing/brands/b6.jpeg' },
-					{ id: 'rb7', name: 'URB', logo: '/products/bearings/RollerBearing/brands/b7.jpeg' },
+					{ id: 'pbb1', name: 'SKF', logo: '/products/bearings/pillowblockbearings/brands/b1.jpeg' },
+					{ id: 'pbb2', name: 'FYH', logo: '/products/bearings/pillowblockbearings/brands/b2.jpeg' },
+					{ id: 'pbb3', name: 'ASAHI', logo: '/products/bearings/pillowblockbearings/brands/b3.jpeg' },
+					{ id: 'pbb4', name: 'FK', logo: '/products/bearings/pillowblockbearings/brands/b4.jpeg' },
+					{ id: 'pbb5', name: 'FKD', logo: '/products/bearings/pillowblockbearings/brands/b5.jpeg' },
 				],
-				specifications: ['Self-Lubricating', 'Shock Resistant', 'Wide Temp Range']
-			}
+				specifications: ['Axial Loads', 'Hardened Raceways', 'Compact Design']
+			},
+			
 		]
 	},
 
@@ -287,7 +288,7 @@ export const productCategories = [
 	{
 		id: 'galaxy',
 		name: 'Galaxy',
-		description: '&quot;Galaxy stands for reliability, durability, and value in auto spare parts. After strong success in Africa &amp; Gulf Countries, we are proud to expand our footprint in India.&quot; The Original Trader is the authorized channel partner to promote this brand in India.',
+		description: 'Galaxy stands for reliability, durability, and value in auto spare parts. After strong success in Africa & Gulf Countries, we are proud to expand our footprint in India. The Original Trader is the authorized channel partner to promote this brand in India.',
 		icon: 'ShieldStarIcon',
 		products: [
 			{

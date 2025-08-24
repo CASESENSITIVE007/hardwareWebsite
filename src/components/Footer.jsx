@@ -35,16 +35,41 @@ const Footer = () => {
 
             {/* Column 2: Quick Links */}
             <div>
-              <div className='mx-auto place-items-center'>
-              <ul className=" space-y-2 text-slate-300">
-                <h3 className="text-xl font-bold text-white">Links</h3>
-                <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
-                <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#keyindustries" className="hover:text-white transition-colors">Key Industries</a></li>
-                <li><a href="#contactus" className="hover:text-white transition-colors">Contact Us</a></li>
-              </ul>
+              <div className="mx-auto place-items-center">
+                <ul className=" space-y-2 text-slate-300">
+                  <h3 className="text-xl font-bold text-white">Links</h3>
+                  <li>
+                    <a href="#" className="hover:text-white transition-colors">
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/about"
+                      className="hover:text-white transition-colors"
+                    >
+                      About Us
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#keyindustries"
+                      className="hover:text-white transition-colors"
+                    >
+                      Key Industries
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#contactus"
+                      className="hover:text-white transition-colors"
+                    >
+                      Contact Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
 
             {/* Column 3: Contact Info */}
             <div>
@@ -52,23 +77,47 @@ const Footer = () => {
               <ul className="mt-4 space-y-3 text-slate-300">
                 <li className="flex items-center justify-center md:justify-start">
                   <Mail className="mr-2" />
-                  <a href="mailto:theoriginaltraders@gmail.com" className="hover:text-white transition-colors " target='_blank' >theoriginaltraders@gmail.com</a>
-                </li>
-                <li className="flex items-center justify-center md:justify-start">
-                 <Phone className="mr-2"/>
-                  <a href="tel:+917827505517" className="hover:text-white transition-colors">+91-7827505517</a>
-                </li>
                   <a
-      href="https://wa.me/917827505517" // Replace with your WhatsApp number (with country code, no + or spaces)
-      target="_blank"
-      rel="noopener noreferrer">
-<li className="flex items-center justify-center md:justify-start hover:text-white transition-colors">
-                  <WhatsAppIcon  />
-                  <span>WhatsApp</span>
+                    href="mailto:theoriginaltraders@gmail.com"
+                    className="hover:text-white transition-colors "
+                    target="_blank"
+                  >
+                    theoriginaltraders@gmail.com
+                  </a>
                 </li>
-      </a>
-
-                
+                <li className="flex items-center justify-center md:justify-start gap-2">
+                  <Phone className="mr-2" />
+                  <a
+                    href="tel:+919084019676"
+                    className="hover:text-white transition-colors"
+                  >
+                    9084019676
+                  </a>
+                  /
+                  <a
+                    href="tel:+919625741370"
+                    className="hover:text-white transition-colors"
+                  >
+                    9625741370
+                  </a>
+                  /
+                  <a
+                    href="tel:+919871912068"
+                    className="hover:text-white transition-colors"
+                  >
+                    9871912068
+                  </a>
+                </li>
+                <a
+                  href="https://wa.me/9084019676" // Replace with your WhatsApp number (with country code, no + or spaces)
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <li className="flex items-center justify-center md:justify-start hover:text-white transition-colors">
+                    <WhatsAppIcon />
+                    <span>WhatsApp</span>
+                  </li>
+                </a>
               </ul>
             </div>
           </div>

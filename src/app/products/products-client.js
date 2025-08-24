@@ -182,9 +182,9 @@ export default function ProductsPage() {
                     </div>
                 </section>
 
-                <AnimatePresence>
-                    {categoriesToShow.map(category => (
-                        <motion.section
+        <AnimatePresence>
+          {categoriesToShow.map((category, idx) => (
+                      <motion.section
                             key={category.id}
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -192,13 +192,35 @@ export default function ProductsPage() {
                             transition={{ duration: 0.5 }}
                             className="mb-20 text-center"
                         >
-                            <div className="mb-12">
-                                <h2 className="text-4xl font-bold tracking-tighter text-gray-900">{category.name}</h2>
-                                <p className="mt-4 text-gray-600 max-w-4xl mx-auto text-justify ">{category.description}</p>
+                            <div className="mb-20 max-w-4xl mx-auto">
+                                <motion.h2
+                                  initial={{ x: -80, opacity: 0 }}
+                                  animate={{ x: 0, opacity: 1 }}
+                                  exit={{ x: -40, opacity: 0 }}
+                                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                                  className="text-4xl font-bold tracking-tighter text-gray-900"
+                                >
+                                  {category.name}
+                                </motion.h2>
+                                <p className="mt-4 text-xl text-gray-800 font-medium  mx-auto text-justify ">{category.description}</p>
                             </div>
                             
                             <CategoryShowcase category={category} />
-                            
+
+                            {idx < categoriesToShow.length - 1 && (
+                              <motion.div
+                                initial={{ opacity: 0, scaleX: 0 }}
+                                animate={{ opacity: 1, scaleX: 1 }}
+                                exit={{ opacity: 0, scaleX: 0 }}
+                                transition={{ duration: 0.6, ease: 'easeOut' }}
+                                className="mx-auto my-12 h-0.5 w-3/4 origin-left rounded bg-gradient-to-r from-[#9a2700] via-[#2c5685] to-[#9a2700] relative overflow-hidden"
+                                aria-hidden
+                              >
+                                {/* shimmer */}
+                                <span className="absolute left-0 top-0 h-full w-24 bg-white/30 mix-blend-screen blur-md animate-separator-shimmer" />
+                              </motion.div>
+                            )}
+
                         </motion.section>
                     ))}
                 </AnimatePresence>
@@ -366,3 +388,10 @@ Gulf Countries, we are proud to expand our footprint in India. The Original Trad
     </>
   );
 }
+
+/* Add separator shimmer animation */
+<style jsx global>{`
+@keyframes separatorShimmer { 0% { transform: translateX(-120%); opacity: 0; } 10% { opacity: 0.2 } 50% { transform: translateX(120%); opacity: 0.6 } 90% { opacity: 0.2 } 100% { transform: translateX(220%); opacity: 0 } }
+.animate-separator-shimmer { animation: separatorShimmer 2.2s cubic-bezier(.2,.9,.2,1) infinite; will-change: transform, opacity; }
+@media (prefers-reduced-motion: reduce) { .animate-separator-shimmer { animation: none; opacity: 0.18; } }
+`}</style>
