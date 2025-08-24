@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer';
 
-// Create a singleton transporter instance (re-used across invocations in dev & prod)
 let cached = global._mailTransport;
 
 if (!cached) {
@@ -27,7 +26,7 @@ export function getTransporter() {
     throw new Error('Missing required SMTP environment variables.');
   }
   const port = Number(SMTP_PORT);
-  const secure = SMTP_SECURE === 'true' || port === 465; // auto secure if 465
+  const secure = SMTP_SECURE === 'true' || port === 465; 
   const signature = buildSignature({ host, port, secure, user });
 
   if (!cached.transporter || cached.lastConfigSignature !== signature) {
@@ -73,7 +72,6 @@ export async function sendContactEmails({ name, email, phone, subject, message }
     replyTo: email,
   });
 
-  // Auto-reply to user (skip if MAIL_REPLY_DISABLE=true)
   if (process.env.MAIL_REPLY_DISABLE !== 'true' && email) {
     await transporter.sendMail({
       from: fromAddress,

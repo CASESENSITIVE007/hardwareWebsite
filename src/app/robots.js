@@ -1,7 +1,7 @@
 // robots.txt generator for Next.js App Router (served at /robots.txt)
 // Adds sitemap reference automatically.
 
-const BASE_URL = process.env.SITE_URL || 'https://theoriginaltraders.com';
+const BASE_URL = process.env.SITE_URL || 'https://www.theoriginaltraders.com';
 
 export default function robots() {
   return {
