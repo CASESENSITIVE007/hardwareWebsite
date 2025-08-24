@@ -72,7 +72,7 @@ const page = () => {
           autoPlay
           loop
           muted
-          poster='/videoplaceholder.png'
+          poster='/aboutplaceholder.png'
           playsInline
           preload="auto"
         >
