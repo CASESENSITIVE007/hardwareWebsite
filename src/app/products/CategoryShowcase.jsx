@@ -131,13 +131,13 @@ const ProductBlock = ({ product, category }) => {
         )}
       </div>
 
-      <div className="flex justify-center items-center flex-wrap gap-x-16 gap-y-4 pt-4">
+      <div className="flex justify-center items-center flex-wrap gap-x-16 gap-y-4 pt-4 ">
         {product.brands?.map((logo, i) => (
           <motion.img
             key={logo.id}
             src={logo.logo}
             alt={logo.name}
-            className="h-8 w-16 md:h-10 md:w-18 lg:h-fit lg:w-40 object-cover opacity-70 hover:opacity-100 transition-opacity"
+            className="h-8 w-16 md:h-10 md:w-18 lg:h-fit lg:w-40 object-contain opacity-70 hover:opacity-100 transition-opacity "
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 0.7, y: 0 }}
             transition={{ delay: i * 0.08 }}

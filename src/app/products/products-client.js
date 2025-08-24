@@ -225,7 +225,7 @@ export default function ProductsPage() {
                     ))}
                 </AnimatePresence>
             </div>
-      {selectedCategory === "galaxy" ? (
+      {selectedCategory === "galaxy" || selectedCategory===null ? (
   <div className="mt-4  p-2 mb-10 flex md:items-center max-w-7xl mx-auto   flex-col ">
     {/* Video Section */}
     <motion.div className="md:w-1/2" variants={itemVariants}>

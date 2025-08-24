@@ -28,12 +28,12 @@ export const productCategories = [
 					{ id: 'bearings-ball-6', src: '/products/bearings/ballbearing/images/bb6.jpeg', alt: 'Ball Bearing alt 5' },
 				],
 				brands: [
-					{ id: 'bb1', name: 'SKF', logo: '/products/bearings/ballbearing/brands/bb1.jpeg' },
-					{ id: 'bb2', name: 'FAG', logo: '/products/bearings/ballbearing/brands/bb2.jpeg' },
-					{ id: 'bb3', name: 'TIMKEN', logo: '/products/bearings/ballbearing/brands/bb3.jpeg' },
-					{ id: 'bb4', name: 'NBC', logo: '/products/bearings/ballbearing/brands/bb4.jpeg' },
-					{ id: 'bb5', name: 'NSK', logo: '/products/bearings/ballbearing/brands/bb5.jpeg' },
-					{ id: 'bb6', name: 'HCH', logo: '/products/bearings/ballbearing/brands/bb6.jpeg' },
+					{ id: 'bb1', name: 'SKF', logo: '/products/Brands/SKF.jpeg' },
+					{ id: 'bb2', name: 'FAG', logo: '/products/Brands/FAG.jpeg' },
+					{ id: 'bb3', name: 'TIMKEN', logo: '/products/Brands/TIMKEN.jpeg' },
+					{ id: 'bb4', name: 'NBC', logo: '/products/Brands/NBC.jpeg' },
+					{ id: 'bb5', name: 'NSK', logo: '/products/Brands/NSK.jpeg' },
+					{ id: 'bb6', name: 'HCH', logo: '/products/Brands/HCH.jpeg' },
 				],
 				specifications: ['Bore: 20mm', 'ABEC-5', 'Sealed / Open Options']
 			},
@@ -52,13 +52,13 @@ export const productCategories = [
 				
 				],
 				brands: [
-					{ id: 'rb1', name: 'ZKL', logo: '/products/bearings/RollerBearing/brands/b1.jpeg' },
-					{ id: 'rb2', name: 'SKF', logo: '/products/bearings/RollerBearing/brands/b2.jpeg' },
-					{ id: 'rb3', name: 'FAG', logo: '/products/bearings/RollerBearing/brands/b3.jpeg' },
-					{ id: 'rb4', name: 'TIMKEN', logo: '/products/bearings/RollerBearing/brands/b4.jpeg' },
-					{ id: 'rb5', name: 'ZWZ', logo: '/products/bearings/RollerBearing/brands/b5.jpeg' },
-					{ id: 'rb6', name: 'NSK', logo: '/products/bearings/RollerBearing/brands/b6.jpeg' },
-					{ id: 'rb7', name: 'URB', logo: '/products/bearings/RollerBearing/brands/b7.jpeg' },
+					{ id: 'rb1', name: 'ZKL', logo: '/products/Brands/ZKL.jpeg' },
+					{ id: 'rb2', name: 'SKF', logo: '/products/Brands/SKF.jpeg' },
+					{ id: 'rb3', name: 'FAG', logo: '/products/Brands/FAG.jpeg' },
+					{ id: 'rb4', name: 'TIMKEN', logo: '/products/Brands/TIMKEN.jpeg' },
+					{ id: 'rb5', name: 'ZWZ', logo: '/products/Brands/ZWZ.jpeg' },
+					{ id: 'rb6', name: 'NSK', logo: '/products/Brands/NSK.jpeg' },
+					{ id: 'rb7', name: 'URB', logo: '/products/Brands/URB.jpeg' },
 				],
 				specifications: ['Self-Lubricating', 'Shock Resistant', 'Wide Temp Range']
 			},
@@ -75,9 +75,9 @@ export const productCategories = [
 	
 				],
 				brands: [
-					{ id: 'nb1', name: 'IINAA', logo: '/products/bearings/needlerollerbearing/brands/nrb5.jpeg' },
-					{ id: 'nb2', name: 'IKO', logo: '/products/bearings/needlerollerbearing/brands/nrb6.jpeg' },
-					{ id: 'nb3', name: 'NRB', logo: '/products/bearings/needlerollerbearing/brands/nrb7.jpeg' },
+					{ id: 'nb1', name: 'IINAA', logo: '/products/Brands/IINAA.jpeg' },
+					{ id: 'nb2', name: 'IKO', logo: '/products/Brands/IKO.jpeg' },
+					{ id: 'nb3', name: 'NRB', logo: '/products/Brands/NRB.jpeg' },
 				],
 				specifications: ['High Load', 'Precision Ground', 'Heat Treated']
 			},
@@ -97,12 +97,12 @@ export const productCategories = [
 					
 				],
 				brands: [
-					{ id: 'pb1', name: 'FAG', logo: '/products/bearings/PrecisionBearing/brands/b1.jpeg' },
-					{ id: 'pb2', name: 'TIMKEN', logo: '/products/bearings/PrecisionBearing/brands/b2.jpeg' },
-					{ id: 'pb3', name: 'NTN', logo: '/products/bearings/PrecisionBearing/brands/b3.jpeg' },
-					{ id: 'pb4', name: 'NSK', logo: '/products/bearings/PrecisionBearing/brands/b4.jpeg' },
-					{ id: 'pb5', name: 'NMB', logo: '/products/bearings/PrecisionBearing/brands/b5.jpeg' },
-					{ id: 'pb6', name: 'IINAA', logo: '/products/bearings/PrecisionBearing/brands/b6.jpeg' },
+					{ id: 'pb1', name: 'FAG', logo: '/products/Brands/FAG.jpeg' },
+					{ id: 'pb2', name: 'TIMKEN', logo: '/products/Brands/TIMKEN.jpeg' },
+					{ id: 'pb3', name: 'NTN', logo: '/products/Brands/NTN.jpeg' },
+					{ id: 'pb4', name: 'NSK', logo: '/products/Brands/NSK.jpeg' },
+					{ id: 'pb5', name: 'NMB', logo: '/products/Brands/NMB.jpeg' },
+					{ id: 'pb6', name: 'IINAA', logo: '/products/Brands/IINAA.jpeg' },
 				],
 				specifications: ['Slim Profile', 'High Speed', 'Caged / Full Complement']
 			},
@@ -116,11 +116,11 @@ export const productCategories = [
 					{ id: 'pillow-block-bearings-3', src: '/products/bearings/pillowblockbearings/images/pbr3.jpeg', alt: 'pillow Bearing alt 2' },
 				],
 				brands: [
-					{ id: 'pbb1', name: 'SKF', logo: '/products/bearings/pillowblockbearings/brands/b1.jpeg' },
-					{ id: 'pbb2', name: 'FYH', logo: '/products/bearings/pillowblockbearings/brands/b2.jpeg' },
-					{ id: 'pbb3', name: 'ASAHI', logo: '/products/bearings/pillowblockbearings/brands/b3.jpeg' },
-					{ id: 'pbb4', name: 'FK', logo: '/products/bearings/pillowblockbearings/brands/b4.jpeg' },
-					{ id: 'pbb5', name: 'FKD', logo: '/products/bearings/pillowblockbearings/brands/b5.jpeg' },
+					{ id: 'pbb1', name: 'SKF', logo: '/products/Brands/SKF.jpeg' },
+					{ id: 'pbb2', name: 'FYH', logo: '/products/Brands/FYH.jpeg' },
+					{ id: 'pbb3', name: 'ASAHI', logo: '/products/Brands/ASAHI.jpeg' },
+					{ id: 'pbb4', name: 'FK', logo: '/products/Brands/FK.jpeg' },
+					{ id: 'pbb5', name: 'FKD', logo: '/products/Brands/FKD.jpeg' },
 				],
 				specifications: ['Axial Loads', 'Hardened Raceways', 'Compact Design']
 			},
