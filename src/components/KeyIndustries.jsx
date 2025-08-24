@@ -3,8 +3,8 @@ import IndustryCard from "./IndustryCard";
 import { motion } from "framer-motion";
 
 const cards = [
-  { src: "/keyindustries/infra.jpeg", title: "Infrastructure" },
-  { src: "/keyindustries/cement.jpeg", title: "Cement" },
+  { src: "/keyindustries/infrastructure.jpg", title: "Infrastructure" },
+  { src: "/keyindustries/cement.jpg", title: "Cement" },
   { src: "/keyindustries/automotive.jpeg", title: "Automotive" },
   { src: "/keyindustries/motorandgearbox.jpeg", title: "Motor and Gearbox" },
   { src: "/keyindustries/papermill.jpeg", title: "Paper Mills" },

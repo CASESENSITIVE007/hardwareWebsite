@@ -226,19 +226,19 @@ export default function ProductsPage() {
                 </AnimatePresence>
             </div>
       {selectedCategory === "galaxy" ? (
-  <div className="mt-4 mb-10 md:flex md:items-center max-w-7xl mx-auto  md:space-x-12 flex-col-reverse md:flex-row">
+  <div className="mt-4  p-2 mb-10 flex md:items-center max-w-7xl mx-auto   flex-col ">
     {/* Video Section */}
     <motion.div className="md:w-1/2" variants={itemVariants}>
       <video
         className="rounded-xl  w-full h-full object-cover bg-white"
-        autoPlay
+        
         loop
-        muted
-        poster='/logogalaxy.png'
-      
+        
+       
         playsInline
         preload="auto"
         aria-label="About us promotional video"
+        controls
       >
         <source src="/galaxyvideo.mov" type="video/mp4" />
         Your browser does not support the video tag.
