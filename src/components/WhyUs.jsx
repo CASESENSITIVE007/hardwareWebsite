@@ -53,7 +53,7 @@ const ExpandableCard = ({ icon: Icon, title, text }) => {
 
 export default function WhyUs() {
   return (
-    <section className="relative bg-gradient-to-r from-red-300 to-red-500 py-20 px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gradient-to-r from-red-700 via-red-800 to-blue-700 py-20 px-4 sm:px-6 lg:px-8">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 

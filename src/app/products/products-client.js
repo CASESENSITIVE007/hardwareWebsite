@@ -247,14 +247,9 @@ export default function ProductsPage() {
 
     {/* Text Section */}
     <motion.div className="md:w-1/2  mt-8  md:mt-0" variants={itemVariants}>
-      <h3 className="text-2xl font-bold text-gray-900 m-2">Our Values</h3>
-      
-    <p className="m-2" >Galaxy stands for reliability, durability, and value in auto spare parts. After strong success in Africa 
-Gulf Countries, we are proud to expand our footprint in India. The Original Trader is the authorized channel partner to promote this brand in India.</p>
      
-            
-        
       
+    <p className="md:mt-4 text-xl text-gray-800 font-bold   mx-auto text-center italic " >To become a channel partner please contact us.</p>
      
       
     </motion.div>

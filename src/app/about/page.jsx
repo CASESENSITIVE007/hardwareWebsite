@@ -54,18 +54,23 @@ const page = () => {
             />
           </motion.div>
           <motion.div className="md:w-1/2 mt-8 md:mt-0" variants={itemVariants}>
-            <h3 className="text-2xl font-bold text-gray-900">Our Story</h3>
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              Founded in the heart of Aligarh, Uttar Pradesh, we started with a simple vision: to provide high-quality **[Your Product/Service]** to our local community. With years of dedication and a passion for excellence, we've grown from a small workshop to a trusted name in the region.
+            {/* <h3 className="text-2xl font-bold text-gray-900">Our Story</h3> */}
+            <p className="md:mt-4 text-xl text-gray-800 lg:font-bold font-md italic text-justify ">
+              At The Original Traders, we believe that every machine deserves the best parts to
+perform at its peak. With years of experience in the auto parts industry, we have built
+a reputation for quality, reliability, and trust.
+
             </p>
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              Our commitment to quality craftsmanship and customer satisfaction remains at the core of everything we do. Being based in Aligarh allows us to build lasting relationships and contribute to the local economy.
+            <p className="md:mt-4 text-xl text-gray-800 lg:font-bold font-md italic text-justify">
+             What sets us apart is our commitment to genuine products, competitive pricing,
+and timely delivery. We understand that in your business, downtime is costly. That's
+why we ensure that every order is handled with precision, speed, and reliability.
             </p>
           </motion.div>
         </div>
 
         {/* Section 2: Our Values */}
-        <div className="mt-16 md:flex md:items-center md:space-x-12 flex-row-reverse">
+        <div className="mt-16 md:flex md:items-center md:space-x-12 flex-row-reverse ">
           <motion.div className="md:w-1/2" variants={itemVariants}>
                 <video
           className=" rounded-xl  m-2 inset-0 w-full h-full object-center object-cover  opacity-100 bg-white"
@@ -81,21 +86,16 @@ const page = () => {
 
           </motion.div>
           <motion.div className="md:w-1/2 mt-8 md:mt-0" variants={itemVariants}>
-            <h3 className="text-2xl font-bold text-gray-900">Our Values</h3>
-            <ul className="mt-4 space-y-3 text-gray-600">
-              <li className="flex items-start">
-                <span className="text-blue-500 mr-3 mt-1">✔</span>
-                <span><strong>Quality:</strong> We deliver products and services of the highest standard, ensuring durability and excellence.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-500 mr-3 mt-1">✔</span>
-                <span><strong>Community:</strong> We are proud to support and grow with the Aligarh community that has supported us since day one.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-500 mr-3 mt-1">✔</span>
-                <span><strong>Integrity:</strong> We operate with complete honesty and transparency in all our business dealings.</span>
-              </li>
-            </ul>
+            {/* <h3 className="text-2xl font-bold text-gray-900">Our Values</h3> */}
+            <p className="md:mt-4 text-xl text-gray-800 lg:font-bold font-md italic text-justify" >
+              At The Original Traders, our mission is simple:
+                  To keep your business moving smoothly and efficiently—always.
+
+            </p>
+            <p className="md:mt-4 text-xl text-gray-800 lg:font-bold font-md italic text-justify ">
+             Whether you need a single piece or bulk supply, we are your dependable partner for
+                all bearing solutions.
+            </p>
           </motion.div>
         </div>
       </div>
