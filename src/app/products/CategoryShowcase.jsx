@@ -137,7 +137,7 @@ const ProductBlock = ({ product, category }) => {
             key={logo.id}
             src={logo.logo}
             alt={logo.name}
-            className="h-8 w-16 md:h-10 md:w-18 lg:h-fit lg:w-40 object-contain opacity-70 hover:opacity-100 transition-opacity "
+            className="h-16 w-16 md:h-10 md:w-18 lg:h-fit lg:w-40 object-contain opacity-70 hover:opacity-100 transition-opacity "
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 0.7, y: 0 }}
             transition={{ delay: i * 0.08 }}
