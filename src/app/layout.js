@@ -32,7 +32,7 @@ function generateHomeStructuredData() {
       width: 400,
       height: 400
     },
-    image: `${baseUrl}/hero-bg-image.webp`,
+    image: `${baseUrl}/logo.png`,
     description: "Leading supplier of industrial hardware components including precision bearings, lubricants, and auto spare parts in Aligarh, India.",
     foundingDate: "2020",
     founder: {
@@ -65,72 +65,7 @@ function generateHomeStructuredData() {
       "@type": "Country",
       name: "India"
     },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Industrial Hardware Products",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-          seller: {
-            "@type": "Organization",
-            name: "The Original Traders"
-          },
-          itemOffered: {
-            "@type": "Product",
-            name: "Industrial Bearings",
-            category: "Industrial Hardware",
-            description: "Precision bearings from top brands",
-            image: `${baseUrl}/products/bb1.jpeg`,
-            brand: {
-              "@type": "Brand",
-              name: "SKF, FAG, TIMKEN"
-            }
-          }
-        },
-        {
-          "@type": "Offer",
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-          seller: {
-            "@type": "Organization",
-            name: "The Original Traders"
-          },
-          itemOffered: {
-            "@type": "Product",
-            name: "Industrial Lubricants",
-            category: "Industrial Hardware",
-            description: "High-performance industrial oils and grease",
-            image: `${baseUrl}/products/helmet.jpg`,
-            brand: {
-              "@type": "Brand",
-              name: "Galaxy"
-            }
-          }
-        },
-        {
-          "@type": "Offer",
-          priceCurrency: "INR",
-          availability: "https://schema.org/InStock",
-          seller: {
-            "@type": "Organization",
-            name: "The Original Traders"
-          },
-          itemOffered: {
-            "@type": "Product", 
-            name: "Auto Spare Parts",
-            category: "Automotive",
-            description: "Genuine automotive components and spare parts",
-            image: `${baseUrl}/products/helmet.jpg`,
-            brand: {
-              "@type": "Brand",
-              name: "OEM Brands"
-            }
-          }
-        }
-      ]
-    },
+   
     sameAs: [
       // Add social media URLs when available
       // "https://www.facebook.com/theoriginaltraders",
