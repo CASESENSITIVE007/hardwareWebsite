@@ -97,7 +97,7 @@ const Contactus = () => {
                 11, Divya Lok, Mathura, Maholi, Mathura, Uttar Pradesh - 281004
               </span>
             </div>
-            {/* ADDED: Company Phone Number */}
+
             <div className="flex items-center gap-4">
               {/* SVG Icon for Phone */}
               <svg
@@ -114,7 +114,49 @@ const Contactus = () => {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              <span>+91 98765 43210</span>
+              <a href="tel:+919084019676">
+                <span>+91 9084019676</span>
+              </a>
+            </div>
+            <div className="flex items-center gap-4">
+              {/* SVG Icon for Phone */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+              <a href="tel:+919625741370">
+                <span>+91 9625741370</span>
+              </a>
+            </div>
+            <div className="flex items-center gap-4">
+              {/* SVG Icon for Phone */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+              <a href="tel:+919871912068">
+                <span>+91 9871912068</span>
+              </a>
             </div>
           </div>
 

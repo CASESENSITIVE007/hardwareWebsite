@@ -56,7 +56,7 @@ function ContactSection({ overlayOnly = false }) {
           </video>
 
           {/* Content */}
-          <div className="relative z-10 text-center text-white px-4 max-w-xl ">
+          <div className="relative z-10 text-center text-white px-4 max-w-4xl">
             {/* <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
           Have Questions?
         </h1>
@@ -67,7 +67,7 @@ function ContactSection({ overlayOnly = false }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-4xl font-bold mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
             >
               Need Custom Engineering Solutions?
             </motion.h2>
@@ -75,11 +75,13 @@ function ContactSection({ overlayOnly = false }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-white mb-8 max-w-2xl mx-auto text-xl text-justify rounded-2xl p-4 "
+              className="text-white mt-8 mb-8 max-w-4xl mx-auto text-2xl text-center "
             >
-              Our expert engineering team specializes in designing and
-              manufacturing precision hardware components tailored to your exact
-              specifications and performance requirements.
+              We provide complete technical support to our customers – from
+              selecting the right product to guiding them on proper bearing
+              installation for smooth performance. Our handling and maintenance
+              tips help extend bearing life, reduce downtime, and ensure
+              long-term machine reliability.
             </motion.p>
             <Button
               onClick={handleOpen}
@@ -193,14 +195,28 @@ const ContactModal = ({ onClose }) => {
             </p>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <span className="mt-1">📧</span> sales@theoriginaltraders.com
+                <a href="mailto:sales@theoriginaltraders.com">
+                  <span className="mt-1">📧</span> sales@theoriginaltraders.com
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1">📍</span> 11, Divya Lok, Mathura, Maholi,
                 Mathura, Uttar Pradesh - 281004
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1">📞</span> +91-7827505517
+                <a href="tel:+919084019676">
+                  <span className="mt-1">📞</span> +91-9084019676
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <a href="tel:+919625741370">
+                  <span className="mt-1">📞</span> +91-9625741370
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <a href="tel:+919871912068">
+                  <span className="mt-1">📞</span> +91-9871912068
+                </a>
               </li>
             </ul>
             <p className="text-xs mt-8 opacity-70">
