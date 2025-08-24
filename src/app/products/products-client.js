@@ -212,7 +212,8 @@ export default function ProductsPage() {
         autoPlay
         loop
         muted
-        poster=""
+        poster='/logogalaxy.png'
+      
         playsInline
         preload="auto"
         aria-label="About us promotional video"
