@@ -8,7 +8,7 @@ import TestimonialCard from "./TestimonialCard";
 const testimonials = [
   {
     name: "Poorna Rao",
-    title: "Manager-durga Bearings",
+    title: "Manager xyz-company",
     image: "/logo.png", // Replace with your image
     quote:
       "The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel The dynamic environment at Infoglen promises rapid growth, allowing me to learn, innovate, and excel.",
